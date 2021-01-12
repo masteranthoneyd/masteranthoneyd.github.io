@@ -1,52 +1,1486 @@
-<!doctype html><html class="theme-next muse use-motion" lang=en><meta name=generator content="Hexo 3.9.0"><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content=no-transform><meta http-equiv=cache-control content=no-siteapp><meta http-equiv=content-language content=zh-cn><script src=//cdn.bootcss.com/pace/1.0.2/pace.min.js></script><link href=//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css rel=stylesheet><style>.pace .pace-progress{background:#ff009e;height:2px}.pace .pace-progress-inner{box-shadow:0 0 10px #e6006b,0 0 5px #ff009e}.pace .pace-activity{border-top-color:#ff009e;border-left-color:#ff009e}</style><link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel=stylesheet><link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel=stylesheet><link href="/css/main.css?v=5.1.0" rel=stylesheet><meta name=keywords content="Java,Design Pattern,"><link rel=alternate href=/atom.xml title="ookamiAntD's Blog" type=application/atom+xml><link rel="shortcut icon" type=image/x-icon href="/favicon.png?v=5.1.0"><meta name=description content="Preface 设计模式, 总的来说, 就是前人踩过无数的坑总结出来的软件设计经验. 在学习设计模式之前, 有必要了解它的一些规则以及建模.UML(Unified Modeling Language)又称统一建模语言或标准建模语言, 是始于1997年一个OMG(Object Management Group)标准, 它是一个支持模型化和软件系统开发的图形化语言, 为软件开发的所有阶段提供模型化和"><meta name=keywords content="Java,Design Pattern"><meta property=og:type content=article><meta property=og:title content=设计模式原则与UML类图><meta property=og:url content=http://yangbingdong.com/2017/design-pattern-uml-and-six-principle/index.html><meta property=og:site_name content="ookamiAntD's Blog"><meta property=og:description content="Preface 设计模式, 总的来说, 就是前人踩过无数的坑总结出来的软件设计经验. 在学习设计模式之前, 有必要了解它的一些规则以及建模.UML(Unified Modeling Language)又称统一建模语言或标准建模语言, 是始于1997年一个OMG(Object Management Group)标准, 它是一个支持模型化和软件系统开发的图形化语言, 为软件开发的所有阶段提供模型化和"><meta property=og:locale content=en><meta property=og:image content=https://cdn.yangbingdong.com/img/design-pattern-uml-and-six-principle/designpatterns.png><meta property=og:image content=https://cdn.yangbingdong.com/img/design-pattern-uml-and-six-principle/uml-relation.png><meta property=og:image content=https://cdn.yangbingdong.com/img/learning-uml-and-using-staruml/interface-01.png><meta property=og:image content=https://cdn.yangbingdong.com/img/learning-uml-and-using-staruml/interface-02.png><meta property=og:image content=https://cdn.yangbingdong.com/img/design-pattern-uml-and-six-principle/gliffy.png><meta property=og:updated_time content=2020-09-26T01:48:47.968Z><meta name=twitter:card content=summary><meta name=twitter:title content=设计模式原则与UML类图><meta name=twitter:description content="Preface 设计模式, 总的来说, 就是前人踩过无数的坑总结出来的软件设计经验. 在学习设计模式之前, 有必要了解它的一些规则以及建模.UML(Unified Modeling Language)又称统一建模语言或标准建模语言, 是始于1997年一个OMG(Object Management Group)标准, 它是一个支持模型化和软件系统开发的图形化语言, 为软件开发的所有阶段提供模型化和"><meta name=twitter:image content=https://cdn.yangbingdong.com/img/design-pattern-uml-and-six-principle/designpatterns.png><script id=hexo.configurations>var NexT=window.NexT||{};var CONFIG={root:'/',scheme:'Muse',sidebar:{"position":"right","display":"always"},fancybox:true,motion:true,duoshuo:{userId:'undefined',author:'Author'},algolia:{applicationID:'RI3NF6GUI0',apiKey:'3d33fa60ba30d3b17f37220bb1a36749',indexName:'blogIndex',hits:{"per_page":10},labels:{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}}};</script><link rel=canonical href=http://yangbingdong.com/2017/design-pattern-uml-and-six-principle/><script>(function(){if(''){if(prompt('请输入文章密码')!==''){alert('密码错误！');history.back();}}})();</script><title>设计模式原则与UML类图 | ookamiAntD's Blog</title><body itemscope itemtype=http://schema.org/WebPage lang=en><script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?e9505ac4e11d464329d615553a72b526";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();</script><div class="container one-collumn sidebar-position-right page-post-detail"><div class=headband></div><a href=https://github.com/masteranthoneyd/blog rel="external nofollow noopener noreferrer" target=_blank><img style=position:absolute;top:0;left:0;border:0 src=https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67 alt="Fork me on GitHub" data-canonical-src=https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png></a><header id=header class=header itemscope itemtype=http://schema.org/WPHeader><div class=header-inner><div class=site-meta><div class=custom-logo-site-title><a href=/ class=brand rel=start><span class=logo-line-before><i></i></span><span class=site-title>ookamiAntD's Blog</span>
-<span class=logo-line-after><i></i></span></a></div><h1 class=site-subtitle itemprop=description>Easy coding,easy life.</h1></div><div class=site-nav-toggle><button>
-<span class=btn-bar></span><span class=btn-bar></span><span class=btn-bar></span></button></div><nav class=site-nav><ul id=menu class=menu><li class="menu-item menu-item-home"><a href=/ rel=section><i class="menu-item-icon fa fa-fw fa-home"></i><br>Home</a><li class="menu-item menu-item-archives"><a href=/archives rel=section><i class="menu-item-icon fa fa-fw fa-archive"></i><br>Archives</a><li class="menu-item menu-item-categories"><a href=/categories rel=section><i class="menu-item-icon fa fa-fw fa-th"></i><br>Categories</a><li class="menu-item menu-item-tags"><a href=/tags rel=section><i class="menu-item-icon fa fa-fw fa-tags"></i><br>Tags</a><li class="menu-item menu-item-about"><a href=/about rel=section><i class="menu-item-icon fa fa-fw fa-user"></i><br>About</a><li class="menu-item menu-item-guestbook"><a href=/guestbook rel=section><i class="menu-item-icon fa fa-fw fa-commenting"></i><br>Message</a><li class="menu-item menu-item-search"><a href=javascript:; class=popup-trigger><i class="menu-item-icon fa fa-search fa-fw"></i><br>Search</a></ul><div class=site-search><div class=popup><span class="search-icon fa fa-search"></span><input id=local-search-input><div id=local-search-result></div><span class=popup-btn-close>close</span></div></div></nav></div></header><main id=main class=main><div class=main-inner><div class=content-wrap><div id=content class=content><div id=posts class=posts-expand><article class="post post-type-normal" itemscope itemtype=http://schema.org/Article><link itemprop=mainEntityOfPage href=http://yangbingdong.com/2017/design-pattern-uml-and-six-principle/><span style=display:none itemprop=author itemscope itemtype=http://schema.org/Person><meta itemprop=name content=ookamiAntD><meta itemprop=description content><meta itemprop=image content=/images/avatar/avatar-admin.jpg></span><span style=display:none itemprop=publisher itemscope itemtype=http://schema.org/Organization><meta itemprop=name content="ookamiAntD's Blog"><span style=display:none itemprop=logo itemscope itemtype=http://schema.org/ImageObject><img style=display:none itemprop="url image" alt="ookamiAntD's Blog" src></span></span><header class=post-header><h2 class=post-title itemprop="name headline">设计模式原则与UML类图</h2><div class=post-meta><span class=post-time><span class=post-meta-item-icon><i class="fa fa-calendar-o"></i></span><span class=post-meta-item-text>Posted on</span>
-<time title="Post created" itemprop="dateCreated datePublished" datetime=2017-10-18T09:22:07+08:00>2017-10-18</time></span>
-<span class=post-category><span class=post-meta-divider>|</span>
-<span class=post-meta-item-icon><i class="fa fa-folder-o"></i></span><span class=post-meta-item-text>In</span>
-<span itemprop=about itemscope itemtype=http://schema.org/Thing><a href=/categories/Programming/ itemprop=url rel=index><span itemprop=name>Programming</span></a></span>
-,
-<span itemprop=about itemscope itemtype=http://schema.org/Thing><a href=/categories/Programming/Java/ itemprop=url rel=index><span itemprop=name>Java</span></a></span>
-,
-<span itemprop=about itemscope itemtype=http://schema.org/Thing><a href=/categories/Programming/Java/Design-Pattern/ itemprop=url rel=index><span itemprop=name>Design Pattern</span></a></span></span>
-<span id=/2017/design-pattern-uml-and-six-principle/ class=leancloud_visitors data-flag-title=设计模式原则与UML类图><span class=post-meta-divider>|</span>
-<span class=post-meta-item-icon><i class="fa fa-eye"></i></span><span class=post-meta-item-text>Visitors</span>
-<span class=leancloud-visitors-count></span></span><br><span class=post-time><span class=post-meta-item-icon><i class="fa fa-edit"></i></span><span class=post-meta-item-text>WordCount:</span>
-<span class=post-count>3,656字</span>
-<span class=post-meta-divider>|</span>
-<span class=post-meta-item-text>min2read:</span>
-<span class=post-count>13分钟</span></span></div></header><div class=post-body itemprop=articleBody><link rel=stylesheet href=https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css><p><img src=https://cdn.yangbingdong.com/img/design-pattern-uml-and-six-principle/designpatterns.png alt><h1 id=Preface><a href=#Preface class=headerlink title=Preface></a>Preface</h1><blockquote><p><em><a href="https://www.google.co.jp/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;cad=rja&amp;uact=8&amp;ved=0ahUKEwjyks2QifnWAhVJKo8KHegiD20QFggnMAA&amp;url=https%3A%2F%2Fzh.wikipedia.org%2Fzh-hans%2F%25E8%25AE%25BE%25E8%25AE%25A1%25E6%25A8%25A1%25E5%25BC%258F&amp;usg=AOvVaw0z1ZKodwif8lD1sp_vC9C_" rel="external nofollow noopener noreferrer" target=_blank>设计模式</a></em>, 总的来说, 就是前人踩过无数的坑总结出来的软件设计经验. 在学习设计模式之前, 有必要了解它的一些<strong>规则</strong>以及<strong>建模</strong>.<br><em><a href=https://zh.wikipedia.org/wiki/%E7%BB%9F%E4%B8%80%E5%BB%BA%E6%A8%A1%E8%AF%AD%E8%A8%80 rel="external nofollow noopener noreferrer" target=_blank>UML</a></em>(Unified Modeling Language)又称<strong>统一建模语言</strong>或<strong>标准建模语言</strong>, 是始于1997年一个OMG(Object Management Group)标准, 它是一个支持模型化和软件系统开发的图形化语言, 为软件开发的所有阶段提供模型化和可视化支持, 包括由需求分析到规格, 到构造和配置.</blockquote><a id=more></a><h1 id=Design-Pattern><a href=#Design-Pattern class=headerlink title="Design Pattern"></a>Design Pattern</h1><p>在<a href=https://zh.wikipedia.org/wiki/%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B rel="external nofollow noopener noreferrer" target=_blank>软件工程</a>中, <strong>设计模式</strong>(design pattern)是对<a href=https://zh.wikipedia.org/wiki/%E8%BB%9F%E4%BB%B6%E8%A8%AD%E8%A8%88 rel="external nofollow noopener noreferrer" target=_blank>软件设计</a>中普遍存在(反复出现)的各种问题, 所提出的解决方案. 这个术语是由<a href=https://zh.wikipedia.org/wiki/%E5%9F%83%E9%87%8C%E5%B8%8C%C2%B7%E4%BC%BD%E7%91%AA rel="external nofollow noopener noreferrer" target=_blank>埃里希·伽玛</a>(Erich Gamma)等人在1990年代从<a href=https://zh.wikipedia.org/wiki/%E5%BB%BA%E7%AD%91%E8%AE%BE%E8%AE%A1 rel="external nofollow noopener noreferrer" target=_blank>建筑设计</a>领域引入到<a href=https://zh.wikipedia.org/wiki/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8 rel="external nofollow noopener noreferrer" target=_blank>计算机科学</a>的.<p>设计模式并不直接用来完成<a href=https://zh.wikipedia.org/wiki/%E7%A8%8B%E5%BC%8F%E7%A2%BC rel="external nofollow noopener noreferrer" target=_blank>代码</a>的编写, 而是描述在各种不同情况下, 要怎么解决问题的一种方案. <a href=https://zh.wikipedia.org/wiki/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1 rel="external nofollow noopener noreferrer" target=_blank>面向对象</a>设计模式通常以<a href=https://zh.wikipedia.org/wiki/%E9%A1%9E%E5%88%A5 rel="external nofollow noopener noreferrer" target=_blank>类别</a>或<a href=https://zh.wikipedia.org/wiki/%E7%89%A9%E4%BB%B6_(%E9%9B%BB%E8%85%A6%E7%A7%91%E5%AD%B8 rel="external nofollow noopener noreferrer" target=_blank>对象</a>)来描述其中的关系和相互作用, 但不涉及用来完成应用程序的特定类别或对象. 设计模式能使不稳定依赖于相对稳定, 具体依赖于相对抽象, 避免会引起麻烦的紧耦合, 以增强软件设计面对并适应变化的能力. ——来自维基百科<h2 id=六大原则><a href=#六大原则 class=headerlink title=六大原则.></a>六大原则.</h2><h3 id=单一职责原则><a href=#单一职责原则 class=headerlink title=单一职责原则></a>单一职责原则</h3><blockquote><p>A class or module should have a single responsibility.</blockquote><p>单一职责原则(<code>Single Responsibility Principle</code>,SRP): 就一个类而言, 应该仅有一个引起它变化的原因. 即一个类应该<strong>只负责一个功能领域中的相应职责</strong>.<p><strong>理解</strong>:<p>一个类只负责完成一个职责或者功能. 不要设计大而全的类, 要设计粒度小, 功能单一的类. 单一职责原则是为了实现代码高内聚, 低耦合, 提高代码的复用性, 可读性, 可维护性.<p><strong>如何判断是否足够单一</strong>?<p>不同的<strong>应用场景</strong>, 不同阶段的<strong>需求背景</strong>, 不同的<strong>业务层面</strong>, 对同一个类的职责是否单一, 可能会有不同的判定结果.<p>实际上, 一些侧面的判断指标更具有指导意义和可执行性, 比如, 出现下面这些情况就有可能说明这类的设计不满足单一职责原则:<ul><li>类中的代码行数, 函数或者属性过多.<li>类依赖的其他类过多, 或者依赖类的其他类过多.<li>私有方法过多.<li>比较难给类起一个合适的名字(说明类的职责定义得可能不够清晰).<li>类中大量的方法都是集中操作类中的某几个属性.</ul><p><strong>类的职责是否设计得越单一越好</strong>?<p>单一职责原则通过避免设计大而全的类, 避免将不相关的功能耦合在一起, 来提高类的内聚性. 同时, 类职责单一, 类依赖的和被依赖的其他类也会变少, 减少了代码的耦合性, 以此来实现代码的高内聚, 低耦合. 但是, 如果拆分得过细, 实际上会适得其反, 反倒会降低内聚性, 也会影响代码的可维护性.<h3 id=开闭原则><a href=#开闭原则 class=headerlink title=开闭原则></a>开闭原则</h3><blockquote><p>Software entities (modules, classes, functions, etc.) should be open for extension, but closed for modification.</blockquote><p>开闭原则(<code>Open-Closed Principle</code>,OCP): 是指软件实体(类, 模块, 函数等等)应该<strong>可以扩展</strong>, 但是<strong>不可修改</strong>.<p><strong>如何理解对扩展开放, 对修改关闭</strong>?<p>添加一个新的功能, 应该是通过在已有代码基础上扩展代码(新增模块/类/方法/属性等), 而非修改已有代码(修改模块/类/方法/属性等)的方式来完成. 关于定义, 我们有两点要注意:<ul><li>第一点是, 开闭原则并不是说完全杜绝修改, 而是以最小的修改代码的代价来完成新功能的开发.<li>第二点是, 同样的代码改动, 在粗代码粒度下, 可能被认定为”修改”; 在细代码粒度下, 可能又被认定为”扩展”.</ul><p><strong>如何做</strong>?<p>我们要时刻具备扩展意识, 抽象意识, 封装意识. 在写代码的时候, 我们要多花点时间思考一下, 这段代码未来可能有哪些需求变更, 如何设计代码结构, 事先留好扩展点, 以便在未来需求变更的时候, 在不改动代码整体结构, 做到最小代码改动的情况下, 将新的代码灵活地插入到扩展点上.<h3 id=里氏替换原则><a href=#里氏替换原则 class=headerlink title=里氏替换原则></a>里氏替换原则</h3><blockquote><p>If S is a subtype of T, then objects of type T may be replaced with objects of type S, without breaking the program.<p>Functions that use pointers of references to base classes must be able to use objects of derived classes without knowing it.</blockquote><p>里氏替换原则(<code>Liskov Substitution Principle</code>,LSP): 子类对象(object of subtype/derived class)能够替换程序(program)中父类对象(object of base/parent class)出现的任何地方, 并且保证原来程序的逻辑行为(behavior)不变及正确性不被破坏.<p>与多态的区别: 多态是面向对象的一大特性, 而里氏替换原则是设计原则. LSP 更关注的是对象行为, 用来指导继承关系中子类该如何设计, 子类的设计要保证在替换父类的时候, 不改变原有程序的逻辑及不破坏原有程序的正确性, 举个例子就是父类定义了一个方法, 不存在则返回 null, 子类重写(多态)了这个方法, 不存在则抛出异常, 这就违反了里氏替换原则.<h3 id=依赖倒置原则><a href=#依赖倒置原则 class=headerlink title=依赖倒置原则></a>依赖倒置原则</h3><blockquote><p>Clients should not be forced to depend upon interfaces that they do not use.</blockquote><p>依赖倒置原则(<code>Dependency Inversion Principle</code>,DIP): 抽象不应该依赖细节, 细节应该依赖于抽象. 即应该<strong>针对接口编程</strong>, 而不是针对实现编程.<p>在大多数情况下, 我们会同时使用开闭原则, 里氏代换原则和依赖倒转原则, 开闭原则是目标, 里氏代换原则是基础, 依赖倒转原则是手段.<h3 id=接口隔离原则><a href=#接口隔离原则 class=headerlink title=接口隔离原则></a>接口隔离原则</h3><p>接口隔离原则(<code>Interface Segregation Principle</code>,ISP): 使用专门的接口, 而不使用单一的总接口, 即客户端不应该依赖那些它不需要的接口.<p>根据接口隔离原则, 当一个接口太大时, 我们需要将它分割成一些更细小的接口, 使用该接口的客户端仅需知道与之相关的方法即可. 每一个接口应该承担一种相对独立的角色, 不干不该干的事, 该干的事都要干.<h3 id=迪米特法则><a href=#迪米特法则 class=headerlink title=迪米特法则></a>迪米特法则</h3><p>迪米特法则(<code>Law of Demeter</code>,LoD): 一个软件实体应当尽可能少地与其它实体发生相互作用.<p>迪米特法则又称为<strong>最少知识原则</strong>(<code>LeastKnowledge Principle</code>,LIP).<br>如果一个系统符合迪米特法则, 那么当其中某一个模块发生修改时, 就会尽量少地影响其他模块, 扩展会相对容易, 这是对软件实体之间通信的限制, 迪米特法则要求限制软件实体之间通信的宽度和深度. 迪米特法则可降低系统的耦合度, 使类与类之间保持松散的耦合关系.<h2 id=三大类型><a href=#三大类型 class=headerlink title=三大类型></a>三大类型</h2><h3 id=创建型-Creational><a href=#创建型-Creational class=headerlink title=创建型(Creational)></a><a href=/2018/design-pattern-creational>创建型(Creational)</a></h3><ul><li><p><strong>单例模式</strong>(<code>Singleton</code>): 保证一个类仅有一个实例, 并提供一个访问它的全局访问点.<li><p><strong>工厂方法</strong>(<code>Factory Method</code>): 定义一个创建对象的接口, 让其子类自己决定实例化哪一个工厂类, 工厂模式使其创建过程延迟到子类进行.<li><p><strong>抽象工厂</strong>(<code>Abstract Factory</code>): 提供一个创建一系列相关或相互依赖对象的接口, 而无需指定它们具体的类.<li><p><strong>建造者模式</strong>(<code>Builder</code>): 将一个复杂对象的构建与它的表示分离, 使得同样的构建过程可以创建不同的表示.<li><p><strong>原型模式</strong>(<code>Prototype</code>): 用原型实例指定创建对象的种类, 并且通过拷贝这些原型来创建新的对象.</ul><h3 id=结构型-Structural><a href=#结构型-Structural class=headerlink title=结构型(Structural)></a>结构型(Structural)</h3><ul><li><p><strong>适配器模式</strong>(<code>Adapter</code>): 适配器模式把一个类的接口变换成客户端所期待的另一种接口, 从而使原本因接口不匹配而无法在一起工作的两个类能够在一起工作.<li><p><strong>装饰模式</strong>(<code>Decrator</code>): 装饰模式是在不必改变原类文件和使用继承的情况下, 动态的扩展一个对象的功能. 它是通过创建一个包装对象, 也就是装饰来包裹真实的对象.<li><p><strong>代理模式(</strong><code>Proxy</code>): 为其他对象提供一种代理以控制对这个对象的访问 ；<li><p><strong>外观模式</strong>(<code>Facade</code>): 为子系统中的一组接口提供一个一致的界面, 外观模式定义了一个高层接口, 这个接口使得这一子系统更加容易使用.<li><p><strong>桥接模式</strong>(<code>Bridge</code>): 将抽象部分与实现部分分离, 使它们都可以独立的变化.<li><p><strong>组合模式</strong>(<code>Composite</code>): 允许你将对象组合成树形结构来表现”整体-部分”层次结构. 组合能让客户以一致的方法处理个别对象以及组合对象.<li><p><strong>享元模式</strong>(<code>Flyweight</code>): 运用共享技术有效地支持大量细粒度的对象.</ul><h3 id=行为型-Behavioral><a href=#行为型-Behavioral class=headerlink title=行为型(Behavioral)></a>行为型(Behavioral)</h3><ul><li><p><strong>策略模式</strong>(<code>Strategy</code>): 定义一组算法, 将每个算法都封装起来, 并且使他们之间可以互换.<li><p><strong>模板方法</strong>(<code>Template Method</code>): 一个操作中算法的框架, 而将一些步骤延迟到子类中, 使得子类可以不改变算法的结构即可重定义该算法中的某些特定步骤.<li><p><strong>观察者模式</strong>(<code>Observer</code>): 定义对象间的一种一对多的依赖关系, 当一个对象的状态发生改变时, 所有依赖于它的对象都得到通知并被自动更新.<li><p><strong>迭代器模式</strong>(<code>Iterator</code>): 提供一种方法顺序访问一个聚合对象中各个元素, 而又无须暴露该对象的内部表示；<li><p><strong>职责链模式</strong>(<code>Chain of Responsibility</code>): 避免请求发送者与接收者耦合在一起, 让多个对象都有可能接收请求, 将这些对象连接成一条链, 并且沿着这条链传递请求, 直到有对象处理它为止.<li><p><strong>命令模式</strong>(<code>Command</code>): 将一个请求封装为一个对象, 从而使你可以用不同的请求对客户进行参数化, 对请求排队和记录请求日志, 以及支持可撤销的操作；<li><p><strong>备忘录模式</strong>(<code>Memento</code>): 在不破坏封装性的前提下, 捕获一个对象的内部状态, 并在该对象之外保存这个状态. 这样就可以将该对象恢复到原先保存的状态.<li><p><strong>状态模式</strong>(<code>State</code>): 允许对象在内部状态改变时改变它的行为, 对象看起来好像修改了它的类.<li><p><strong>访问者模式</strong>(<code>Visitor</code>): 表示一个作用于其对象结构中的各元素的操作, 它使你可以在不改变各元素类的前提下定义作用于这些元素的新操作.<li><p><strong>中介者模式</strong>(<code>Mediator</code>): 用一个中介对象来封装一系列的对象交互, 中介者使各对象不需要显示地相互引用. 从而使其耦合松散, 而且可以独立地改变它们之间的交互.<li><p><strong>解释器模式</strong>(<code>Interpreter</code>): 给定一个语言, 定义它的文法表示, 并定义一个解释器, 这个解释器使用该标识来解释语言中的句子.</ul><h2 id=四大阶段><a href=#四大阶段 class=headerlink title=四大阶段></a>四大阶段</h2><p>　　1, 没学之前, 什么是设计模式, 老听别人说设计模式, 感觉好高大上, 那它到底是什么鬼. 这时我们设计的代码复用性很差, 难以维护.<p>　　2, 学了几个模式后, 感觉很简单, 于是到处想着要用自己学过的模式, 这样就会造成滥用. 最后感觉还不如不用.<p>　　3, 学完全部模式时, 感觉很多模式太相似了, 无法很清晰的知道各模式之间的区别, 联系, 这时一脸懵逼, 脑子一团乱麻. 在使用时, 分不清要使用那种模式.<p>　　4, 模式已熟记于心, 已忘其形, 深知其意, 达到无剑胜有剑的境界, 恭喜你, 万剑归宗已练成！！！<h1 id=UML><a href=#UML class=headerlink title=UML></a>UML</h1><p>UML中有九种建模的图标, 即:<br><strong>用例图</strong>, <strong>类图</strong>, <strong>对象图</strong>, <strong>顺序图</strong>, <strong>协作图</strong>, <strong>状态图</strong>, <strong>活动图</strong>, <strong>组件图</strong>, <strong>配置图</strong><h2 id=Class-Diagram><a href=#Class-Diagram class=headerlink title="Class Diagram"></a>Class Diagram</h2><p>在这主要学习一下<strong>类图 Class diagram </strong>.<br>通过显示出系统的类以及这些类之间的关系来表示系统. 类图是静态的———它们显示出什么可以产生影响但不会告诉你什么时候产生影响.<p>UML类的符号是一个被划分成三块的方框: 类名, 属性, 和操作. 抽象类的名字, 是斜体的. 类之间的关系是连接线.<h2 id=类与类的关系><a href=#类与类的关系 class=headerlink title=类与类的关系></a>类与类的关系</h2><ul><li><strong>泛化</strong>: 可以简单的理解为继承关系；<li><strong>实现</strong>: 一般是接口和实现类之间的关系；<li><strong>关联</strong>: 一种拥有关系, 比如老师类中有学生列表, 那么老师类和学生类就是拥有关系；<li><strong>聚合</strong>: 整体与部分的关系, 但是整体和部分是可以分离而独立存在的, 如汽车类和轮胎类；<li><strong>组合</strong>: 整体与部分的关系, 但是二者不可分离, 分离了就没有意义了, 例如, 公司类和部门类, 没有公司就没有部门；<li><strong>依赖</strong>: 一种使用关系, 例如创建 A 类必须要有 B 类.</ul><p><img src=https://cdn.yangbingdong.com/img/design-pattern-uml-and-six-principle/uml-relation.png alt><p>这是一个类图的记忆方法: <strong><em><a href=https://mp.weixin.qq.com/s/yfp5ejzm4kHW44kU876SYQ rel="external nofollow noopener noreferrer" target=_blank>https://mp.weixin.qq.com/s/yfp5ejzm4kHW44kU876SYQ</a></em></strong><h2 id=StarUML><a href=#StarUML class=headerlink title=StarUML></a>StarUML</h2><p><em><a href=http://staruml.io/ rel="external nofollow noopener noreferrer" target=_blank>StarUML</a></em>…就是一个画UML的很炫酷的工具=.=<h3 id=显示interface><a href=#显示interface class=headerlink title=显示interface></a>显示interface</h3><p>在staruml中, interface默认是以一个圆圈显示的(尴尬了)…, 但好在可以设置成想要的样子.<ol><li>添加一个圆圈(interface)之后, 右键或选择菜单栏中的Format<li>选择Stereotype Display -&gt; Label, 这样矩形就显示出来了<li>同样是Format, 然后把Suppress Operations取消掉, 这样操作就可以显示出来了</ol><p><img src=https://cdn.yangbingdong.com/img/learning-uml-and-using-staruml/interface-01.png alt><p><img src=https://cdn.yangbingdong.com/img/learning-uml-and-using-staruml/interface-02.png alt><h2 id=Gliffy><a href=#Gliffy class=headerlink title=Gliffy></a>Gliffy</h2><p><em><a href=https://www.gliffy.com/ rel="external nofollow noopener noreferrer" target=_blank>Gliffy</a></em>是一个<em><a href=https://go.gliffy.com/go/html5/launch rel="external nofollow noopener noreferrer" target=_blank>在线</a></em>绘图工具, 支持Chrome插件, 非常强大.<p><img src=https://cdn.yangbingdong.com/img/design-pattern-uml-and-six-principle/gliffy.png alt></div><div style=text-align:center;color:#ccc;font-size:14px>---------------- The End ----------------</div><div><div id=wechat_subscriber style="display:block;padding:10px 0;margin:20px auto;width:100%;text-align:center"><img id=wechat_subscriber_qcode src=/images/wechat/gongzhonghao.jpg alt="ookamiAntD wechat" style=width:200px;max-width:100%><div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div></div></div><div><div style="padding:10px 0;margin:20px auto;width:90%;text-align:center"><div>谢谢大爷～</div><button id=rewardButton disable=enable onclick="var qr=document.getElementById('QR');if(qr.style.display==='none'){qr.style.display='block';}else{qr.style.display='none'}">
-<span>赏</span></button><div id=QR style=display:none><div id=wechat style=display:inline-block><img id=wechat_qr src=/images/donate/wechat.png alt="ookamiAntD WeChat Pay"><p>微信打赏</div><div id=alipay style=display:inline-block><img id=alipay_qr src=/images/donate/alipay.jpg alt="ookamiAntD Alipay"><p>支付宝打赏</div></div></div></div><div><p id=div-border-left-red>Author：<b>ookamiAntD Yang</b><br>Link：<a href=/2017/design-pattern-uml-and-six-principle/ title=设计模式原则与UML类图>http://yangbingdong.com/2017/design-pattern-uml-and-six-principle/</a><br>Contact：<a>yangbingdong1994@gmail.com</a><br><b>本文基于<a target=_blank title="Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)" href=http://creativecommons.org/licenses/by-sa/4.0/ rel="external nofollow noopener noreferrer"> 知识共享署名-相同方式共享 4.0 </a>国际许可协议发布</b><br><b>转载请注明出处，谢谢！</b></div><footer class=post-footer><div class=post-tags><a href=/tags/Java/ rel=tag><i class="fa fa-tag"></i>Java</a>
-<a href=/tags/Design-Pattern/ rel=tag><i class="fa fa-tag"></i>Design Pattern</a></div><div class=post-nav><div class="post-nav-next post-nav-item"><a href=/2017/note-of-linux-command/ rel=next title="Ubuntu 常用命令"><i class="fa fa-chevron-left"></i>Ubuntu 常用命令</a></div><span class=post-nav-divider></span><div class="post-nav-prev post-nav-item"><a href=/2017/new-in-spring-framework-5/ rel=prev title=Spring5新特征与WebFlux反应式编程>Spring5新特征与WebFlux反应式编程 <i class="fa fa-chevron-right"></i></a></div></div></footer></article><div class=post-spread><div class=-hoofoo-share-title>分享到：</div><div class=-hoofoo-share-buttons><div class="-mob-share-weibo -hoofoo-share-weibo -hoofoo-share-ui-button"><i class="fa fa-weibo" aria-hidden=true></i></div><div class="-mob-share-weixin -hoofoo-share-weixin -hoofoo-share-ui-button"><i class="fa fa-weixin" aria-hidden=true></i></div><div class="-mob-share-qq -hoofoo-share-qq -hoofoo-share-ui-button"><i class="fa fa-qq" aria-hidden=true></i></div><div class="-mob-share-twitter -hoofoo-share-twitter -hoofoo-share-ui-button"><i class="fa fa-twitter" aria-hidden=true></i></div><div class="-hoofoo-share-more -hoofoo-share-ui-button -mob-share-open"><i class="fa fa-ellipsis-h" aria-hidden=true></i></div></div><div class=-mob-share-ui style=display:none><ul class=-mob-share-list><li class=-mob-share-weibo><p>新浪微博<li class=-mob-share-weixin><p>微信<li class=-mob-share-qzone><p>QQ空间<li class=-mob-share-qq><p>QQ好友<li class=-mob-share-tencentweibo><p>腾讯微博<li class=-mob-share-renren><p>人人网<li class=-mob-share-kaixin><p>开心网<li class=-mob-share-douban><p>豆瓣<li class=-mob-share-youdao><p>有道云笔记<li class=-mob-share-mingdao><p>明道<li class=-mob-share-pengyou><p>朋友网<li class=-mob-share-facebook><p>Facebook<li class=-mob-share-twitter><p>Twitter<li class=-mob-share-pocket><p>Pocket<li class=-mob-share-google><p>Google+<li class=-mob-share-tumblr><p>Tumblr<li class=-mob-share-instapaper><p>Instapaper<li class=-mob-share-linkedin><p>Linkedin</ul><div class=-mob-share-close>取消</div></div><div class=-mob-share-ui-bg></div><script id=-mob-share src="https://f1.webshare.mob.com/code/mob-share.js?appkey=21aa3b13ad233"></script></div></div></div><div class=comments id=comments><div style=text-align:center></div><div id=disqus_proxy_thread></div><div id=disqus_thread></div><script>window.disqusProxy={username:'ookamiantd',server:'disqus-proxy.yangbingdong.com',port:'',defaultAvatar:'/images/avatar/avatar-default.jpg',adminAvatar:'/images/avatar/avatar-admin.jpg',identifier:'2017/design-pattern-uml-and-six-principle/'};window.disqus_config=function(){this.page.url='http://yangbingdong.com/2017/design-pattern-uml-and-six-principle/';this.page.identifier='2017/design-pattern-uml-and-six-principle/';};window.onload=function(){var s=document.createElement('script');s.src="/static/js/main.0d0338ae.js";s.async=true;document.body.appendChild(s);}</script><link rel=stylesheet href=/static/css/main.0603c539.css></div></div><div class=sidebar-toggle><div class=sidebar-toggle-line-wrap><span class="sidebar-toggle-line sidebar-toggle-line-first"></span><span class="sidebar-toggle-line sidebar-toggle-line-middle"></span><span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id=sidebar class=sidebar><div class=sidebar-inner><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target=post-toc-wrap>Table of Contents<li class=sidebar-nav-overview data-target=site-overview>Overview</ul><section class="site-overview sidebar-panel"><div class="site-author motion-element" itemprop=author itemscope itemtype=http://schema.org/Person><img class=site-author-image itemprop=image src=/images/avatar/avatar-admin.jpg alt=ookamiAntD><p class=site-author-name itemprop=name>ookamiAntD<p class="site-description motion-element" itemprop=description>码渣 | rocker | 二次元 | 美剧 | 宅</div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"><a href=/archives><span class=site-state-item-count>50</span>
-<span class=site-state-item-name>posts</span></a></div><div class="site-state-item site-state-categories"><a href=/categories><span class=site-state-item-count>19</span>
-<span class=site-state-item-name>categories</span></a></div><div class="site-state-item site-state-tags"><a href=/tags><span class=site-state-item-count>48</span>
-<span class=site-state-item-name>tags</span></a></div></nav><div class="feed-link motion-element"><a href=/atom.xml rel=alternate><i class="fa fa-rss"></i>RSS</a></div><div class="links-of-author motion-element"><span class=links-of-author-item><a href=https://github.com/masteranthoneyd target=_blank rel="external nofollow noopener noreferrer" title=GitHub><i class="fa fa-fw fa-github"></i>GitHub</a></span>
-<span class=links-of-author-item><a href="https://www.facebook.com/profile.php?id=100014869064462" target=_blank rel="external nofollow noopener noreferrer" title=Facebook><i class="fa fa-fw fa-facebook"></i>Facebook</a></span>
-<span class=links-of-author-item><a href=https://twitter.com/ookamiAntD target=_blank rel="external nofollow noopener noreferrer" title=Twitter><i class="fa fa-fw fa-twitter"></i>Twitter</a></span></div><div class="cc-license motion-element" itemprop=license><a href=https://creativecommons.org/licenses/by-sa/4.0/ class=cc-opacity target=_blank rel="external nofollow noopener noreferrer"><img src=/images/cc-by-sa.svg alt="Creative Commons"></a></div><div class="links-of-blogroll motion-element links-of-blogroll-block"><div class=links-of-blogroll-title><i class="fa  fa-fw fa-globe"></i>大神们的博客</div><ul class=links-of-blogroll-list><li class=links-of-blogroll-item><a href=https://mercyblitz.github.io/ title=mercyblitz(Java劝退师) target=_blank rel="external nofollow noopener noreferrer">mercyblitz(Java劝退师)</a><li class=links-of-blogroll-item><a href=https://muyinchen.github.io/ title=知秋大神(真·大神) target=_blank rel="external nofollow noopener noreferrer">知秋大神(真·大神)</a><li class=links-of-blogroll-item><a href=http://crossoverjie.top/ title="crossoverJie's Blog" target=_blank rel="external nofollow noopener noreferrer">crossoverJie's Blog</a><li class=links-of-blogroll-item><a href=http://yemengying.com/ title="Giraffe's Home" target=_blank rel="external nofollow noopener noreferrer">Giraffe's Home</a></ul></div><div id=days></div><script>function show_date_time(){window.setTimeout("show_date_time()",1000);BirthDay=new Date("01/10/2017 12:34:56");today=new Date();timeold=(today.getTime()-BirthDay.getTime());sectimeold=timeold/1000
-secondsold=Math.floor(sectimeold);msPerDay=24*60*60*1000
-e_daysold=timeold/msPerDay
-daysold=Math.floor(e_daysold);e_hrsold=(e_daysold-daysold)*24;hrsold=setzero(Math.floor(e_hrsold));e_minsold=(e_hrsold-hrsold)*60;minsold=setzero(Math.floor((e_hrsold-hrsold)*60));seconds=setzero(Math.floor((e_minsold-minsold)*60));document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";}
-function setzero(i){if(i<10)
-{i="0"+i};return i;}
-show_date_time();</script></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class=post-toc><div class=post-toc-content><ol class=nav><li class="nav-item nav-level-1"><a class=nav-link href=#Preface><span class=nav-number>1.</span> <span class=nav-text>Preface</span></a><li class="nav-item nav-level-1"><a class=nav-link href=#Design-Pattern><span class=nav-number>2.</span> <span class=nav-text>Design Pattern</span></a><ol class=nav-child><li class="nav-item nav-level-2"><a class=nav-link href=#六大原则><span class=nav-number>2.1.</span> <span class=nav-text>六大原则.</span></a><ol class=nav-child><li class="nav-item nav-level-3"><a class=nav-link href=#单一职责原则><span class=nav-number>2.1.1.</span> <span class=nav-text>单一职责原则</span></a><li class="nav-item nav-level-3"><a class=nav-link href=#开闭原则><span class=nav-number>2.1.2.</span> <span class=nav-text>开闭原则</span></a><li class="nav-item nav-level-3"><a class=nav-link href=#里氏替换原则><span class=nav-number>2.1.3.</span> <span class=nav-text>里氏替换原则</span></a><li class="nav-item nav-level-3"><a class=nav-link href=#依赖倒置原则><span class=nav-number>2.1.4.</span> <span class=nav-text>依赖倒置原则</span></a><li class="nav-item nav-level-3"><a class=nav-link href=#接口隔离原则><span class=nav-number>2.1.5.</span> <span class=nav-text>接口隔离原则</span></a><li class="nav-item nav-level-3"><a class=nav-link href=#迪米特法则><span class=nav-number>2.1.6.</span> <span class=nav-text>迪米特法则</span></a></ol><li class="nav-item nav-level-2"><a class=nav-link href=#三大类型><span class=nav-number>2.2.</span> <span class=nav-text>三大类型</span></a><ol class=nav-child><li class="nav-item nav-level-3"><a class=nav-link href=#创建型-Creational><span class=nav-number>2.2.1.</span> <span class=nav-text>创建型(Creational)</span></a><li class="nav-item nav-level-3"><a class=nav-link href=#结构型-Structural><span class=nav-number>2.2.2.</span> <span class=nav-text>结构型(Structural)</span></a><li class="nav-item nav-level-3"><a class=nav-link href=#行为型-Behavioral><span class=nav-number>2.2.3.</span> <span class=nav-text>行为型(Behavioral)</span></a></ol><li class="nav-item nav-level-2"><a class=nav-link href=#四大阶段><span class=nav-number>2.3.</span> <span class=nav-text>四大阶段</span></a></ol><li class="nav-item nav-level-1"><a class=nav-link href=#UML><span class=nav-number>3.</span> <span class=nav-text>UML</span></a><ol class=nav-child><li class="nav-item nav-level-2"><a class=nav-link href=#Class-Diagram><span class=nav-number>3.1.</span> <span class=nav-text>Class Diagram</span></a><li class="nav-item nav-level-2"><a class=nav-link href=#类与类的关系><span class=nav-number>3.2.</span> <span class=nav-text>类与类的关系</span></a><li class="nav-item nav-level-2"><a class=nav-link href=#StarUML><span class=nav-number>3.3.</span> <span class=nav-text>StarUML</span></a><ol class=nav-child><li class="nav-item nav-level-3"><a class=nav-link href=#显示interface><span class=nav-number>3.3.1.</span> <span class=nav-text>显示interface</span></a></ol><li class="nav-item nav-level-2"><a class=nav-link href=#Gliffy><span class=nav-number>3.4.</span> <span class=nav-text>Gliffy</span></a></ol></ol></div></div></section></div></aside></div></main><footer id=footer class=footer><div class=footer-inner><div class=busuanzi-count><script async src=https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><span class=site-uv><i class="fa fa-user">本站访客数</i><span class=busuanzi-value id=busuanzi_value_site_uv></span>人次</span>
-<span class=site-pv><i class="fa fa-eye">本站总访问量</i><span class=busuanzi-value id=busuanzi_value_site_pv></span>次</span></div><div class=copyright>&copy; 2016 -
-<span itemprop=copyrightYear>2020</span>
-<span class=with-love><i class="fa fa-flash"></i></span><span class=author itemprop=copyrightHolder>Hosted by <a href=https://pages.coding.me style=font-weight:700 rel="external nofollow noopener noreferrer" target=_blank>Coding Pages</a></span> | <span class=post-count>共290.0k字</span></div><div class=theme-info><a target=_blank href=http://www.miibeian.gov.cn/ rel=nofollow style=color:#555>粤ICP备18135202号-1</a></div><div style="width:300px;margin:0 auto"><a target=_blank href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44010602005896" style=display:inline-block;text-decoration:none;height:20px;line-height:20px><img src=https://cdn.yangbingdong.com/img/beian/beian.png style=float:left><p style="float:left;height:20px;line-height:20px;margin:0 0 0 5px;color:#555">粤公网安备 44010602005896号</p></a></div></div></footer><div class=back-to-top><i class="fa fa-arrow-up"></i></div></div><script>if(Object.prototype.toString.call(window.Promise)!=='[object Function]'){window.Promise=null;}</script><script src="/lib/jquery/index.js?v=2.1.3"></script><script src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script><script src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script><script src="/lib/velocity/velocity.min.js?v=1.2.1"></script><script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script><script src="/js/src/utils.js?v=5.1.0"></script><script src="/js/src/motion.js?v=5.1.0"></script><script src="/js/src/scrollspy.js?v=5.1.0"></script><script src="/js/src/post-details.js?v=5.1.0"></script><script src="/js/src/bootstrap.js?v=5.1.0"></script><script>var disqus_shortname='ookamiantd';var disqus_identifier='2017/design-pattern-uml-and-six-principle/';var disqus_title="设计模式原则与UML类图";function run_disqus_script(disqus_script){var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;dsq.src='//'+disqus_shortname+'.disqus.com/'+disqus_script;(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);}
-var disqus={load:function disqus(){if(typeof DISQUS!=='object'){(function(){var s=document.createElement('script');s.async=true;s.type='text/javascript';s.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('HEAD')[0]||document.getElementsByTagName('BODY')[0]).appendChild(s);}());$('#load-disqus').html("评论加载中，请确保你有梯子，若评论长时间未加载则你可能翻墙失败...").fadeOut(9000);}}}</script><script>var isfetched=false;var search_path="search.xml";if(search_path.length==0){search_path="search.xml";}
-var path="/"+search_path;function proceedsearch(){$("body").append('<div class="popoverlay">').css('overflow','hidden');$('.popup').toggle();}
-var searchFunc=function(path,search_id,content_id){'use strict';$.ajax({url:path,dataType:"xml",async:true,success:function(xmlResponse){isfetched=true;$('.popup').detach().appendTo('.header-inner');var datas=$("entry",xmlResponse).map(function(){return{title:$("title",this).text(),content:$("content",this).text(),url:$("url",this).text()};}).get();var $input=document.getElementById(search_id);var $resultContent=document.getElementById(content_id);$input.addEventListener('input',function(){var matchcounts=0;var str='<ul class=\"search-result-list\">';var keywords=this.value.trim().toLowerCase().split(/[\s\-]+/);$resultContent.innerHTML="";if(this.value.trim().length>1){datas.forEach(function(data){var isMatch=false;var content_index=[];var data_title=data.title.trim().toLowerCase();var data_content=data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();var data_url=decodeURIComponent(data.url);var index_title=-1;var index_content=-1;var first_occur=-1;if(data_title!=''){keywords.forEach(function(keyword,i){index_title=data_title.indexOf(keyword);index_content=data_content.indexOf(keyword);if(index_title>=0||index_content>=0){isMatch=true;if(i==0){first_occur=index_content;}}});}
-if(isMatch){matchcounts+=1;str+="<li><a href='"+data_url+"' class='search-result-title'>"+data_title+"</a>";var content=data.content.trim().replace(/<[^>]+>/g,"");if(first_occur>=0){var start=first_occur-20;var end=first_occur+80;if(start<0){start=0;}
-if(start==0){end=50;}
-if(end>content.length){end=content.length;}
-var match_content=content.substring(start,end);keywords.forEach(function(keyword){var regS=new RegExp(keyword,"gi");match_content=match_content.replace(regS,"<b class=\"search-keyword\">"+keyword+"</b>");});str+="<p class=\"search-result\">"+match_content+"...</p>"}
-str+="</li>";}})};str+="</ul>";if(matchcounts==0){str='<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'}
-if(keywords==""){str='<div id="no-result"><i class="fa fa-search fa-5x" /></div>'}
-$resultContent.innerHTML=str;});proceedsearch();}});}
-$('.popup-trigger').click(function(e){e.stopPropagation();if(isfetched==false){searchFunc(path,'local-search-input','local-search-result');}else{proceedsearch();};});$('.popup-btn-close').click(function(e){$('.popup').hide();$(".popoverlay").remove();$('body').css('overflow','');});$('.popup').click(function(e){e.stopPropagation();});</script><script src=https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js></script><script>AV.initialize("usE0s6JGUeOiMcsVoRuHuv2B-gzGzoHsz","ewm6NEF07r83HbnOr63ptuKH");</script><script>function showTime(Counter){var query=new AV.Query(Counter);var entries=[];var $visitors=$(".leancloud_visitors");$visitors.each(function(){entries.push($(this).attr("id").trim());});query.containedIn('url',entries);query.find().done(function(results){var COUNT_CONTAINER_REF='.leancloud-visitors-count';if(results.length===0){$visitors.find(COUNT_CONTAINER_REF).text(0);return;}
-for(var i=0;i<results.length;i++){var item=results[i];var url=item.get('url');var time=item.get('time');var element=document.getElementById(url);$(element).find(COUNT_CONTAINER_REF).text(time);}
-for(var i=0;i<entries.length;i++){var url=entries[i];var element=document.getElementById(url);var countSpan=$(element).find(COUNT_CONTAINER_REF);if(countSpan.text()==''){countSpan.text(0);}}}).fail(function(object,error){console.log("Error: "+error.code+" "+error.message);});}
-function addCount(Counter){var $visitors=$(".leancloud_visitors");var url=$visitors.attr('id').trim();var title=$visitors.attr('data-flag-title').trim();var query=new AV.Query(Counter);query.equalTo("url",url);query.find({success:function(results){if(results.length>0){var counter=results[0];counter.fetchWhenSave(true);counter.increment("time");counter.save(null,{success:function(counter){var $element=$(document.getElementById(url));$element.find('.leancloud-visitors-count').text(counter.get('time'));},error:function(counter,error){console.log('Failed to save Visitor num, with error message: '+error.message);}});}else{var newcounter=new Counter();var acl=new AV.ACL();acl.setPublicReadAccess(true);acl.setPublicWriteAccess(true);newcounter.setACL(acl);newcounter.set("title",title);newcounter.set("url",url);newcounter.set("time",1);newcounter.save(null,{success:function(newcounter){var $element=$(document.getElementById(url));$element.find('.leancloud-visitors-count').text(newcounter.get('time'));},error:function(newcounter,error){console.log('Failed to create');}});}},error:function(error){console.log('Error:'+error.code+" "+error.message);}});}
-$(function(){var Counter=AV.Object.extend("Counter");if($('.leancloud_visitors').length==1){addCount(Counter);}else if($('.post-title-link').length>1){showTime(Counter);}});</script><script>(function(){var bp=document.createElement('script');var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
-else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script><script color=255,0,204 opacity=0.5 zindex=-2 count=40 src=//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js></script><script>$('body').delegate('.-mob-share-weixin-qrcode-bg','click',function(){$(".-mob-share-weixin-qrcode-close").trigger("click");});</script><canvas class=fireworks style=position:fixed;left:0;top:0;z-index:1;pointer-events:none></canvas>
-<script src=//cdn.bootcss.com/animejs/2.2.0/anime.min.js></script><script src=/js/src/fireworks.js></script><script src=/js/src/dytitle.js></script></div></footer></div><script src=/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"superSample":2,"width":88,"height":88,"position":"left"},"mobile":{"show":false},"react":{"opacityDefault":0.9,"opacityOnHover":0.5},"log":false});</script>
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="content-language" content="zh-cn">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #ff009e;
+        height: 2px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #e6006b, 0 0 5px #ff009e;
+    }
+    .pace .pace-activity {
+        border-top-color: #ff009e;
+        border-left-color: #ff009e;
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Java,Design Pattern,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="ookamiAntD's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="Preface 设计模式, 总的来说, 就是前人踩过无数的坑总结出来的软件设计经验. 在学习设计模式之前, 有必要了解它的一些规则以及建模.UML(Unified Modeling Language)又称统一建模语言或标准建模语言, 是始于1997年一个OMG(Object Management Group)标准, 它是一个支持模型化和软件系统开发的图形化语言, 为软件开发的所有阶段提供模型化和">
+<meta name="keywords" content="Java,Design Pattern">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式原则与UML类图">
+<meta property="og:url" content="http://yangbingdong.com/2017/design-pattern-uml-and-six-principle/index.html">
+<meta property="og:site_name" content="ookamiAntD&#39;s Blog">
+<meta property="og:description" content="Preface 设计模式, 总的来说, 就是前人踩过无数的坑总结出来的软件设计经验. 在学习设计模式之前, 有必要了解它的一些规则以及建模.UML(Unified Modeling Language)又称统一建模语言或标准建模语言, 是始于1997年一个OMG(Object Management Group)标准, 它是一个支持模型化和软件系统开发的图形化语言, 为软件开发的所有阶段提供模型化和">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://cdn.yangbingdong.com/img/design-pattern-uml-and-six-principle/designpatterns.png">
+<meta property="og:image" content="https://cdn.yangbingdong.com/img/design-pattern-uml-and-six-principle/uml-relation.png">
+<meta property="og:image" content="https://cdn.yangbingdong.com/img/learning-uml-and-using-staruml/interface-01.png">
+<meta property="og:image" content="https://cdn.yangbingdong.com/img/learning-uml-and-using-staruml/interface-02.png">
+<meta property="og:image" content="https://cdn.yangbingdong.com/img/design-pattern-uml-and-six-principle/gliffy.png">
+<meta property="og:updated_time" content="2021-01-05T02:01:06.514Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="设计模式原则与UML类图">
+<meta name="twitter:description" content="Preface 设计模式, 总的来说, 就是前人踩过无数的坑总结出来的软件设计经验. 在学习设计模式之前, 有必要了解它的一些规则以及建模.UML(Unified Modeling Language)又称统一建模语言或标准建模语言, 是始于1997年一个OMG(Object Management Group)标准, 它是一个支持模型化和软件系统开发的图形化语言, 为软件开发的所有阶段提供模型化和">
+<meta name="twitter:image" content="https://cdn.yangbingdong.com/img/design-pattern-uml-and-six-principle/designpatterns.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: 'RI3NF6GUI0',
+      apiKey: '3d33fa60ba30d3b17f37220bb1a36749',
+      indexName: 'blogIndex',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yangbingdong.com/2017/design-pattern-uml-and-six-principle/">
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+  <title> 设计模式原则与UML类图 | ookamiAntD's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e9505ac4e11d464329d615553a72b526";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+	<a href="https://github.com/masteranthoneyd/blog" rel="external nofollow noopener noreferrer" target="_blank"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">ookamiAntD's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <h1 class="site-subtitle" itemprop="description">Easy coding,easy life.</h1>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br>
+            
+            Message
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yangbingdong.com/2017/design-pattern-uml-and-six-principle/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="ookamiAntD">
+    <meta itemprop="description" content>
+    <meta itemprop="image" content="/images/avatar/avatar-admin.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="ookamiAntD's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="ookamiAntD's Blog" src>
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                设计模式原则与UML类图
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-18T09:22:07+08:00">
+                2017-10-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Programming/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Programming/Java/Design-Pattern/" itemprop="url" rel="index">
+                    <span itemprop="name">Design Pattern</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+
+          
+
+          
+
+          
+
+          
+          
+             <span id="/2017/design-pattern-uml-and-six-principle/" class="leancloud_visitors" data-flag-title="设计模式原则与UML类图">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          <br><span class="post-time">
+           <span class="post-meta-item-icon">
+             <i class="fa fa-edit"></i>
+           </span>
+           <span class="post-meta-item-text">WordCount:</span>
+           <span class="post-count">5,859字</span>
+			<span class="post-meta-divider">|</span>
+			<span class="post-meta-item-text">min2read:</span>
+           <span class="post-count">24分钟</span>
+
+         </span>
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://cdn.yangbingdong.com/img/design-pattern-uml-and-six-principle/designpatterns.png" alt></p>
+<h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><blockquote>
+<p><em><a href="https://www.google.co.jp/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;cad=rja&amp;uact=8&amp;ved=0ahUKEwjyks2QifnWAhVJKo8KHegiD20QFggnMAA&amp;url=https%3A%2F%2Fzh.wikipedia.org%2Fzh-hans%2F%25E8%25AE%25BE%25E8%25AE%25A1%25E6%25A8%25A1%25E5%25BC%258F&amp;usg=AOvVaw0z1ZKodwif8lD1sp_vC9C_" rel="external nofollow noopener noreferrer" target="_blank">设计模式</a></em>, 总的来说, 就是前人踩过无数的坑总结出来的软件设计经验. 在学习设计模式之前, 有必要了解它的一些<strong>规则</strong>以及<strong>建模</strong>.<br><em><a href="https://zh.wikipedia.org/wiki/%E7%BB%9F%E4%B8%80%E5%BB%BA%E6%A8%A1%E8%AF%AD%E8%A8%80" rel="external nofollow noopener noreferrer" target="_blank">UML</a></em>(Unified Modeling Language)又称<strong>统一建模语言</strong>或<strong>标准建模语言</strong>, 是始于1997年一个OMG(Object Management Group)标准, 它是一个支持模型化和软件系统开发的图形化语言, 为软件开发的所有阶段提供模型化和可视化支持, 包括由需求分析到规格, 到构造和配置. </p>
+</blockquote>
+<a id="more"></a>
+<h1 id="Design-Pattern"><a href="#Design-Pattern" class="headerlink" title="Design Pattern"></a>Design Pattern</h1><p>在<a href="https://zh.wikipedia.org/wiki/%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B" rel="external nofollow noopener noreferrer" target="_blank">软件工程</a>中, <strong>设计模式</strong>(design pattern)是对<a href="https://zh.wikipedia.org/wiki/%E8%BB%9F%E4%BB%B6%E8%A8%AD%E8%A8%88" rel="external nofollow noopener noreferrer" target="_blank">软件设计</a>中普遍存在(反复出现)的各种问题, 所提出的解决方案. 这个术语是由<a href="https://zh.wikipedia.org/wiki/%E5%9F%83%E9%87%8C%E5%B8%8C%C2%B7%E4%BC%BD%E7%91%AA" rel="external nofollow noopener noreferrer" target="_blank">埃里希·伽玛</a>(Erich Gamma)等人在1990年代从<a href="https://zh.wikipedia.org/wiki/%E5%BB%BA%E7%AD%91%E8%AE%BE%E8%AE%A1" rel="external nofollow noopener noreferrer" target="_blank">建筑设计</a>领域引入到<a href="https://zh.wikipedia.org/wiki/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8" rel="external nofollow noopener noreferrer" target="_blank">计算机科学</a>的. </p>
+<p>设计模式并不直接用来完成<a href="https://zh.wikipedia.org/wiki/%E7%A8%8B%E5%BC%8F%E7%A2%BC" rel="external nofollow noopener noreferrer" target="_blank">代码</a>的编写, 而是描述在各种不同情况下, 要怎么解决问题的一种方案. <a href="https://zh.wikipedia.org/wiki/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1" rel="external nofollow noopener noreferrer" target="_blank">面向对象</a>设计模式通常以<a href="https://zh.wikipedia.org/wiki/%E9%A1%9E%E5%88%A5" rel="external nofollow noopener noreferrer" target="_blank">类别</a>或<a href="https://zh.wikipedia.org/wiki/%E7%89%A9%E4%BB%B6_(%E9%9B%BB%E8%85%A6%E7%A7%91%E5%AD%B8" rel="external nofollow noopener noreferrer" target="_blank">对象</a>)来描述其中的关系和相互作用, 但不涉及用来完成应用程序的特定类别或对象. 设计模式能使不稳定依赖于相对稳定, 具体依赖于相对抽象, 避免会引起麻烦的紧耦合, 以增强软件设计面对并适应变化的能力.   ——来自维基百科</p>
+<h2 id="设计原则"><a href="#设计原则" class="headerlink" title="设计原则"></a>设计原则</h2><h3 id="单一职责原则"><a href="#单一职责原则" class="headerlink" title="单一职责原则"></a>单一职责原则</h3><blockquote>
+<p>A class or module should have a single responsibility.</p>
+</blockquote>
+<p>单一职责原则(<code>Single Responsibility Principle</code>,SRP): 就一个类而言, 应该仅有一个引起它变化的原因. 即一个类应该<strong>只负责一个功能领域中的相应职责</strong>. </p>
+<p><strong>理解</strong>:</p>
+<p>一个类只负责完成一个职责或者功能. 不要设计大而全的类, 要设计粒度小, 功能单一的类. 单一职责原则是为了实现代码<strong>高内聚</strong>, <strong>低耦合</strong>, 提高代码的复用性, 可读性, 可维护性.</p>
+<blockquote>
+<p>高内聚跟低耦合是从两个角度的不同描述:</p>
+<p>高内聚从功能性来说, 将功能性高度相关的内容分开, 则降低了内聚性.</p>
+<p>低耦合从功能无关性来说, 将不相关功能的内容聚合在一起, 就提高了耦合性.</p>
+</blockquote>
+<p><strong>如何判断是否足够单一</strong>?</p>
+<p>不同的<strong>应用场景</strong>, 不同阶段的<strong>需求背景</strong>, 不同的<strong>业务层面</strong>, 对同一个类的职责是否单一, 可能会有不同的判定结果. </p>
+<p>实际上, 一些侧面的判断指标更具有指导意义和可执行性, 比如, 出现下面这些情况就有可能说明这类的设计不满足单一职责原则:</p>
+<ul>
+<li>类中的代码行数, 函数或者属性过多.</li>
+<li>类依赖的其他类过多, 或者依赖类的其他类过多.</li>
+<li>私有方法过多.</li>
+<li>比较难给类起一个合适的名字(说明类的职责定义得可能不够清晰).</li>
+<li>类中大量的方法都是集中操作类中的某几个属性.</li>
+</ul>
+<p><strong>类的职责是否设计得越单一越好</strong>?</p>
+<p>单一职责原则通过避免设计大而全的类, 避免将不相关的功能耦合在一起, 来提高类的内聚性. 同时, 类职责单一, 类依赖的和被依赖的其他类也会变少, 减少了代码的耦合性, 以此来实现代码的高内聚, 低耦合. 但是, 如果拆分得过细, 实际上会适得其反, 反倒会降低内聚性, 也会影响代码的可维护性. </p>
+<h3 id="开闭原则"><a href="#开闭原则" class="headerlink" title="开闭原则"></a>开闭原则</h3><blockquote>
+<p>Software entities (modules, classes, functions, etc.) should be open for extension, but closed for modification.</p>
+</blockquote>
+<p>开闭原则(<code>Open-Closed Principle</code>, OCP): 是指软件实体(类, 模块, 函数等等)应该<strong>可以扩展</strong>, <strong>而非修改已有代码</strong>.</p>
+<p><strong>如何理解对扩展开放, 对修改关闭</strong>?</p>
+<p>添加一个新的功能, 应该是通过在已有代码基础上扩展代码(新增模块/类/方法/属性等), 而非修改已有代码(修改模块/类/方法/属性等)的方式来完成. 关于定义, 我们有两点要注意:</p>
+<ul>
+<li>第一点是, 开闭原则并不是说完全杜绝修改, 而是以<strong>最小的修改代码的代价</strong>来完成新功能的开发. </li>
+<li>第二点是, 同样的代码改动, 在粗代码粒度下, 可能被认定为”修改”; 在细代码粒度下, 可能又被认定为”扩展”. </li>
+</ul>
+<p><strong>如何做</strong>?</p>
+<p>我们要时刻具备扩展意识, 抽象意识, 封装意识. 在写代码的时候, 我们要多花点时间思考一下, 这段代码未来可能有哪些需求变更, 如何设计代码结构, 事先留好扩展点, 以便在未来需求变更的时候, 在不改动代码整体结构, 做到最小代码改动的情况下, 将新的代码灵活地插入到扩展点上. </p>
+<p>举个栗子, 有这么个需求, 要求处理两种消息类型A与B, 初期是这么写的:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MessageHandlerV1</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handle</span><span class="params">(String message)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="string">"A"</span>.equals(message)) &#123;</span><br><span class="line">            handleSceneA(message);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="string">"B"</span>.equals(message)) &#123;</span><br><span class="line">            handleSceneB(message);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">handleSceneA</span><span class="params">(String a)</span> </span>&#123;</span><br><span class="line">        System.out.println(a);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">handleSceneB</span><span class="params">(String b)</span> </span>&#123;</span><br><span class="line">        System.out.println(b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>后期需要支持类型C的消息, 那么需要改动 <code>handle</code> 方法:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handle</span><span class="params">(String message)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="string">"A"</span>.equals(message)) &#123;</span><br><span class="line">        handleSceneA(message);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="string">"B"</span>.equals(message)) &#123;</span><br><span class="line">        handleSceneB(message);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="string">"C"</span>.equals(message)) &#123;</span><br><span class="line">        handleSceneC(message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样就违背了 ocp 了, 而且 Test Case 也要修改, 比较麻烦.</p>
+<p>可以稍微改造一下, 让扩展变得科学一点:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MessageHandler</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function">String <span class="title">supportMessage</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">handle</span><span class="params">(String s)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MessageHandlerA</span> <span class="keyword">implements</span> <span class="title">MessageHandler</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">supportMessage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"A"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handle</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        System.out.println(s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MessageHandlerManager</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> List&lt;MessageHandler&gt; messageHandlers = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addHandler</span><span class="params">(MessageHandler messageHandler)</span> </span>&#123;</span><br><span class="line">        messageHandlers.add(messageHandler);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handle</span><span class="params">(String type, String message)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (MessageHandler messageHandler : messageHandlers) &#123;</span><br><span class="line">            <span class="keyword">if</span> (messageHandler.supportMessage().equals(type)) &#123;</span><br><span class="line">                messageHandler.handle(message);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>将 <code>handle</code> 逻辑抽象成接口, 同时增加 <code>supportMessage</code> 方法, 实现方返回自己支持的消息类型. 那么这时候要扩展支持C类型的消息只需要新增一个 Handler 的实现即可:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MessageHandlerC</span> <span class="keyword">implements</span> <span class="title">MessageHandler</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">supportMessage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"C"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handle</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        System.out.println(s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="里氏替换原则"><a href="#里氏替换原则" class="headerlink" title="里氏替换原则"></a>里氏替换原则</h3><blockquote>
+<p>If S is a subtype of T, then objects of type T may be replaced with objects of type S, without breaking the program. </p>
+<p>Functions that use pointers of references to base classes must be able to use objects of derived classes without knowing it. </p>
+<p>PS: <strong><em><a href="https://en.wikipedia.org/wiki/Barbara_Liskov" rel="external nofollow noopener noreferrer" target="_blank">Liskov</a></em></strong> 是美国历史上第一个女计算机博士, 曾获得过<strong>图灵奖</strong>.</p>
+</blockquote>
+<p>里氏替换原则(<code>Liskov Substitution Principle</code>,LSP): 子类对象(object of subtype/derived class)能够替换程序(program)中父类对象(object of base/parent class)出现的任何地方, 并且保证原来程序的逻辑行为(behavior)不变及正确性不被破坏. </p>
+<p>与多态的区别: 多态是面向对象的一大特性, 而里氏替换原则是设计原则. LSP 更关注的是对象行为, 用来指导继承关系中子类该如何设计, 子类的设计要保证在替换父类的时候, 不改变原有程序的逻辑及不破坏原有程序的正确性, 举个例子就是父类定义了一个方法, 不存在则返回 null, 子类重写(多态)了这个方法, 不存在则抛出异常, 这就违反了里氏替换原则.</p>
+<p>举个例子, 有个 <code>Echo</code> 类, 打印输入的内容:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Echo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">echo</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        System.out.println(s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这时候对这个类做一个增强, 打印字符串后, 上报字符串到监控系统:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PositiveEcho</span> <span class="keyword">extends</span> <span class="title">Echo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">echo</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.echo(s);</span><br><span class="line">        metrics(s);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">metrics</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个并没有改变原有的行为, 但是看一下下面这个实现, 如果输入的空对象, 那么抛出一个异常:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NegativeEcho</span> <span class="keyword">extends</span> <span class="title">Echo</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">echo</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"Input string must not be null"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>原来的 <code>Echo</code> 类并没有这个限制, 如果替换成了 <code>NegativeEcho</code>, 那么输出空对象将会报错, 这改变了原有的行为, 所以不符合里氏替换原则.</p>
+<h3 id="接口隔离原则"><a href="#接口隔离原则" class="headerlink" title="接口隔离原则"></a>接口隔离原则</h3><blockquote>
+<p>Clients should not be forced to depend upon interfaces that they do not use.</p>
+</blockquote>
+<p>接口隔离原则(<code>Interface Segregation Principle</code>,ISP): 使用专门的接口, 而不使用单一的总接口, 即客户端不应该依赖那些它不需要的接口. </p>
+<p>根据接口隔离原则, 当一个接口太大时, 我们需要将它分割成一些更细小的接口, 使用该接口的客户端仅需知道与之相关的方法即可. 每一个接口应该承担一种相对独立的角色, 不干不该干的事, 该干的事都要干. </p>
+<p>这获取跟 SRP 有点类似, 但 SRP 注重的是模块, 类, 接口的设计, 而 ISP <strong>更加侧重于接口的设计</strong>, 而且角度不一样, 判断的标准是调用者, 如果调用者只用到一部分的接口, 那么这个接口设计就不够单一.</p>
+<p>比如有两个配置类:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RabbitConfig</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String host;</span><br><span class="line">    <span class="keyword">private</span> String port;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisConfig</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String host;</span><br><span class="line">    <span class="keyword">private</span> String port;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是需要加一个新功能, 在不重启系统的情况下热更配置, 那么可以定义一个 <code>Scheduler</code>, 以及 <code>Hofixer</code>, <code>Schedule</code> 周期性地调用 <code>Hotfixer</code>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RabbitConfig</span> <span class="keyword">implements</span> <span class="title">Hotfixer</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String host;</span><br><span class="line">    <span class="keyword">private</span> String port;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Update RabbitConfig"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisConfig</span> <span class="keyword">implements</span> <span class="title">Hotfixer</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String host;</span><br><span class="line">    <span class="keyword">private</span> String port;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Update RedisConfig"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HotfixerScheduler</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> ScheduledExecutorService scheduledExecutorService;</span><br><span class="line">    <span class="keyword">public</span> Hotfixer hotfixer;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">long</span> initDelay;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">long</span> period;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">volatile</span> <span class="keyword">boolean</span> destroyed = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">HotfixerScheduler</span><span class="params">(Hotfixer hotfixer, <span class="keyword">long</span> initDelay, <span class="keyword">long</span> period)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.hotfixer = hotfixer;</span><br><span class="line">        <span class="keyword">this</span>.initDelay = initDelay;</span><br><span class="line">        <span class="keyword">this</span>.period = period;</span><br><span class="line">        init();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">runHotfix</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        scheduledExecutorService.scheduleAtFixedRate(() -&gt; hotfixer.update(), initDelay, period, TimeUnit.MILLISECONDS);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">shutdown</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (destroyed) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        scheduledExecutorService.shutdown();</span><br><span class="line">        destroyed = <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Hotfixer hotfixer = <span class="keyword">new</span> RabbitConfig(<span class="string">"127.0.0.1"</span>, <span class="string">"6379"</span>);</span><br><span class="line">    HotfixerScheduler hotfixerScheduler = <span class="keyword">new</span> HotfixerScheduler(hotfixer, <span class="number">100L</span>, <span class="number">100L</span>);</span><br><span class="line">    hotfixerScheduler.runHotfix();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面简单实现了热更的功能, 这时候又来了个新需求, 提供一个接口查看 Redis 的配置, 但是又不能暴露 Rabbit 的配置, 将上面代码稍加改造:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Viewer</span> </span>&#123;</span><br><span class="line">    <span class="function">String <span class="title">outputJson</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisConfig</span> <span class="keyword">implements</span> <span class="title">Hotfixer</span>, <span class="title">Viewer</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String host;</span><br><span class="line">    <span class="keyword">private</span> String port;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RedisConfig</span><span class="params">(String host, String port)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.host = host;</span><br><span class="line">        <span class="keyword">this</span>.port = port;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Update RedisConfig"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getHost</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> host;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getPort</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> port;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">outputJson</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> JSONObject.toJSONString(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleHttpServer</span> <span class="keyword">extends</span> <span class="title">AbstractVerticle</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Map&lt;String, Consumer&lt;RoutingContext&gt;&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;(<span class="number">16</span>);</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> port;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SimpleHttpServer</span><span class="params">(<span class="keyword">int</span> port)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.port = port;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Router router = Router.router(vertx);</span><br><span class="line">        router.route(<span class="string">"/:path"</span>).handler(<span class="keyword">this</span>::handlePath);</span><br><span class="line"></span><br><span class="line">        HttpServer httpServer = vertx.createHttpServer();</span><br><span class="line">        httpServer.requestHandler(router).listen(port, listenResult -&gt; &#123;</span><br><span class="line">            <span class="keyword">if</span> (listenResult.failed()) &#123;</span><br><span class="line">                System.out.println(<span class="string">"Could not start HTTP server"</span>);</span><br><span class="line">                listenResult.cause().printStackTrace();</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                System.out.println(<span class="string">"Server started"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">handlePath</span><span class="params">(RoutingContext ctx)</span> </span>&#123;</span><br><span class="line">        String path = ctx.pathParam(<span class="string">"path"</span>);</span><br><span class="line">        Consumer&lt;RoutingContext&gt; consumer = map.get(path);</span><br><span class="line">        <span class="keyword">if</span> (consumer == <span class="keyword">null</span>) &#123;</span><br><span class="line">            ctx.response().setStatusCode(<span class="number">404</span>).end(<span class="string">"Not Found"</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        consumer.accept(ctx);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">regist</span><span class="params">(String path, Viewer viewer)</span> </span>&#123;</span><br><span class="line">        map.put(path, ctx -&gt; out(ctx, viewer.outputJson()));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">out</span><span class="params">(RoutingContext ctx, String msg)</span> </span>&#123;</span><br><span class="line">        ctx.response()</span><br><span class="line">           .putHeader(<span class="string">"Content-Type"</span>, <span class="string">"text/plain; charset=utf-8"</span>)</span><br><span class="line">           .end(msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">close</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        vertx.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Viewer redisViewer = <span class="keyword">new</span> RedisConfig(<span class="string">"127.0.0.1"</span>, <span class="string">"6379"</span>);</span><br><span class="line">    SimpleHttpServer httpServer = <span class="keyword">new</span> SimpleHttpServer(<span class="number">8080</span>);</span><br><span class="line">    httpServer.regist(<span class="string">"redis"</span>, redisViewer);</span><br><span class="line">    Vertx.vertx().deployVerticle(httpServer);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样就简单实现了配置查看的功能, <code>SimpleHttpServer</code> 只依赖了 <code>Viewer</code> 接口, 没有依赖 <code>Hotfixer</code>, 大家各司其职, 这符合接口隔离原则.</p>
+<p>加入定义一个大而全的接口, 那么其他实现类就多了很多没必要的代码, 影响可读性.</p>
+<h3 id="依赖倒置原则"><a href="#依赖倒置原则" class="headerlink" title="依赖倒置原则"></a>依赖倒置原则</h3><blockquote>
+<p>High-level modules shouldn’t depend on low-level modules. Both modules should depend on abstractions. In addition, abstractions shouldn’t depend on details. Details depend on abstractions.</p>
+</blockquote>
+<p>依赖倒置原则(<code>Dependency Inversion Principle</code>,DIP): 抽象不应该依赖细节, 细节应该依赖于抽象. 即应该<strong>针对接口编程</strong>, 而不是针对实现编程. </p>
+<p>看起来这个原则跟多态类似, 但实际上, 多态是 JAVA 语言的特性, DIP 是指导思想. 而且 DIP 强调的是 <strong>Design By Contract</strong>, 即契约编程. 这个契约包括函数的功能定义, 入参出参以及异常输出等行为, 子类替换了父类不能改变这些行为.</p>
+<p>先来捋清一些概念, <strong>IOC</strong>(Inversion Of Control, 控制反转), 这里先不要跟 Spring IoC 联想在一起.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BeforeIoc</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (test()) &#123;</span><br><span class="line">            System.out.println(<span class="string">"doTest"</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"No doTest"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        BeforeIoc beforeIoc = <span class="keyword">new</span> BeforeIoc();</span><br><span class="line">        beforeIoc.doTest();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的所有方法由程序员控制, 下面来修改一下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">AfterIoc</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (test()) &#123;</span><br><span class="line">            System.out.println(<span class="string">"doTest"</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"No doTest"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="keyword">boolean</span> <span class="title">test</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MyAfterIoc</span> <span class="keyword">extends</span> <span class="title">AfterIoc</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">boolean</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">IocRunner</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> List&lt;AfterIoc&gt; iocList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerIoc</span><span class="params">(AfterIoc afterIoc)</span> </span>&#123;</span><br><span class="line">            iocList.add(afterIoc);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            iocList.forEach(AfterIoc::doTest);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        IocRunner iocRunner = <span class="keyword">new</span> IocRunner();</span><br><span class="line">        iocRunner.registerIoc(<span class="keyword">new</span> MyAfterIoc());</span><br><span class="line">        iocRunner.run();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>将主流程抽出来, 留下一个 <code>test</code> 扩展点, 调用者将自己的业务写在扩展点中, 剩下的交给框架, 这样就完成了流程的控制从程序员反转到了框架.</p>
+<p>所以, 控制反转并不是一种具体的实现技巧, 而是一个比较笼统的设计思想, 一般用来指导框架层面的设计.</p>
+<p>接下来是 <strong>DI</strong>(Dependency Injection, 依赖注入) 与 <strong>DI Framewaork</strong>.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DiDemo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">final</span> NameSupplier nameSupplier;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DiDemo</span><span class="params">(NameSupplier nameSupplier)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.nameSupplier = nameSupplier;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(nameSupplier.getName());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">interface</span> <span class="title">NameSupplier</span> </span>&#123;</span><br><span class="line">        <span class="function">String <span class="title">getName</span><span class="params">()</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MyNameSupplier</span> <span class="keyword">implements</span> <span class="title">NameSupplier</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"yangbingdong"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        NameSupplier nameSupplier = <span class="keyword">new</span> MyNameSupplier();</span><br><span class="line">        DiDemo diDemo = <span class="keyword">new</span> DiDemo(nameSupplier);</span><br><span class="line">        diDemo.printName();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过构造器等方式将构建好的对象传递进来, 可以灵活地替换实现类, 提高了代码的灵活度, 这就是依赖注入.</p>
+<p>而依赖注入框架则是像 Spring, Google Guice 等提供了依赖注入功能的框架.</p>
+<p>DIP 其实与控制反转类似, 是指导框架层面的设计, 只不过 DIP 更为抽象一点.</p>
+<h3 id="KISS原则与YAGNI原则"><a href="#KISS原则与YAGNI原则" class="headerlink" title="KISS原则与YAGNI原则"></a>KISS原则与YAGNI原则</h3><p>KISS原则: Keep It Simple and Stupid.</p>
+<p>如何写出 KISS 原则的代码:</p>
+<ol>
+<li>不要使用一些同事看不懂的代码</li>
+<li>不要重复造轮子, 尽量复用工具类</li>
+<li>不要过度优化</li>
+</ol>
+<p>还有一点, 如果在 code review 的时候, 大部分同时都看不懂, 那么也许写的代码不满足 KISS 原则.</p>
+<p>YAGNI 原则: You Ain’t Gonna Need It. 你不会需要它. 总结来讲就是目前不要过度设计, 比如不要设计不需要的接口, 不要依赖不需要的依赖等.</p>
+<h3 id="迪米特法则"><a href="#迪米特法则" class="headerlink" title="迪米特法则"></a>迪米特法则</h3><p>迪米特法则(<code>Law of Demeter</code>,LoD): 一个软件实体应当尽可能少地与其它实体发生相互作用. </p>
+<p>迪米特法则又称为<strong>最少知识原则</strong>(<code>LeastKnowledge Principle</code>,LIP).<br>如果一个系统符合迪米特法则, 那么当其中某一个模块发生修改时, 就会尽量少地影响其他模块, 扩展会相对容易, 这是对软件实体之间通信的限制, 迪米特法则要求限制软件实体之间通信的宽度和深度. 迪米特法则可降低系统的耦合度, 使类与类之间保持松散的耦合关系. </p>
+<h2 id="三大类型"><a href="#三大类型" class="headerlink" title="三大类型"></a>三大类型</h2><h3 id="创建型-Creational"><a href="#创建型-Creational" class="headerlink" title="创建型(Creational)"></a><a href="/2018/design-pattern-creational">创建型(Creational)</a></h3><ul>
+<li><p><strong>单例模式</strong>(<code>Singleton</code>): 保证一个类仅有一个实例, 并提供一个访问它的全局访问点. </p>
+</li>
+<li><p><strong>工厂方法</strong>(<code>Factory Method</code>): 定义一个创建对象的接口, 让其子类自己决定实例化哪一个工厂类, 工厂模式使其创建过程延迟到子类进行. </p>
+</li>
+<li><p><strong>抽象工厂</strong>(<code>Abstract Factory</code>): 提供一个创建一系列相关或相互依赖对象的接口, 而无需指定它们具体的类. </p>
+</li>
+<li><p><strong>建造者模式</strong>(<code>Builder</code>): 将一个复杂对象的构建与它的表示分离, 使得同样的构建过程可以创建不同的表示. </p>
+</li>
+<li><p><strong>原型模式</strong>(<code>Prototype</code>): 用原型实例指定创建对象的种类, 并且通过拷贝这些原型来创建新的对象. </p>
+</li>
+</ul>
+<h3 id="结构型-Structural"><a href="#结构型-Structural" class="headerlink" title="结构型(Structural)"></a>结构型(Structural)</h3><ul>
+<li><p><strong>适配器模式</strong>(<code>Adapter</code>): 适配器模式把一个类的接口变换成客户端所期待的另一种接口, 从而使原本因接口不匹配而无法在一起工作的两个类能够在一起工作. </p>
+</li>
+<li><p><strong>装饰模式</strong>(<code>Decrator</code>): 装饰模式是在不必改变原类文件和使用继承的情况下, 动态的扩展一个对象的功能. 它是通过创建一个包装对象, 也就是装饰来包裹真实的对象. </p>
+</li>
+<li><p><strong>代理模式(</strong><code>Proxy</code>): 为其他对象提供一种代理以控制对这个对象的访问 ；</p>
+</li>
+<li><p><strong>外观模式</strong>(<code>Facade</code>): 为子系统中的一组接口提供一个一致的界面, 外观模式定义了一个高层接口, 这个接口使得这一子系统更加容易使用. </p>
+</li>
+<li><p><strong>桥接模式</strong>(<code>Bridge</code>): 将抽象部分与实现部分分离, 使它们都可以独立的变化. </p>
+</li>
+<li><p><strong>组合模式</strong>(<code>Composite</code>): 允许你将对象组合成树形结构来表现”整体-部分”层次结构. 组合能让客户以一致的方法处理个别对象以及组合对象. </p>
+</li>
+<li><p><strong>享元模式</strong>(<code>Flyweight</code>): 运用共享技术有效地支持大量细粒度的对象. </p>
+</li>
+</ul>
+<h3 id="行为型-Behavioral"><a href="#行为型-Behavioral" class="headerlink" title="行为型(Behavioral)"></a>行为型(Behavioral)</h3><ul>
+<li><p><strong>策略模式</strong>(<code>Strategy</code>): 定义一组算法, 将每个算法都封装起来, 并且使他们之间可以互换. </p>
+</li>
+<li><p><strong>模板方法</strong>(<code>Template Method</code>): 一个操作中算法的框架, 而将一些步骤延迟到子类中, 使得子类可以不改变算法的结构即可重定义该算法中的某些特定步骤. </p>
+</li>
+<li><p><strong>观察者模式</strong>(<code>Observer</code>): 定义对象间的一种一对多的依赖关系, 当一个对象的状态发生改变时, 所有依赖于它的对象都得到通知并被自动更新. </p>
+</li>
+<li><p><strong>迭代器模式</strong>(<code>Iterator</code>): 提供一种方法顺序访问一个聚合对象中各个元素, 而又无须暴露该对象的内部表示；</p>
+</li>
+<li><p><strong>职责链模式</strong>(<code>Chain of Responsibility</code>): 避免请求发送者与接收者耦合在一起, 让多个对象都有可能接收请求, 将这些对象连接成一条链, 并且沿着这条链传递请求, 直到有对象处理它为止. </p>
+</li>
+<li><p><strong>命令模式</strong>(<code>Command</code>): 将一个请求封装为一个对象, 从而使你可以用不同的请求对客户进行参数化, 对请求排队和记录请求日志, 以及支持可撤销的操作；</p>
+</li>
+<li><p><strong>备忘录模式</strong>(<code>Memento</code>): 在不破坏封装性的前提下, 捕获一个对象的内部状态, 并在该对象之外保存这个状态. 这样就可以将该对象恢复到原先保存的状态. </p>
+</li>
+<li><p><strong>状态模式</strong>(<code>State</code>): 允许对象在内部状态改变时改变它的行为, 对象看起来好像修改了它的类. </p>
+</li>
+<li><p><strong>访问者模式</strong>(<code>Visitor</code>): 表示一个作用于其对象结构中的各元素的操作, 它使你可以在不改变各元素类的前提下定义作用于这些元素的新操作. </p>
+</li>
+<li><p><strong>中介者模式</strong>(<code>Mediator</code>): 用一个中介对象来封装一系列的对象交互, 中介者使各对象不需要显示地相互引用. 从而使其耦合松散, 而且可以独立地改变它们之间的交互. </p>
+</li>
+<li><p><strong>解释器模式</strong>(<code>Interpreter</code>): 给定一个语言, 定义它的文法表示, 并定义一个解释器, 这个解释器使用该标识来解释语言中的句子. </p>
+</li>
+</ul>
+<h2 id="四大阶段"><a href="#四大阶段" class="headerlink" title="四大阶段"></a>四大阶段</h2><p>　　1, 没学之前, 什么是设计模式, 老听别人说设计模式, 感觉好高大上, 那它到底是什么鬼. 这时我们设计的代码复用性很差, 难以维护. </p>
+<p>　　2, 学了几个模式后, 感觉很简单, 于是到处想着要用自己学过的模式, 这样就会造成滥用. 最后感觉还不如不用. </p>
+<p>　　3, 学完全部模式时, 感觉很多模式太相似了, 无法很清晰的知道各模式之间的区别, 联系, 这时一脸懵逼, 脑子一团乱麻. 在使用时, 分不清要使用那种模式. </p>
+<p>　　4, 模式已熟记于心, 已忘其形, 深知其意, 达到无剑胜有剑的境界, 恭喜你, 万剑归宗已练成！！！</p>
+<h1 id="UML"><a href="#UML" class="headerlink" title="UML"></a>UML</h1><p>UML中有九种建模的图标, 即:<br><strong>用例图</strong>, <strong>类图</strong>, <strong>对象图</strong>, <strong>顺序图</strong>, <strong>协作图</strong>, <strong>状态图</strong>, <strong>活动图</strong>, <strong>组件图</strong>, <strong>配置图</strong></p>
+<h2 id="Class-Diagram"><a href="#Class-Diagram" class="headerlink" title="Class Diagram"></a>Class Diagram</h2><p>在这主要学习一下<strong>类图 Class diagram </strong>.<br>通过显示出系统的类以及这些类之间的关系来表示系统. 类图是静态的———它们显示出什么可以产生影响但不会告诉你什么时候产生影响. </p>
+<p>UML类的符号是一个被划分成三块的方框: 类名, 属性, 和操作. 抽象类的名字, 是斜体的. 类之间的关系是连接线. </p>
+<h2 id="类与类的关系"><a href="#类与类的关系" class="headerlink" title="类与类的关系"></a>类与类的关系</h2><ul>
+<li><strong>泛化</strong>: 可以简单的理解为继承关系；</li>
+<li><strong>实现</strong>: 一般是接口和实现类之间的关系；</li>
+<li><strong>关联</strong>: 一种拥有关系, 比如老师类中有学生列表, 那么老师类和学生类就是拥有关系；</li>
+<li><strong>聚合</strong>: 整体与部分的关系, 但是整体和部分是可以分离而独立存在的, 如汽车类和轮胎类；</li>
+<li><strong>组合</strong>: 整体与部分的关系, 但是二者不可分离, 分离了就没有意义了, 例如, 公司类和部门类, 没有公司就没有部门；</li>
+<li><strong>依赖</strong>: 一种使用关系, 例如创建 A 类必须要有 B 类. </li>
+</ul>
+<p><img src="https://cdn.yangbingdong.com/img/design-pattern-uml-and-six-principle/uml-relation.png" alt></p>
+<p>这是一个类图的记忆方法: <strong><em><a href="https://mp.weixin.qq.com/s/yfp5ejzm4kHW44kU876SYQ" rel="external nofollow noopener noreferrer" target="_blank">https://mp.weixin.qq.com/s/yfp5ejzm4kHW44kU876SYQ</a></em></strong></p>
+<h2 id="StarUML"><a href="#StarUML" class="headerlink" title="StarUML"></a>StarUML</h2><p><em><a href="http://staruml.io/" rel="external nofollow noopener noreferrer" target="_blank">StarUML</a></em>…就是一个画UML的很炫酷的工具=.=</p>
+<h3 id="显示interface"><a href="#显示interface" class="headerlink" title="显示interface"></a>显示interface</h3><p>在staruml中, interface默认是以一个圆圈显示的(尴尬了)…, 但好在可以设置成想要的样子. </p>
+<ol>
+<li>添加一个圆圈(interface)之后, 右键或选择菜单栏中的Format</li>
+<li>选择Stereotype Display -&gt; Label, 这样矩形就显示出来了</li>
+<li>同样是Format, 然后把Suppress Operations取消掉, 这样操作就可以显示出来了</li>
+</ol>
+<p><img src="https://cdn.yangbingdong.com/img/learning-uml-and-using-staruml/interface-01.png" alt></p>
+<p><img src="https://cdn.yangbingdong.com/img/learning-uml-and-using-staruml/interface-02.png" alt></p>
+<h2 id="Gliffy"><a href="#Gliffy" class="headerlink" title="Gliffy"></a>Gliffy</h2><p><em><a href="https://www.gliffy.com/" rel="external nofollow noopener noreferrer" target="_blank">Gliffy</a></em>是一个<em><a href="https://go.gliffy.com/go/html5/launch" rel="external nofollow noopener noreferrer" target="_blank">在线</a></em>绘图工具, 支持Chrome插件, 非常强大. </p>
+<p><img src="https://cdn.yangbingdong.com/img/design-pattern-uml-and-six-principle/gliffy.png" alt></p>
+
+      
+    </div>
+
+<div style="text-align:center;color: #ccc;font-size:14px;">---------------- The End ----------------</div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat/gongzhonghao.jpg" alt="ookamiAntD wechat" style="width: 200px; max-width: 100%;">
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>谢谢大爷～</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/donate/wechat.png" alt="ookamiAntD WeChat Pay">
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/donate/alipay.jpg" alt="ookamiAntD Alipay">
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+<div>
+	  
+	    <p id="div-border-left-red">
+		Author：<b>ookamiAntD Yang</b><br>
+		Link：<a href="/2017/design-pattern-uml-and-six-principle/" title="设计模式原则与UML类图">http://yangbingdong.com/2017/design-pattern-uml-and-six-principle/</a><br>
+		Contact：<a>yangbingdong1994@gmail.com</a><br>
+	   <b>本文基于<a target="_blank" title="Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)" href="http://creativecommons.org/licenses/by-sa/4.0/" rel="external nofollow noopener noreferrer"> 知识共享署名-相同方式共享 4.0 </a>国际许可协议发布</b><br>
+	    <b>转载请注明出处，谢谢！</b>
+	    </p>
+	  
+	</div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+            <a href="/tags/Design-Pattern/" rel="tag"><i class="fa fa-tag"></i> Design Pattern</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/note-of-linux-command/" rel="next" title="Ubuntu 常用命令">
+                <i class="fa fa-chevron-left"></i> Ubuntu 常用命令
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/new-in-spring-framework-5/" rel="prev" title="Spring5新特征与WebFlux反应式编程">
+                Spring5新特征与WebFlux反应式编程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!--MOB SHARE BEGIN-->
+<div class="-hoofoo-share-title">分享到：</div>
+<div class="-hoofoo-share-buttons">
+    <div class="-mob-share-weibo -hoofoo-share-weibo -hoofoo-share-ui-button"><i class="fa fa-weibo" aria-hidden="true"></i></div>
+    <div class="-mob-share-weixin -hoofoo-share-weixin -hoofoo-share-ui-button"><i class="fa fa-weixin" aria-hidden="true"></i></div>
+    <div class="-mob-share-qq -hoofoo-share-qq -hoofoo-share-ui-button"><i class="fa fa-qq" aria-hidden="true"></i></div>
+    <div class="-mob-share-twitter -hoofoo-share-twitter -hoofoo-share-ui-button"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+    <div class="-hoofoo-share-more -hoofoo-share-ui-button -mob-share-open"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
+</div>
+<div class="-mob-share-ui" style="display: none">
+    <ul class="-mob-share-list">
+        <li class="-mob-share-weibo"><p>新浪微博</p></li>
+        <li class="-mob-share-weixin"><p>微信</p></li>
+        <li class="-mob-share-qzone"><p>QQ空间</p></li>
+        <li class="-mob-share-qq"><p>QQ好友</p></li>
+        <li class="-mob-share-tencentweibo"><p>腾讯微博</p></li>
+        <li class="-mob-share-renren"><p>人人网</p></li>
+        <li class="-mob-share-kaixin"><p>开心网</p></li>
+        <li class="-mob-share-douban"><p>豆瓣</p></li>
+        <li class="-mob-share-youdao"><p>有道云笔记</p></li>
+        <li class="-mob-share-mingdao"><p>明道</p></li>
+        <li class="-mob-share-pengyou"><p>朋友网</p></li>
+        <li class="-mob-share-facebook"><p>Facebook</p></li>
+        <li class="-mob-share-twitter"><p>Twitter</p></li>
+        <li class="-mob-share-pocket"><p>Pocket</p></li>
+        <li class="-mob-share-google"><p>Google+</p></li>
+        <li class="-mob-share-tumblr"><p>Tumblr</p></li>
+        <li class="-mob-share-instapaper"><p>Instapaper</p></li>
+        <li class="-mob-share-linkedin"><p>Linkedin</p></li>
+    </ul>
+    <div class="-mob-share-close">取消</div>
+</div>
+<div class="-mob-share-ui-bg"></div>
+<script id="-mob-share" src="https://f1.webshare.mob.com/code/mob-share.js?appkey=21aa3b13ad233"></script>
+<!--MOB SHARE END-->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+<div style="text-align:center;">
+  <!-- <button class="btn" id="load-disqus" onclick="disqus.load();">加载 Disqus 评论</button> -->
+
+</div>
+      <div id="disqus_proxy_thread"></div>
+      <div id="disqus_thread"></div>
+      
+          <script type="text/javascript">
+              window.disqusProxy = {
+                username: 'ookamiantd',
+                server: 'disqus-proxy.yangbingdong.com',
+                port: '',
+                defaultAvatar: '/images/avatar/avatar-default.jpg',
+                adminAvatar: '/images/avatar/avatar-admin.jpg',
+                identifier: '2017/design-pattern-uml-and-six-principle/'
+              };
+              window.disqus_config = function () {
+                this.page.url = 'http://yangbingdong.com/2017/design-pattern-uml-and-six-principle/';
+                this.page.identifier = '2017/design-pattern-uml-and-six-principle/';
+              };
+              window.onload=function(){
+                var s = document.createElement('script');
+                s.src = "/static/js/main.0d0338ae.js";
+                s.async = true;
+                document.body.appendChild(s);
+              }
+          </script>
+          <link rel="stylesheet" href="/static/css/main.0603c539.css">
+      
+
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar/avatar-admin.jpg" alt="ookamiAntD">
+          <p class="site-author-name" itemprop="name">ookamiAntD</p>
+          <p class="site-description motion-element" itemprop="description">码渣 | rocker | 二次元 | 美剧 | 宅</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/masteranthoneyd" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.facebook.com/profile.php?id=100014869064462" target="_blank" rel="external nofollow noopener noreferrer" title="Facebook">
+                  
+                    <i class="fa fa-fw fa-facebook"></i>
+                  
+                  Facebook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/ookamiAntD" target="_blank" rel="external nofollow noopener noreferrer" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="cc-opacity" target="_blank" rel="external nofollow noopener noreferrer">
+              <img src="/images/cc-by-sa.svg" alt="Creative Commons">
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              大神们的博客
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://mercyblitz.github.io/" title="mercyblitz(Java劝退师)" target="_blank" rel="external nofollow noopener noreferrer">mercyblitz(Java劝退师)</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://muyinchen.github.io/" title="知秋大神(真·大神)" target="_blank" rel="external nofollow noopener noreferrer">知秋大神(真·大神)</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://crossoverjie.top/" title="crossoverJie's Blog" target="_blank" rel="external nofollow noopener noreferrer">crossoverJie's Blog</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://yemengying.com/" title="Giraffe's Home" target="_blank" rel="external nofollow noopener noreferrer">Giraffe's Home</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        <div id="days"></div>
+    <script>
+    function show_date_time(){
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay=new Date("01/10/2017 12:34:56");
+        today=new Date();
+        timeold=(today.getTime()-BirthDay.getTime());
+        sectimeold=timeold/1000
+        secondsold=Math.floor(sectimeold);
+        msPerDay=24*60*60*1000
+        e_daysold=timeold/msPerDay
+        daysold=Math.floor(e_daysold);
+        e_hrsold=(e_daysold-daysold)*24;
+        hrsold=setzero(Math.floor(e_hrsold));
+        e_minsold=(e_hrsold-hrsold)*60;
+        minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+        seconds=setzero(Math.floor((e_minsold-minsold)*60));
+        document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
+    }
+function setzero(i){
+    if (i<10)
+    {i="0" + i};
+    return i;
+}
+show_date_time();
+</script>
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Preface"><span class="nav-number">1.</span> <span class="nav-text">Preface</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Design-Pattern"><span class="nav-number">2.</span> <span class="nav-text">Design Pattern</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#设计原则"><span class="nav-number">2.1.</span> <span class="nav-text">设计原则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单一职责原则"><span class="nav-number">2.1.1.</span> <span class="nav-text">单一职责原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开闭原则"><span class="nav-number">2.1.2.</span> <span class="nav-text">开闭原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#里氏替换原则"><span class="nav-number">2.1.3.</span> <span class="nav-text">里氏替换原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接口隔离原则"><span class="nav-number">2.1.4.</span> <span class="nav-text">接口隔离原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖倒置原则"><span class="nav-number">2.1.5.</span> <span class="nav-text">依赖倒置原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#KISS原则与YAGNI原则"><span class="nav-number">2.1.6.</span> <span class="nav-text">KISS原则与YAGNI原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迪米特法则"><span class="nav-number">2.1.7.</span> <span class="nav-text">迪米特法则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三大类型"><span class="nav-number">2.2.</span> <span class="nav-text">三大类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建型-Creational"><span class="nav-number">2.2.1.</span> <span class="nav-text">创建型(Creational)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结构型-Structural"><span class="nav-number">2.2.2.</span> <span class="nav-text">结构型(Structural)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#行为型-Behavioral"><span class="nav-number">2.2.3.</span> <span class="nav-text">行为型(Behavioral)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四大阶段"><span class="nav-number">2.3.</span> <span class="nav-text">四大阶段</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#UML"><span class="nav-number">3.</span> <span class="nav-text">UML</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Class-Diagram"><span class="nav-number">3.1.</span> <span class="nav-text">Class Diagram</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类与类的关系"><span class="nav-number">3.2.</span> <span class="nav-text">类与类的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StarUML"><span class="nav-number">3.3.</span> <span class="nav-text">StarUML</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#显示interface"><span class="nav-number">3.3.1.</span> <span class="nav-text">显示interface</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gliffy"><span class="nav-number">3.4.</span> <span class="nav-text">Gliffy</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+	<!-- <img style="position: absolute;top: 0;left: 15%;border: 0;width: 200px;height: 200px;" src="http://ojoba1c98.bkt.clouddn.com/img/coding-flag.png" alt="Coding Flag"> -->
+      <div class="footer-inner">
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user">本站访客数</i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye">本站总访问量</i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        <div class="copyright">
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-flash"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hosted by <a href="https://pages.coding.me" style="font-weight: bold" rel="external nofollow noopener noreferrer" target="_blank">Coding Pages</a></span> | <span class="post-count">共293.2k字</span>
+</div>
+
+
+<!-- <div class="theme-info">
+    Personal Blog
+</div> --!>
+
+<div class="theme-info">
+  <a target="_blank" href="https://beian.miit.gov.cn/" rel="nofollow" style="color:#555;">粤ICP备18135202号-1</a>
+</div>
+
+
+<div style="width:300px;margin:0 auto;">
+  <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44010602005896" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+    <img src="https://cdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
+    <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#555;">粤公网安备 44010602005896号</p></a>
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'ookamiantd';
+      var disqus_identifier = '2017/design-pattern-uml-and-six-principle/';
+
+      var disqus_title = "设计模式原则与UML类图";
+
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      var disqus = {
+        load : function disqus(){
+          if(typeof DISQUS !== 'object') {
+            (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+            }());
+            $('#load-disqus').html("评论加载中，请确保你有梯子，若评论长时间未加载则你可能翻墙失败...").fadeOut(9000); ///加载后移除按钮
+          }
+  }
+}
+
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("usE0s6JGUeOiMcsVoRuHuv2B-gzGzoHsz", "ewm6NEF07r83HbnOr63ptuKH");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+  <!-- 背景特效 -->
+  <script type="text/javascript" color="255,0,204" opacity="0.5" zindex="-2" count="40" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
+
+
+
+<script type="text/javascript">
+    //微信二维码点击背景关闭
+    $('body').delegate('.-mob-share-weixin-qrcode-bg','click', function(){
+         $(".-mob-share-weixin-qrcode-close").trigger("click");
+    }); 
+</script>
+
+
+
+
+<!-- 点击爆炸特效 -->
+<!-- <canvas class="fireworks" width="1872" height="183" style="width: 1872px; height: 183px;"></canvas> -->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+<!--卖萌-->
+<script type="text/javascript" src="/js/src/dytitle.js"></script>
+</div></footer></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"superSample":2,"width":88,"height":88,"position":"left"},"mobile":{"show":false},"react":{"opacityDefault":0.9,"opacityOnHover":0.5},"log":false});</script></body>
+</html>
