@@ -85,20 +85,20 @@
 <meta property="og:site_name" content="ookamiAntD&#39;s Blog">
 <meta property="og:description" content="Preface 本篇总结分别基于 Spring Security 与 Spring MVC HandlerInterceptor 实现认证鉴权.">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-boot-security/spring-authentication-banner.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-boot-security/security-filters.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-boot-security/filter-comparator.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-boot-security/core-service-Sequence.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-boot-security/username-password-authentication-filter.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-boot-security/provider-manager.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-boot-security/spring%20security%20architecture.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-boot-security/dao-authentication-password-check.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-auth/auth-design.jpg">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-security/spring-authentication-banner.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-security/security-filters.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-security/filter-comparator.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-security/core-service-Sequence.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-security/username-password-authentication-filter.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-security/provider-manager.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-security/spring%20security%20architecture.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-security/dao-authentication-password-check.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-auth/auth-design.jpg">
 <meta property="og:updated_time" content="2020-07-20T03:52:03.971Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Security 与 HandlerInterceptor 的认证鉴权">
 <meta name="twitter:description" content="Preface 本篇总结分别基于 Spring Security 与 Spring MVC HandlerInterceptor 实现认证鉴权.">
-<meta name="twitter:image" content="https://cdn.yangbingdong.com/img/spring-boot-security/spring-authentication-banner.png">
+<meta name="twitter:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-security/spring-authentication-banner.png">
 
 
 
@@ -463,18 +463,18 @@
       
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://cdn.yangbingdong.com/img/spring-boot-security/spring-authentication-banner.png" alt></p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://oldcdn.yangbingdong.com/img/spring-boot-security/spring-authentication-banner.png" alt></p>
 <h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><blockquote>
 <p>本篇总结分别基于 Spring Security 与 Spring MVC HandlerInterceptor 实现认证鉴权.</p>
 </blockquote>
 <a id="more"></a>
 <h1 id="Spring-Security"><a href="#Spring-Security" class="headerlink" title="Spring Security"></a>Spring Security</h1><p>Spring Security 是基于嵌套 <code>Filter</code>(委派 Filter) 实现的, 在 <code>DispatcherServlet</code> 之前触发. 普通的 Filter 称之为 Web Filter, 而 Spring Security 的 Filter 称之为 Security Filter:</p>
-<p><img src="https://cdn.yangbingdong.com/img/spring-boot-security/security-filters.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-boot-security/security-filters.png" alt></p>
 <p>默认有哪些 Filter 可以看 <code>FilterComparator</code> 中的源码:</p>
-<p><img src="https://cdn.yangbingdong.com/img/spring-boot-security/filter-comparator.png" alt></p>
-<h2 id="认证流程"><a href="#认证流程" class="headerlink" title="认证流程"></a>认证流程</h2><p><img src="https://cdn.yangbingdong.com/img/spring-boot-security/core-service-Sequence.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-boot-security/filter-comparator.png" alt></p>
+<h2 id="认证流程"><a href="#认证流程" class="headerlink" title="认证流程"></a>认证流程</h2><p><img src="https://oldcdn.yangbingdong.com/img/spring-boot-security/core-service-Sequence.png" alt></p>
 <h3 id="登录拦截"><a href="#登录拦截" class="headerlink" title="登录拦截"></a>登录拦截</h3><p>在 <code>FilterComparator</code> 中有一个 <code>UsernamePasswordAuthenticationFilter</code>, 继承了 <code>AbstractAuthenticationProcessingFilter</code>, 它就是我们登录时用到的 Filter:</p>
-<p><img src="https://cdn.yangbingdong.com/img/spring-boot-security/username-password-authentication-filter.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-boot-security/username-password-authentication-filter.png" alt></p>
 <ul>
 <li>可以看到, <strong>默认情况下拦截 <code>/login</code> 端点的 POST 请求</strong>, 当然, 可以通过配置改变这个 url.</li>
 <li>这里还有一个关键, 在 <code>attempAuthentication</code> 中, 用户名以及密码的参数是 <code>username</code> 以及 <code>password</code>, 并且是从 http parameter 中获取的, 如果要<strong>支持 Json 格式的登录, 那就要重写这里</strong>.</li>
@@ -484,18 +484,18 @@
 <p><strong>这一步相当与登录信息的提取以及封装</strong>.</p>
 </blockquote>
 <h3 id="认证"><a href="#认证" class="headerlink" title="认证"></a>认证</h3><p>认证通过 <code>AuthenticationManager</code> 进行的, 这是一个接口, 默认的实现类为 <code>ProviderManager</code>:</p>
-<p><img src="https://cdn.yangbingdong.com/img/spring-boot-security/provider-manager.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-boot-security/provider-manager.png" alt></p>
 <p>可以看到实现类 <code>ProviderManager</code> 中维护了一个 <code>List&lt;AuthenticationProvider&gt;</code> 的列表, 存放多种认证方式, 实际上这是委托者模式的应用(Delegate)</p>
 <blockquote>
 <p>核心的认证入口始终只有一个: <code>AuthenticationManager</code>, 不同的认证方式: 用户名 + 密码(<code>UsernamePasswordAuthenticationToken</code>), 邮箱 + 密码, 手机号码 + 密码登录则对应了三个 <code>AuthenticationProvider</code>. 在默认策略下, 只需要通过一个 <code>AuthenticationProvider</code> 的认证, 即可被认为是登录成功.</p>
 </blockquote>
-<p><img src="https://cdn.yangbingdong.com/img/spring-boot-security/spring%20security%20architecture.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-boot-security/spring%20security%20architecture.png" alt></p>
 <p>一个最常用到的 <code>AuthenticationProvider</code> 实现类就是 <code>DaoAuthenticationProvider</code>, 里面比较重要的一个环节就是 <code>additionalAuthenticationChecks</code> (密码校验):</p>
 <ul>
 <li>通过 <code>UserDetailsService</code>  的实现类(需要用户自己实现)拿到 <code>UserDetails</code></li>
 <li>将其中的 <code>password</code> 与 <code>UsernamePasswordAuthenticationToken</code> 中的 <code>credentials</code> 进行对比 </li>
 </ul>
-<p><img src="https://cdn.yangbingdong.com/img/spring-boot-security/dao-authentication-password-check.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-boot-security/dao-authentication-password-check.png" alt></p>
 <p>登录成功后会执行 <code>AbstractAuthenticationProcessingFilter#successfulAuthentication</code> 将 <code>Authentication</code> 存到 <code>SecurityContextHolder</code> 中.</p>
 <p>到此, 认证的核心就是这样了.</p>
 <h2 id="权限校验流程"><a href="#权限校验流程" class="headerlink" title="权限校验流程"></a>权限校验流程</h2><p><code>FilterSecurityInterceptor</code> 是整个Security filter链中的最后一个, 也是最重要的一个, 它的主要功能就是判断认证成功的用户是否有权限访问接口, 其最主要的处理方法就是 调用父类（<code>AbstractSecurityInterceptor</code>）的 <code>super.beforeInvocation(fi)</code>, 我们来梳理下这个方法的处理流程：</p>
@@ -541,7 +541,7 @@
 <p>完整代码请看: <strong><em><a href="https://github.com/masteranthoneyd/alchemist/tree/master/auth" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/masteranthoneyd/alchemist/tree/master/auth</a></em></strong></p>
 <h1 id="RBAC-权限设计"><a href="#RBAC-权限设计" class="headerlink" title="RBAC 权限设计"></a>RBAC 权限设计</h1><p>主要核心逻辑还是 <code>用户-角色-权限</code>.</p>
 <p>在这基础上拓展出 <code>用户-用户组-角色</code> 以及 <code>权限-类型-具体权限</code>.</p>
-<p><img src="https://cdn.yangbingdong.com/img/spring-auth/auth-design.jpg" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-auth/auth-design.jpg" alt></p>
 
       
     </div>
@@ -974,7 +974,7 @@ show_date_time();
 
 <div style="width:300px;margin:0 auto;">
   <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44010602005896" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
-    <img src="https://cdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
+    <img src="https://oldcdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
     <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#555;">粤公网安备 44010602005896号</p></a>
 </div>
 

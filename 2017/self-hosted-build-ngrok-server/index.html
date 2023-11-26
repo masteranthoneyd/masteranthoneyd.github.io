@@ -85,15 +85,15 @@
 <meta property="og:site_name" content="ookamiAntD&#39;s Blog">
 <meta property="og:description" content="前言 Ngrok可以干嘛？我们经常会有 “把本机开发中的 web 项目给朋友看一下” 或 “测试一下支付宝、微信的支付功能” 这种临时需求, 为此专门购买个域名然后在 VPS或云主机 上部署一遍就有点太浪费了. 那么这时候, Ngrok就是个很好的东西, 它可以实现我们的这种需求. 而且 Ngrok 官网本身还提供了公共服务, 只需要注册一个帐号, 运行它的客户端, 就可以快速把内网映射出去.">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://cdn.yangbingdong.com/ngrok.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/DNSPod.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/ngrok-server-startup.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/ngrok-client-startup01.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/ngrok.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/DNSPod.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/ngrok-server-startup.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/ngrok-client-startup01.png">
 <meta property="og:updated_time" content="2020-07-22T08:46:56.011Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VPS自搭建Ngrok内网穿透服务">
 <meta name="twitter:description" content="前言 Ngrok可以干嘛？我们经常会有 “把本机开发中的 web 项目给朋友看一下” 或 “测试一下支付宝、微信的支付功能” 这种临时需求, 为此专门购买个域名然后在 VPS或云主机 上部署一遍就有点太浪费了. 那么这时候, Ngrok就是个很好的东西, 它可以实现我们的这种需求. 而且 Ngrok 官网本身还提供了公共服务, 只需要注册一个帐号, 运行它的客户端, 就可以快速把内网映射出去.">
-<meta name="twitter:image" content="https://cdn.yangbingdong.com/ngrok.png">
+<meta name="twitter:image" content="https://oldcdn.yangbingdong.com/ngrok.png">
 
 
 
@@ -436,12 +436,12 @@
       
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://cdn.yangbingdong.com/ngrok.png" alt></p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://oldcdn.yangbingdong.com/ngrok.png" alt></p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
 <p>Ngrok可以干嘛？我们经常会有 “把本机开发中的 web 项目给朋友看一下” 或 “测试一下支付宝、微信的支付功能” 这种临时需求, 为此<strong>专门</strong>购买个域名然后在 VPS或云主机 上<strong>部署一遍</strong>就有点太<strong>浪费</strong>了. 那么这时候, <strong>Ngrok</strong>就是个很好的东西, 它可以实现我们的这种需求. 而且 Ngrok 官网本身还提供了公共服务, 只需要注册一个帐号, 运行它的客户端, 就可以快速把内网映射出去. 不过这么好的服务, 没多久就被<strong>墙</strong>了~幸好Ngrok是<strong>开源</strong>的, 那么我们可以自己搭建一个Ngrok！</p>
 </blockquote>
 <a id="more"></a>
-<h1 id="域名泛解析"><a href="#域名泛解析" class="headerlink" title="域名泛解析"></a>域名泛解析</h1><p>因为内网穿透需要用到多级域名, 这里, 博主的这个域名是在<strong><em><a href="https://www.namesilo.com/" rel="external nofollow noopener noreferrer" target="_blank">Namesilo</a></em></strong>购买的, 然后转到DNSPod解析:<br><img src="https://cdn.yangbingdong.com/DNSPod.png" alt><br>如图所示, 我搞买的域名是<code>yangbingdong.com</code>,将<code>ngrok.yangbingdong.com</code>通过<code>A</code>记录解析导VPS的ip地址, 再将<code>*.ngrok.yangbingdong.com</code>通过<code>CNAME</code>解析导<code>ngrok.yangbingdong.com</code>, 完成泛解析. </p>
+<h1 id="域名泛解析"><a href="#域名泛解析" class="headerlink" title="域名泛解析"></a>域名泛解析</h1><p>因为内网穿透需要用到多级域名, 这里, 博主的这个域名是在<strong><em><a href="https://www.namesilo.com/" rel="external nofollow noopener noreferrer" target="_blank">Namesilo</a></em></strong>购买的, 然后转到DNSPod解析:<br><img src="https://oldcdn.yangbingdong.com/DNSPod.png" alt><br>如图所示, 我搞买的域名是<code>yangbingdong.com</code>,将<code>ngrok.yangbingdong.com</code>通过<code>A</code>记录解析导VPS的ip地址, 再将<code>*.ngrok.yangbingdong.com</code>通过<code>CNAME</code>解析导<code>ngrok.yangbingdong.com</code>, 完成泛解析. </p>
 <h1 id="服务端安装"><a href="#服务端安装" class="headerlink" title="服务端安装"></a>服务端安装</h1><h2 id="安装GO环境"><a href="#安装GO环境" class="headerlink" title="安装GO环境"></a>安装GO环境</h2><blockquote>
 <p>这里博主选择通过下载最新版解压安装. </p>
 </blockquote>
@@ -454,7 +454,7 @@
 <li>如果要编译linux,<code>GOOS=linux</code>;如果要编译window,<code>GOOS=windows</code></li>
 </ul>
 <h2 id="启动server"><a href="#启动server" class="headerlink" title="启动server"></a>启动server</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/src/ngrok/bin &amp;&amp; ./ngrokd -domain="ngrok.yangbingdong.com" -httpAddr=":8002" -httpsAddr=":8003" -tunnelAddr=":4000"</span><br></pre></td></tr></table></figure>
-<p><strong><code>ngrok.yangbingdong.com</code>换成自己的域名</strong>. 其他端口可自己配置.<br>顺利的话, 可以正常编译, 在<code>bin</code>下面可以看到「ngrokd」和「ngrok」, 其中「ngrokd」是服务端执行程序, 「ngrok」是客户端执行程序<br><img src="https://cdn.yangbingdong.com/ngrok-server-startup.png" alt></p>
+<p><strong><code>ngrok.yangbingdong.com</code>换成自己的域名</strong>. 其他端口可自己配置.<br>顺利的话, 可以正常编译, 在<code>bin</code>下面可以看到「ngrokd」和「ngrok」, 其中「ngrokd」是服务端执行程序, 「ngrok」是客户端执行程序<br><img src="https://oldcdn.yangbingdong.com/ngrok-server-startup.png" alt></p>
 <h2 id="后台运行"><a href="#后台运行" class="headerlink" title="后台运行:"></a>后台运行:</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/src/ngrok/bin &amp;&amp; nohup ./ngrokd -domain="ngrok.yangbingdong.com" -httpAddr=":8002" -httpsAddr=":8003" -tunnelAddr=":4000"  &gt; /dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">apt-get install screen</span><br><span class="line">screen -S 任意名字（例如: keepngork）</span><br><span class="line">然后运行ngrok启动命令</span><br><span class="line">最后按快捷键</span><br><span class="line">ctrl+A+D</span><br><span class="line">既可以保持ngrok后台运行</span><br></pre></td></tr></table></figure>
 <h2 id="设置开机启动"><a href="#设置开机启动" class="headerlink" title="设置开机启动"></a>设置开机启动</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/init.d/ngrok_start:</span><br><span class="line">cd /usr/local/src/ngrok/bin</span><br><span class="line">./ngrokd -domain="ngrok.yangbingdong.com" -httpAddr=":8002" -httpsAddr=":8003" -tunnelAddr=":4000"</span><br><span class="line"></span><br><span class="line">chmod 755 /etc/init.d/ngrok_start</span><br></pre></td></tr></table></figure>
@@ -462,7 +462,7 @@
 <p><strong>将<code>12.34.56.78</code>换成自己的VPS ip</strong>. </p>
 <h2 id="启动客户端"><a href="#启动客户端" class="headerlink" title="启动客户端"></a>启动客户端</h2><p>写一个简单的配置文件, 随意命名如 ngrok.cfg:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">server_addr: ngrok.yangbingdong.com:4000</span><br><span class="line">trust_host_root_certs: false</span><br></pre></td></tr></table></figure></p>
 <p>然后启动:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./ngrok -subdomain ybd -config=ngrok.cfg 8080</span><br></pre></td></tr></table></figure></p>
-<p>其中<code>ybd</code>是自定义的域名前缀, <code>ngrok.cfg</code>是上面创建的配置文件, <code>8080</code>是本地需要映射到外网的端口.<br>没有意外的话访问<code>ybd.ngrok.yangbingdong.com:8002</code>就会映射到本机的<code>8080</code>端口了.<br><img src="https://cdn.yangbingdong.com/ngrok-client-startup01.png" alt></p>
+<p>其中<code>ybd</code>是自定义的域名前缀, <code>ngrok.cfg</code>是上面创建的配置文件, <code>8080</code>是本地需要映射到外网的端口.<br>没有意外的话访问<code>ybd.ngrok.yangbingdong.com:8002</code>就会映射到本机的<code>8080</code>端口了.<br><img src="https://oldcdn.yangbingdong.com/ngrok-client-startup01.png" alt></p>
 <p>控制台: </p>
 <p>就是上图的<code>Web Interface</code>, 通过这个界面可以看到远端转发过来的 http 详情, 包括完整的 request/response 信息, 相当于附带了一个抓包工具. </p>
 <p>另外, Ngrok支持多种协议, 启动的时候可以指定通过<code>-proto</code>指定协议, 例如: </p>
@@ -941,7 +941,7 @@ show_date_time();
 
 <div style="width:300px;margin:0 auto;">
   <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44010602005896" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
-    <img src="https://cdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
+    <img src="https://oldcdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
     <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#555;">粤公网安备 44010602005896号</p></a>
 </div>
 

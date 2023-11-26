@@ -85,19 +85,19 @@
 <meta property="og:site_name" content="ookamiAntD&#39;s Blog">
 <meta property="og:description" content="Preface 后端应用当中与DB交互也是必不可少的一部, 在Java中我们将交互部分抽象成了 ORM(Object Relational Mapping), 以下是数据源以及ORM相关…">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-boot-orm/spring-data-learning.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-boot-orm/spring-tx01.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-boot-orm/spring-tx02.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-boot-orm/spring-tx03.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-boot-orm/spring-tx04.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-boot-orm/spring-tx05.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-boot-orm/spring-tx05.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-boot-orm/spring-tx06.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-orm/spring-data-learning.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-orm/spring-tx01.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-orm/spring-tx02.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-orm/spring-tx03.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-orm/spring-tx04.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-orm/spring-tx05.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-orm/spring-tx05.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-orm/spring-tx06.png">
 <meta property="og:updated_time" content="2020-04-07T10:15:47.014Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Boot 之数据篇">
 <meta name="twitter:description" content="Preface 后端应用当中与DB交互也是必不可少的一部, 在Java中我们将交互部分抽象成了 ORM(Object Relational Mapping), 以下是数据源以及ORM相关…">
-<meta name="twitter:image" content="https://cdn.yangbingdong.com/img/spring-boot-orm/spring-data-learning.png">
+<meta name="twitter:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-orm/spring-data-learning.png">
 
 
 
@@ -462,7 +462,7 @@
       
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://cdn.yangbingdong.com/img/spring-boot-orm/spring-data-learning.png" alt></p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://oldcdn.yangbingdong.com/img/spring-boot-orm/spring-data-learning.png" alt></p>
 <h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><blockquote>
 <p>后端应用当中与DB交互也是必不可少的一部, 在Java中我们将交互部分抽象成了 <strong>ORM</strong>(Object Relational Mapping), 以下是数据源以及ORM相关…</p>
 </blockquote>
@@ -872,13 +872,13 @@
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:log4jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">net.sf.log4jdbc.DriverSpy</span></span><br></pre></td></tr></table></figure>
 <h1 id="Spring-事务监控"><a href="#Spring-事务监控" class="headerlink" title="Spring 事务监控"></a>Spring 事务监控</h1><p>某些特殊的场景下, 我们需要在事务开启时, 完成时做一些事情, 比如释放一些资源. </p>
 <h2 id="方式一-TransactionSynchronization"><a href="#方式一-TransactionSynchronization" class="headerlink" title="方式一: TransactionSynchronization"></a>方式一: TransactionSynchronization</h2><p>Spring事务的核心部分在 <code>TransactionInterceptor#invoke</code>, <code>TransactionInterceptor</code> 继承了 <code>TransactionAspectSupport</code>, <code>TransactionAspectSupport</code> 使用 <code>AbstractPlatformTransactionManager</code> 的实现类操作事务. <code>AbstractPlatformTransactionManager</code> 中的 <code>processCommit</code> 以及  <code>processRollback</code> 中的几个节点会调用到 <code>TransactionSynchronizationUtils</code> 中的一些方法: </p>
-<p><img src="https://cdn.yangbingdong.com/img/spring-boot-orm/spring-tx01.png" alt></p>
-<p><img src="https://cdn.yangbingdong.com/img/spring-boot-orm/spring-tx02.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-boot-orm/spring-tx01.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-boot-orm/spring-tx02.png" alt></p>
 <p>这些被trigger的类就是 <code>TransactionSynchronization</code> 的实现类.</p>
 <p><code>TransactionSynchronizationUtils</code> 通过 <code>TransactionSynchronizationManager#getSynchronizations</code> 来获取 <code>TransactionSynchronization</code> 列表, 而 <code>TransactionSynchronizationManager</code> 是通过 <code>ThreadLocal</code> 来管理这些类的:</p>
-<p><img src="https://cdn.yangbingdong.com/img/spring-boot-orm/spring-tx03.png" alt></p>
-<p><img src="https://cdn.yangbingdong.com/img/spring-boot-orm/spring-tx04.png" alt></p>
-<p><img src="https://cdn.yangbingdong.com/img/spring-boot-orm/spring-tx05.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-boot-orm/spring-tx03.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-boot-orm/spring-tx04.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-boot-orm/spring-tx05.png" alt></p>
 <p>示例:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Slf</span>4j</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestTransactionSynchronization</span> <span class="keyword">extends</span> <span class="title">TransactionSynchronizationAdapter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getOrder</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">suspend</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		log.info(<span class="string">"#################### suspend"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">resume</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		log.info(<span class="string">"#################### resume"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">flush</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		log.info(<span class="string">"#################### flush"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">beforeCommit</span><span class="params">(<span class="keyword">boolean</span> readOnly)</span> </span>&#123;</span><br><span class="line">		log.info(<span class="string">"#################### beforeCommit"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">beforeCompletion</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		log.info(<span class="string">"#################### beforeCompletion"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterCommit</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		log.info(<span class="string">"#################### afterCommit"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterCompletion</span><span class="params">(<span class="keyword">int</span> status)</span> </span>&#123;</span><br><span class="line">		log.info(<span class="string">"#################### afterCompletion"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>那么这个类什么时候注册进 <code>TransactionSynchronizationManager</code> 呢? 答案是每次事务开启的时候, 因为这个是使用 <code>ThreadLocal</code> 保存的, 每次事务过后会被清空掉. 我们可以使用切面, 将打有 <code>@Transactional</code> 注解的方法增强一下:</p>
@@ -899,9 +899,9 @@
 <li><code>ApplicationListenerMethodTransactionalAdapter</code> 中进一步将监听方法封装成 <code>TransactionSynchronizationEventAdapter</code>, 再通过 <code>TransactionSynchronizationManager.registerSynchronization</code> 进行注册</li>
 </ul>
 <h2 id="判断当前方法是否在事务环境中"><a href="#判断当前方法是否在事务环境中" class="headerlink" title="判断当前方法是否在事务环境中"></a>判断当前方法是否在事务环境中</h2><p>通过上面的 <code>TransactionSynchronizationManager</code> 可以发现定义了很多 <code>ThreadLocal</code>:</p>
-<p><img src="https://cdn.yangbingdong.com/img/spring-boot-orm/spring-tx05.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-boot-orm/spring-tx05.png" alt></p>
 <p>可以看到变量中有一个 <code>actualTransactionActive</code> 以及 <code>currentTransactionReadOnly</code>, 通过这两个变量可以判断当前是否在事务当中, Spring很多代码中也是通过这个来判断的, 比如 <code>RedisConnectionUtils#isActualNonReadonlyTransactionActive</code> :</p>
-<p><img src="https://cdn.yangbingdong.com/img/spring-boot-orm/spring-tx06.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-boot-orm/spring-tx06.png" alt></p>
 <h1 id="对象映射"><a href="#对象映射" class="headerlink" title="对象映射"></a>对象映射</h1><blockquote>
 <p><strong><em><a href="https://www.baeldung.com/java-performance-mapping-frameworks" rel="external nofollow noopener noreferrer" target="_blank">https://www.baeldung.com/java-performance-mapping-frameworks</a></em></strong></p>
 </blockquote>
@@ -1342,7 +1342,7 @@ show_date_time();
 
 <div style="width:300px;margin:0 auto;">
   <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44010602005896" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
-    <img src="https://cdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
+    <img src="https://oldcdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
     <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#555;">粤公网安备 44010602005896号</p></a>
 </div>
 

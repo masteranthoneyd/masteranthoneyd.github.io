@@ -85,25 +85,25 @@
 <meta property="og:site_name" content="ookamiAntD&#39;s Blog">
 <meta property="og:description" content="Preface MQ(Message Queue, 消息队列)是一种应用系统之间的通信方法. 是通过读写出入队列的消息来通信(RPC则是通过直接调用彼此来通信的).  AMQP, 即Advanced Message Queuing Protocol, 高级消息队列协议, 是应用层协议的一个开放标准, 为面向消息的中间件设计. 消息中间件主要用于组件之间的解耦, 消息的发送者无需知道消息使用者的存">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/rabbitmq-learning/spring-rabbitmq-banner.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/rabbitmq-learning/basic-single-send-and-receive.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/rabbitmq-learning/queue-constructor01.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/rabbitmq-learning/queue-constructor02.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/rabbitmq-learning/exchange-constructor.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/rabbitmq-learning/rabbit-error-dlq01.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/rabbitmq-learning/rabbit-error-dlq02.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/rabbitmq-learning/rabbit-error-dlq03.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/rabbitmq-learning/rabbitmq-x-delay-plugin.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/rabbitmq-learning/stream-rabbit-delay01.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/rabbitmq-learning/stream-rabbit-delay02.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/rabbitmq-learning/x-dalay-admin01.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/rabbitmq-learning/x-dalay-admin02.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/rabbitmq-learning/rabbitmq-exclusive.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/rabbitmq-learning/spring-rabbitmq-banner.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/rabbitmq-learning/basic-single-send-and-receive.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/rabbitmq-learning/queue-constructor01.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/rabbitmq-learning/queue-constructor02.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/rabbitmq-learning/exchange-constructor.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/rabbitmq-learning/rabbit-error-dlq01.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/rabbitmq-learning/rabbit-error-dlq02.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/rabbitmq-learning/rabbit-error-dlq03.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/rabbitmq-learning/rabbitmq-x-delay-plugin.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/rabbitmq-learning/stream-rabbit-delay01.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/rabbitmq-learning/stream-rabbit-delay02.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/rabbitmq-learning/x-dalay-admin01.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/rabbitmq-learning/x-dalay-admin02.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/rabbitmq-learning/rabbitmq-exclusive.png">
 <meta property="og:updated_time" content="2020-04-23T10:04:19.385Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Rabbit &amp; Spring AMQP 入门">
 <meta name="twitter:description" content="Preface MQ(Message Queue, 消息队列)是一种应用系统之间的通信方法. 是通过读写出入队列的消息来通信(RPC则是通过直接调用彼此来通信的).  AMQP, 即Advanced Message Queuing Protocol, 高级消息队列协议, 是应用层协议的一个开放标准, 为面向消息的中间件设计. 消息中间件主要用于组件之间的解耦, 消息的发送者无需知道消息使用者的存">
-<meta name="twitter:image" content="https://cdn.yangbingdong.com/img/rabbitmq-learning/spring-rabbitmq-banner.png">
+<meta name="twitter:image" content="https://oldcdn.yangbingdong.com/img/rabbitmq-learning/spring-rabbitmq-banner.png">
 
 
 
@@ -457,7 +457,7 @@
       
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://cdn.yangbingdong.com/img/rabbitmq-learning/spring-rabbitmq-banner.png" alt></p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://oldcdn.yangbingdong.com/img/rabbitmq-learning/spring-rabbitmq-banner.png" alt></p>
 <h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><blockquote>
 <p>MQ(Message Queue, 消息队列)是一种应用系统之间的通信方法. 是通过读写出入队列的消息来通信(RPC则是通过直接调用彼此来通信的). </p>
 <p>AMQP, 即Advanced Message Queuing Protocol, 高级消息队列协议, 是应用层协议的一个开放标准, 为面向消息的中间件设计. 消息中间件主要用于组件之间的解耦, 消息的发送者无需知道消息使用者的存在, 反之亦然.<br>AMQP的主要特征是面向消息, 队列, 路由(包括点对点和发布/订阅), 可靠性, 安全. </p>
@@ -472,7 +472,7 @@
 <p>工具类:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.yangbingdong.rabbitmq.basic;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.rabbitmq.client.Connection;</span><br><span class="line"><span class="keyword">import</span> com.rabbitmq.client.ConnectionFactory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeoutException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConnectionUtil</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String HOST = <span class="string">"127.0.0.1"</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String NAME_PASS = <span class="string">"rabbitmq"</span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getConnection</span><span class="params">()</span> <span class="keyword">throws</span> IOException, TimeoutException </span>&#123;</span><br><span class="line">		ConnectionFactory factory = <span class="keyword">new</span> ConnectionFactory();</span><br><span class="line">		factory.setHost(HOST);</span><br><span class="line">		factory.setUsername(NAME_PASS);</span><br><span class="line">		factory.setPassword(NAME_PASS);</span><br><span class="line">		<span class="keyword">return</span> factory.newConnection();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>运行结果:</p>
-<p><img src="https://cdn.yangbingdong.com/img/rabbitmq-learning/basic-single-send-and-receive.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/rabbitmq-learning/basic-single-send-and-receive.png" alt></p>
 <h2 id="Connection"><a href="#Connection" class="headerlink" title="Connection"></a>Connection</h2><p><code>ConnectionFactory</code>, <code>Connection</code>, <code>Channel</code> 这三个都是RabbitMQ对外提供的API中最基本的对象, 不管是服务器端还是客户端都会首先创建这三类对象.<br><code>ConnectionFactory</code>为<code>Connection</code>的制造工厂.<br><code>Connection</code>是与RabbitMQ服务器的socket链接, 它封装了socket协议及身份验证相关部分逻辑.<br><code>Channel</code>是我们与RabbitMQ打交道的最重要的一个接口, 大部分的业务操作是在Channel这个接口中完成的, 包括定义Queue, 定义Exchange, 绑定Queue与Exchange, 发布消息等.</p>
 <h2 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h2><p>Queue是RabbitMQ的内部对象, 用于存储消息, RabbitMQ中的消息都只能存储在Queue中, 生产者生产消息并最终投递到Queue中, 消费者可以从Queue中获取消息并消费. 队列是有Channel声明的, 而且这个操作是幂等的, 同名的队列多次声明也只会创建一次.</p>
 <h2 id="Exchange"><a href="#Exchange" class="headerlink" title="Exchange"></a>Exchange</h2><blockquote>
@@ -528,10 +528,10 @@
 <h2 id="Spring-AMQP-1"><a href="#Spring-AMQP-1" class="headerlink" title="Spring AMQP"></a>Spring AMQP</h2><p>在Spring AMQP中, 通过Queue构造器可指定持久化是否开启:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Queue <span class="title">delayQueue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> Queue(DELAY_QUEUE, <span class="keyword">true</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>第二个参数指的是是否开启持久化:</p>
-<p><img src="https://cdn.yangbingdong.com/img/rabbitmq-learning/queue-constructor01.png" alt></p>
-<p><img src="https://cdn.yangbingdong.com/img/rabbitmq-learning/queue-constructor02.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/rabbitmq-learning/queue-constructor01.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/rabbitmq-learning/queue-constructor02.png" alt></p>
 <p>ExChange 指定持久化也一样:</p>
-<p><img src="https://cdn.yangbingdong.com/img/rabbitmq-learning/exchange-constructor.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/rabbitmq-learning/exchange-constructor.png" alt></p>
 <h2 id="Spring-Cloud-Stream-1"><a href="#Spring-Cloud-Stream-1" class="headerlink" title="Spring Cloud Stream"></a>Spring Cloud Stream</h2><p>在Spring Cloud Stream中指定Queue与Exchange持久化只需要通过以下两个参数配置, 默认值都为 <code>true</code>:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">spring.cloud.stream.rabbit.bindings.&lt;channelName&gt;.consumer.durableSubscription=</span><br><span class="line">spring.cloud.stream.rabbit.bindings.&lt;channelName&gt;.consumer.exchangeDurable=</span><br></pre></td></tr></table></figure>
 <h1 id="手动ACK"><a href="#手动ACK" class="headerlink" title="手动ACK"></a>手动ACK</h1><p>在Spring AMQP中ACK是自动完成的, 如果报错了, 消息不会丢失, 但是会无限循环消费, 一直报错, 如果开启了错误日志很容易就把磁盘空间耗完.</p>
@@ -561,15 +561,15 @@
 <h1 id="DLQ队列"><a href="#DLQ队列" class="headerlink" title="DLQ队列"></a>DLQ队列</h1><p>通过下面参数开启DLQ转发:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spring.cloud.stream.rabbit.bindings.&lt;channelName&gt;.consumer.auto-bind-dlq=true</span><br></pre></td></tr></table></figure>
 <p>当消息消费失败后, 消息会原封不动地转发到 <code>error-topic.test.dlq</code> 这个死信队列中.</p>
-<p><img src="https://cdn.yangbingdong.com/img/rabbitmq-learning/rabbit-error-dlq01.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/rabbitmq-learning/rabbit-error-dlq01.png" alt></p>
 <p>点击进入死信队列, 可以使用 <code>Get Message</code> 查看消息, <code>Move message</code> 可以将消息移动到原先的队列中继续消费.</p>
-<p><img src="https://cdn.yangbingdong.com/img/rabbitmq-learning/rabbit-error-dlq02.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/rabbitmq-learning/rabbit-error-dlq02.png" alt></p>
 <p><strong>设置死信队列消息过期时间</strong>:</p>
 <p>如果某些消息存在时效性, 可通过一下参数配置过期时间, 超过时间后, 消息会自动移除掉:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spring.cloud.stream.rabbit.bindings.&lt;channelName&gt;.consumer.dlq-ttl=10000</span><br></pre></td></tr></table></figure>
 <p>将异常信息放到消息header中:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spring.cloud.stream.rabbit.bindings.&lt;channelName&gt;.consumer.republish-to-dlq=true</span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.yangbingdong.com/img/rabbitmq-learning/rabbit-error-dlq03.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/rabbitmq-learning/rabbit-error-dlq03.png" alt></p>
 <h1 id="重新入队"><a href="#重新入队" class="headerlink" title="重新入队"></a>重新入队</h1><p>重新入队是指消息消费失败了之后, 消息将不会被抛弃, 而是重新放入队列中. </p>
 <p>可以通过以下参数开启:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spring.cloud.stream.rabbit.bindings.&lt;channelName&gt;.consumer.requeue-rejected=true</span><br></pre></td></tr></table></figure>
@@ -589,7 +589,7 @@
 <p>只有RabbitMQ 3.6.x以上才支持</p>
 </blockquote>
 <p>这里使用Docker部署, <code>rabbitmq_delayed_message_exchange</code>插件需要到 <strong><em><a href="https://www.rabbitmq.com/community-plugins.html" rel="external nofollow noopener noreferrer" target="_blank">官网下载</a></em></strong>.</p>
-<p><img src="https://cdn.yangbingdong.com/img/rabbitmq-learning/rabbitmq-x-delay-plugin.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/rabbitmq-learning/rabbitmq-x-delay-plugin.png" alt></p>
 <p>Dockerfile:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FROM rabbitmq:3.7-management</span><br><span class="line">COPY --chown=rabbitmq:rabbitmq rabbitmq_delayed_message_exchange-20171201-3.7.x.ez /opt/rabbitmq/plugins/</span><br><span class="line">COPY --chown=rabbitmq:rabbitmq enabled_plugins /etc/rabbitmq/enabled_plugins</span><br></pre></td></tr></table></figure>
 <p>enable_plugins:</p>
@@ -615,8 +615,8 @@
 <p>发送延迟消息:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">XDelaySender</span> <span class="keyword">extends</span> <span class="title">SpringBootRabbitmqApplicationTests</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> DelayTopic delayTopic;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendDelay</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		delayTopic.output().send(MessageBuilder.withPayload(<span class="string">"Hello World "</span>).setHeader(<span class="string">"x-delay"</span>, <span class="number">5000</span>).build());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>运行结果, 可以看到发送与接受之间差了5秒:</p>
-<p><img src="https://cdn.yangbingdong.com/img/rabbitmq-learning/stream-rabbit-delay01.png" alt></p>
-<p><img src="https://cdn.yangbingdong.com/img/rabbitmq-learning/stream-rabbit-delay02.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/rabbitmq-learning/stream-rabbit-delay01.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/rabbitmq-learning/stream-rabbit-delay02.png" alt></p>
 <h3 id="Spring-AMQP-4"><a href="#Spring-AMQP-4" class="headerlink" title="Spring AMQP"></a>Spring AMQP</h3><p>Configuration:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RabbitMqConfiguration</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Bean</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> DirectExchange <span class="title">delayExchange</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        DirectExchange exchange = <span class="keyword">new</span> DirectExchange(topicName, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>);</span><br><span class="line">        exchange.setDelayed(<span class="keyword">true</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Bean</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Queue <span class="title">delayQueue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> Queue(DELAY_QUEUE, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Bean</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Binding <span class="title">delayBinging</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> BindingBuilder.bind(delayQueue()).to(delayExchange()).with(DELAY_ROUTING_KEY);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>常量类:</p>
@@ -626,8 +626,8 @@
 <p>消费者:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Slf</span>4j</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RabbitConsumer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@RabbitListener</span>(queues = MqConstant.DELAY_QUEUE)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delayQueueListener</span><span class="params">(User user, Message message, Channel channel)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">		log.info(<span class="string">"接收时间:&#123;&#125;,接受内容:&#123;&#125;"</span>, LocalDateTime.now(), user);</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			System.out.println(<span class="string">"处理业务逻辑中"</span>);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="查看延迟消息数量"><a href="#查看延迟消息数量" class="headerlink" title="查看延迟消息数量"></a>查看延迟消息数量</h2><p>这个可以通过RabbitMQ的管理页面查看:</p>
-<p><img src="https://cdn.yangbingdong.com/img/rabbitmq-learning/x-dalay-admin01.png" alt></p>
-<p><img src="https://cdn.yangbingdong.com/img/rabbitmq-learning/x-dalay-admin02.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/rabbitmq-learning/x-dalay-admin01.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/rabbitmq-learning/x-dalay-admin02.png" alt></p>
 <h1 id="独占队列"><a href="#独占队列" class="headerlink" title="独占队列"></a>独占队列</h1><p>某些场景下, 我们对消息的处理具有<strong>严格的顺序</strong>依赖性, 比如下一个消息的处理需要基于上一个消息的处理结果.</p>
 <p>这时候, 一般比较暴力的做法就是只部署一台消费者. 还有另外一种做法便是独占队列.</p>
 <p>以RabbitMQ为例, 使用注解的话只需要多加一个 <code>exclusive = true</code> 的参数:</p>
@@ -644,7 +644,7 @@
 <p>注册到Spring容器:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> ListenerContainerCustomizer <span class="title">customListenerContainerCustomizer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> CustomListenerContainerCustomizer();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>启用了独占模式的队列中, 可以看到这个:</p>
-<p><img src="https://cdn.yangbingdong.com/img/rabbitmq-learning/rabbitmq-exclusive.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/rabbitmq-learning/rabbitmq-exclusive.png" alt></p>
 <h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="多Binder配置"><a href="#多Binder配置" class="headerlink" title="多Binder配置"></a>多Binder配置</h2><p><code>spring.cloud.stream.bindings.{channel-name}.binder</code>:设定指定通道binder名称，完全自定义；<br><code>spring.cloud.stream.binders.{binder-name}.type</code>：对自定义的binder设定其类型，rabbit或者kafka；<br><code>spring.cloud.stream.binders.{binder-name}.environment.{*}</code>：对自定义的binder设定其配置项，如host等；<br><code>spring.cloud.stream.default-binder</code>：除了特殊的通道需要设定binder，其他的channel需要从所有自定义的binder选择一个作为默认binder，即所有非指定binder的通道均采用此<code>default-binder</code></p>
 <h1 id="Finally"><a href="#Finally" class="headerlink" title="Finally"></a>Finally</h1><blockquote>
 <p>参考:</p>
@@ -1085,7 +1085,7 @@ show_date_time();
 
 <div style="width:300px;margin:0 auto;">
   <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44010602005896" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
-    <img src="https://cdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
+    <img src="https://oldcdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
     <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#555;">粤公网安备 44010602005896号</p></a>
 </div>
 

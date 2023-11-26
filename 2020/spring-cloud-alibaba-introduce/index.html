@@ -85,17 +85,17 @@
 <meta property="og:site_name" content="ookamiAntD&#39;s Blog">
 <meta property="og:description" content="Preface 阿里作为国内最大的云厂家之一, 在微服务如火如荼的当下也紧跟时代, 推出了 Spring Cloud Alibaba 体系, 与自身的云产品有更好的融合. 本篇主要记录开源 Spring Cloud Alibaba 组件的简单实用.">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-cloud-alibaba/spring-cloud-alibaba-introduce.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-cloud-alibaba/sentinel.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-cloud-alibaba/sentinel02.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-cloud-alibaba/sentinel01.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-cloud-alibaba/messaging01.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-cloud-alibaba/messaging02.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-cloud-alibaba/spring-cloud-alibaba-introduce.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-cloud-alibaba/sentinel.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-cloud-alibaba/sentinel02.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-cloud-alibaba/sentinel01.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-cloud-alibaba/messaging01.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-cloud-alibaba/messaging02.png">
 <meta property="og:updated_time" content="2020-10-11T02:26:14.586Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Cloud Alibaba 介绍">
 <meta name="twitter:description" content="Preface 阿里作为国内最大的云厂家之一, 在微服务如火如荼的当下也紧跟时代, 推出了 Spring Cloud Alibaba 体系, 与自身的云产品有更好的融合. 本篇主要记录开源 Spring Cloud Alibaba 组件的简单实用.">
-<meta name="twitter:image" content="https://cdn.yangbingdong.com/img/spring-cloud-alibaba/spring-cloud-alibaba-introduce.png">
+<meta name="twitter:image" content="https://oldcdn.yangbingdong.com/img/spring-cloud-alibaba/spring-cloud-alibaba-introduce.png">
 
 
 
@@ -460,7 +460,7 @@
       
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://cdn.yangbingdong.com/img/spring-cloud-alibaba/spring-cloud-alibaba-introduce.png" alt></p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://oldcdn.yangbingdong.com/img/spring-cloud-alibaba/spring-cloud-alibaba-introduce.png" alt></p>
 <h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><blockquote>
 <p>阿里作为国内最大的云厂家之一, 在微服务如火如荼的当下也紧跟时代, 推出了 Spring Cloud Alibaba 体系, 与自身的云产品有更好的融合. 本篇主要记录开源 Spring Cloud Alibaba 组件的简单实用.</p>
 </blockquote>
@@ -592,7 +592,7 @@
 <li>覆盖 API Gateway 场景, 为 Spring Cloud Gateway, Zuul 提供网关流量控制的能力</li>
 <li>实时监控和规则动态配置管理能力</li>
 </ul>
-<p><img src="https://cdn.yangbingdong.com/img/spring-cloud-alibaba/sentinel.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-cloud-alibaba/sentinel.png" alt></p>
 <p>现假设有三个服务分别是 demo-gateway(业务网关), web-api-demo(web 应用, 负责接收用户请求并调用 dubbo-provider), dubbo-provider(服务提供者).</p>
 <p>其中 web 暴露了三个端点:</p>
 <ul>
@@ -612,18 +612,18 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">spring.application.name=foo-web</span><br><span class="line">spring.cloud.sentinel.transport.dashboard=localhost:8080</span><br></pre></td></tr></table></figure>
 <p>依次启动 dubbo-provider, web-api-demo 和 demo-gateway 应用, 并通过网关入口访问 <code>localhost:8090/demo/time</code> 获取当前时间.</p>
 <p>触发后可以在 Sentinel 的面板看到访问信息:</p>
-<p><img src="https://cdn.yangbingdong.com/img/spring-cloud-alibaba/sentinel02.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-cloud-alibaba/sentinel02.png" alt></p>
 <p>可以为每个链路设置限流:</p>
-<p><img src="https://cdn.yangbingdong.com/img/spring-cloud-alibaba/sentinel01.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-cloud-alibaba/sentinel01.png" alt></p>
 <p>更多限流规则请查看官方文档: <strong><em><a href="https://sentinelguard.io/zh-cn/docs/introduction.html" rel="external nofollow noopener noreferrer" target="_blank">https://sentinelguard.io/zh-cn/docs/introduction.html</a></em></strong></p>
 <p>自定义流控逻辑:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SentinelWebConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> BlockExceptionHandler <span class="title">sentinelBlockExceptionHandler</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (request, response, e) -&gt; &#123;</span><br><span class="line">            <span class="comment">// 429 Too Many Requests</span></span><br><span class="line">            response.setStatus(<span class="number">429</span>);</span><br><span class="line"></span><br><span class="line">            PrintWriter out = response.getWriter();</span><br><span class="line">            out.print(<span class="string">"Oops, blocked by Sentinel: "</span> + e.getClass().getSimpleName());</span><br><span class="line">            out.flush();</span><br><span class="line">            out.close();</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>对于其他 RPC 组件比如 Feign 的支持请看 <strong><em><a href="https://github.com/alibaba/spring-cloud-alibaba/wiki/Sentinel?spm=a2ck6.20206201.0.0.3c4a1fd6mFeVca#feign-%E6%94%AF%E6%8C%81" rel="external nofollow noopener noreferrer" target="_blank">Spring Cloud Alibaba Sentinel 接入文档</a></em></strong></p>
 <h1 id="Spring-Cloud-Stream-RocketMQ"><a href="#Spring-Cloud-Stream-RocketMQ" class="headerlink" title="Spring Cloud Stream RocketMQ"></a>Spring Cloud Stream RocketMQ</h1><p>Spring 生态里有两个消息相关的模块和项目, 分别是 spring-messaging 模块和 Spring Integration 项目, 他们将消息模型进行了统一, 抽象成 <code>org.springframework.messaging.Message</code>:</p>
-<p><img src="https://cdn.yangbingdong.com/img/spring-cloud-alibaba/messaging01.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-cloud-alibaba/messaging01.png" alt></p>
 <p><code>Payload</code> 是一个泛型, 意味是消息体可以放任意数据类型. Header 是一个 <code>MessageHeaders</code> 类型的消息头. </p>
 <p>Spring Cloud Stream 是在 Spring Integration 基础上封装的, 他们的关系如下:</p>
-<p><img src="https://cdn.yangbingdong.com/img/spring-cloud-alibaba/messaging02.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-cloud-alibaba/messaging02.png" alt></p>
 <p>Spring Cloud Stream RocketMQ 的用法与其他 Binder 的用法一致, 不同的是依赖以及配置:</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-stream-rocketmq<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">spring.cloud.stream.rocketmq.binder.name-server=http://1459088147016887.mqrest.cn-qingdao-public.aliyuncs.com</span><br><span class="line"></span><br><span class="line">spring.cloud.stream.bindings.source1.destination=test-topic-1</span><br><span class="line">spring.cloud.stream.bindings.source1.group=group-1-yangbingdong</span><br><span class="line">spring.cloud.stream.bindings.source1.binder=rocketmq</span><br><span class="line"></span><br><span class="line">spring.cloud.stream.bindings.source2.destination=test-topic-2</span><br><span class="line">spring.cloud.stream.bindings.source2.group=group-2-yangbingdong</span><br><span class="line">spring.cloud.stream.bindings.source2.binder=rocketmq</span><br></pre></td></tr></table></figure>
@@ -1055,7 +1055,7 @@ show_date_time();
 
 <div style="width:300px;margin:0 auto;">
   <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44010602005896" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
-    <img src="https://cdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
+    <img src="https://oldcdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
     <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#555;">粤公网安备 44010602005896号</p></a>
 </div>
 

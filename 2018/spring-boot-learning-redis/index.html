@@ -85,15 +85,15 @@
 <meta property="og:site_name" content="ookamiAntD&#39;s Blog">
 <meta property="og:description" content="Preface Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库, 并提供多种语言的API. 相比Memcached它支持存储的类型相对更多（字符、哈希、集合、有序集合、列表、GEO）, 同时Redis是线程安全的. 2010年3月15日起, Redis的开发工作由VMware主持, 2013年5月开始, Redis的开发由Pivo">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-boot-redis/redis-logo.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/javaDevEnv/rdr.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-boot-redis/serialize-performance.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-boot-redis/redis-key-expire-disruptor.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-redis/redis-logo.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/javaDevEnv/rdr.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-redis/serialize-performance.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-redis/redis-key-expire-disruptor.png">
 <meta property="og:updated_time" content="2020-07-15T11:05:06.641Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis拾遗与Spring Boot整合">
 <meta name="twitter:description" content="Preface Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库, 并提供多种语言的API. 相比Memcached它支持存储的类型相对更多（字符、哈希、集合、有序集合、列表、GEO）, 同时Redis是线程安全的. 2010年3月15日起, Redis的开发工作由VMware主持, 2013年5月开始, Redis的开发由Pivo">
-<meta name="twitter:image" content="https://cdn.yangbingdong.com/img/spring-boot-redis/redis-logo.png">
+<meta name="twitter:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-redis/redis-logo.png">
 
 
 
@@ -458,7 +458,7 @@
       
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://cdn.yangbingdong.com/img/spring-boot-redis/redis-logo.png" alt></p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://oldcdn.yangbingdong.com/img/spring-boot-redis/redis-logo.png" alt></p>
 <h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><blockquote>
 <p>Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库, 并提供多种语言的API. 相比<code>Memcached</code>它支持存储的类型相对更多<strong>（字符、哈希、集合、有序集合、列表、GEO）</strong>, <strong>同时Redis是线程安全的</strong>. 2010年3月15日起, Redis的开发工作由VMware主持, 2013年5月开始, Redis的开发由<code>Pivotal</code>赞助. </p>
 </blockquote>
@@ -697,7 +697,7 @@
 <p>再使用<code>bgsave</code>命令导出<code>dump.rdb</code>, 将<code>dump.rdb</code>复制出来, 再使用 <strong><em><a href="https://github.com/xueqiu/rdr" rel="external nofollow noopener noreferrer" target="_blank">rdr</a></em></strong> 分析: </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./rdr show -p 8080 *.rdb</span><br></pre></td></tr></table></figure>
 <p>效果图: </p>
-<p><img src="https://cdn.yangbingdong.com/img/javaDevEnv/rdr.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/javaDevEnv/rdr.png" alt></p>
 <h1 id="Spring-Boot整合"><a href="#Spring-Boot整合" class="headerlink" title="Spring Boot整合"></a>Spring Boot整合</h1><h2 id="Lettuce"><a href="#Lettuce" class="headerlink" title="Lettuce"></a>Lettuce</h2><h3 id="核心依赖"><a href="#核心依赖" class="headerlink" title="核心依赖"></a>核心依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-redis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.commons<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-pool2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>使用连接池需要用到<code>commons-pool2</code></li>
@@ -718,7 +718,7 @@
 <p>操作系统: Ubuntu 18.04 64位</p>
 <p>CPU: I7-8700</p>
 <p>内存: 32G </p>
-<p><img src="https://cdn.yangbingdong.com/img/spring-boot-redis/serialize-performance.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-boot-redis/serialize-performance.png" alt></p>
 <ul>
 <li><code>Protostuff</code>不能直接序列化集合, 需要用包装类封装起来. </li>
 <li><code>String</code>类型还是建议直接使用<code>StringRedisSerializer</code>, 速度最快. </li>
@@ -759,7 +759,7 @@
 <p>工具类: </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.lmax.disruptor.TimeoutException;</span><br><span class="line"><span class="keyword">import</span> com.lmax.disruptor.dsl.Disruptor;</span><br><span class="line"><span class="keyword">import</span> lombok.extern.slf4j.Slf4j;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.lang3.concurrent.BasicThreadFactory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> ybd</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 18-9-29</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@contact</span> yangbingdong1994@gmail.com</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Slf</span>4j</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">DisruptorUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> BasicThreadFactory <span class="title">getThreadFactory</span><span class="params">(String pattern)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> BasicThreadFactory.Builder().namingPattern(pattern)</span><br><span class="line">                                               .daemon(<span class="keyword">true</span>)</span><br><span class="line">                                               .build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">shutDownDisruptor</span><span class="params">(Disruptor disruptor)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (disruptor != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                disruptor.shutdown(<span class="number">5</span>, TimeUnit.SECONDS);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (TimeoutException e) &#123;</span><br><span class="line">                log.error(<span class="string">"Disruptor shutdown error!"</span>, e);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>效果图: </p>
-<p><img src="https://cdn.yangbingdong.com/img/spring-boot-redis/redis-key-expire-disruptor.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-boot-redis/redis-key-expire-disruptor.png" alt></p>
 <h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><blockquote>
 <h2 id="Timing-of-expired-events"><a href="#Timing-of-expired-events" class="headerlink" title="Timing of expired events"></a>Timing of expired events</h2><p>Keys with a time to live associated are expired by Redis in two ways:</p>
 <ul>
@@ -1205,7 +1205,7 @@ show_date_time();
 
 <div style="width:300px;margin:0 auto;">
   <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44010602005896" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
-    <img src="https://cdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
+    <img src="https://oldcdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
     <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#555;">粤公网安备 44010602005896号</p></a>
 </div>
 

@@ -85,15 +85,15 @@
 <meta property="og:site_name" content="ookamiAntD&#39;s Blog">
 <meta property="og:description" content="Preface Github Pages 在国内访问速度不理想, 其他国内的免费静态页面服务(Coding等)有时候也比较慢, 于是决定自己使用国内的云服务器部署静态博客. 一般是通过Nginx可以做到, 但是要开启Https以及Http2还需要手动配置一些东西, 面向普通用户不太友善, 这时候可以使用 Caddy 来做到简易部署Https的静态博客…">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/caddy/caddy-banner.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/caddy/caddy-script.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/caddy/config-githun-webhook.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/caddy/add-github-webhook.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/caddy/caddy-banner.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/caddy/caddy-script.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/caddy/config-githun-webhook.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/caddy/add-github-webhook.png">
 <meta property="og:updated_time" content="2020-04-07T10:15:47.014Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Caddy部署Https静态博客站点">
 <meta name="twitter:description" content="Preface Github Pages 在国内访问速度不理想, 其他国内的免费静态页面服务(Coding等)有时候也比较慢, 于是决定自己使用国内的云服务器部署静态博客. 一般是通过Nginx可以做到, 但是要开启Https以及Http2还需要手动配置一些东西, 面向普通用户不太友善, 这时候可以使用 Caddy 来做到简易部署Https的静态博客…">
-<meta name="twitter:image" content="https://cdn.yangbingdong.com/img/caddy/caddy-banner.png">
+<meta name="twitter:image" content="https://oldcdn.yangbingdong.com/img/caddy/caddy-banner.png">
 
 
 
@@ -436,7 +436,7 @@
       
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://cdn.yangbingdong.com/img/caddy/caddy-banner.png" alt></p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://oldcdn.yangbingdong.com/img/caddy/caddy-banner.png" alt></p>
 <h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><blockquote>
 <p>Github Pages 在国内访问速度不理想, 其他国内的免费静态页面服务(Coding等)有时候也比较慢, 于是决定自己使用国内的云服务器部署静态博客. 一般是通过Nginx可以做到, 但是要开启Https以及Http2还需要手动配置一些东西, 面向普通用户不太友善, 这时候可以使用 <strong><em><a href="https://caddyserver.com" rel="external nofollow noopener noreferrer" target="_blank">Caddy</a></em></strong> 来做到简易部署Https的静态博客…</p>
 </blockquote>
@@ -444,7 +444,7 @@
 <p>简单来说, <strong><em><a href="https://caddyserver.com" rel="external nofollow noopener noreferrer" target="_blank">Caddy</a></em></strong> 是一个用GO语言编写的轻量级高性能Web服务器, 并自动启用 Https(<strong><em><a href="https://letsencrypt.org/" rel="external nofollow noopener noreferrer" target="_blank">Let’s Encrypt</a></em></strong> 自动续期) 以及 Http2, 只需要简单的配置, 对于这种静态页面网站或者简单的代理还算是比较友好的.</p>
 <p>下面记录一下安装以及配置过程.</p>
 <h1 id="通过官方脚本安装"><a href="#通过官方脚本安装" class="headerlink" title="通过官方脚本安装"></a>通过官方脚本安装</h1><h2 id="定制安装脚本"><a href="#定制安装脚本" class="headerlink" title="定制安装脚本"></a>定制安装脚本</h2><p>在 <strong><em><a href="https://caddyserver.com/download" rel="external nofollow noopener noreferrer" target="_blank">https://caddyserver.com/download</a></em></strong> 中定制自己的Caddy安装脚本:</p>
-<p><img src="https://cdn.yangbingdong.com/img/caddy/caddy-script.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/caddy/caddy-script.png" alt></p>
 <p>Copy 一键安装脚本到服务器上安装即可, 比如:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://getcaddy.com | bash -s personal http.cache,http.git,http.minify,tls.dns.linode,hook.service,http.forwardproxy</span><br></pre></td></tr></table></figure>
 <h2 id="配置Systemd"><a href="#配置Systemd" class="headerlink" title="配置Systemd"></a>配置Systemd</h2><p>安装完成之后配置Systemd:</p>
@@ -495,8 +495,8 @@
 <p>Docker启动:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">--name caddy \</span><br><span class="line">--restart=always \</span><br><span class="line">-v /var/www/yangbingdong.com:/srv/www/yangbingdong.com \</span><br><span class="line">-v /var/log/caddy:/srv/log/caddy \</span><br><span class="line">-v /etc/caddy/Caddyfile:/etc/Caddyfile \</span><br><span class="line">-v /etc/ssl/caddy:/root/.caddy \</span><br><span class="line">-e ACME_AGREE=true \</span><br><span class="line">-p 80:80 -p 443:443 \</span><br><span class="line">abiosoft/caddy:no-stats</span><br></pre></td></tr></table></figure>
 <h1 id="配置-Github-Web-Hook"><a href="#配置-Github-Web-Hook" class="headerlink" title="配置 Github Web Hook"></a>配置 Github Web Hook</h1><p>如下图:</p>
-<p><img src="https://cdn.yangbingdong.com/img/caddy/config-githun-webhook.png" alt></p>
-<p><img src="https://cdn.yangbingdong.com/img/caddy/add-github-webhook.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/caddy/config-githun-webhook.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/caddy/add-github-webhook.png" alt></p>
 <ul>
 <li>Content Type 需要选择 <code>application/json</code></li>
 </ul>
@@ -1091,7 +1091,7 @@ show_date_time();
 
 <div style="width:300px;margin:0 auto;">
   <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44010602005896" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
-    <img src="https://cdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
+    <img src="https://oldcdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
     <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#555;">粤公网安备 44010602005896号</p></a>
 </div>
 

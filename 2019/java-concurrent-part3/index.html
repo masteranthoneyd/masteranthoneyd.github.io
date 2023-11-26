@@ -85,18 +85,18 @@
 <meta property="og:site_name" content="ookamiAntD&#39;s Blog">
 <meta property="og:description" content="Preface 此篇聊聊 线程安全的容器 以及 JDK 原子类的简单使用.">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/concurrent/java-concurrent-part3-banner2.jpg">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/concurrent/java-concurrent-container01.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/concurrent/java-concurrent-copyonwritelist.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/concurrent/java-concurrent-map.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/concurrent/java-concurrent-queue01.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/concurrent/java-concurrent-queue02.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/concurrent/java-concurrent-atomic-family.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/concurrent/java-concurrent-part3-banner2.jpg">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/concurrent/java-concurrent-container01.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/concurrent/java-concurrent-copyonwritelist.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/concurrent/java-concurrent-map.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/concurrent/java-concurrent-queue01.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/concurrent/java-concurrent-queue02.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/concurrent/java-concurrent-atomic-family.png">
 <meta property="og:updated_time" content="2020-04-07T10:15:47.010Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 并发拾遗-并发工具(中)">
 <meta name="twitter:description" content="Preface 此篇聊聊 线程安全的容器 以及 JDK 原子类的简单使用.">
-<meta name="twitter:image" content="https://cdn.yangbingdong.com/img/concurrent/java-concurrent-part3-banner2.jpg">
+<meta name="twitter:image" content="https://oldcdn.yangbingdong.com/img/concurrent/java-concurrent-part3-banner2.jpg">
 
 
 
@@ -461,7 +461,7 @@
       
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://cdn.yangbingdong.com/img/concurrent/java-concurrent-part3-banner2.jpg" alt></p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://oldcdn.yangbingdong.com/img/concurrent/java-concurrent-part3-banner2.jpg" alt></p>
 <h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><blockquote>
 <p>此篇聊聊 线程安全的容器 以及 JDK 原子类的简单使用.</p>
 </blockquote>
@@ -478,10 +478,10 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">List list = Collections.</span><br><span class="line">  synchronizedList(<span class="keyword">new</span> ArrayList());</span><br><span class="line">Iterator i = list.iterator(); </span><br><span class="line"><span class="keyword">while</span> (i.hasNext())</span><br><span class="line">  foo(i.next());</span><br></pre></td></tr></table></figure>
 <p>上面提到的这些经过包装后线程安全容器, 都是<strong>基于 <code>synchronized</code> 这个同步关键字实现</strong>的, 所以也被称为<strong>同步容器</strong>. Java 提供的同步容器还有 <code>Vector</code>、<code>Stack</code> 和 <code>Hashtable</code>, 这三个容器不是基于包装类实现的, 但同样是基于 <code>synchronized</code> 实现的, 对这三个容器的遍历, 同样要加锁保证互斥. </p>
 <h2 id="并发容器"><a href="#并发容器" class="headerlink" title="并发容器"></a>并发容器</h2><p>上面提到的同步容器都是基于 <code>synchronized</code> 来实现的, 因此性能不高, 因此 Java 在 1.5 及之后版本提供了性能更高的容器, 我们一般称为并发容器. </p>
-<p><img src="https://cdn.yangbingdong.com/img/concurrent/java-concurrent-container01.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/concurrent/java-concurrent-container01.png" alt></p>
 <h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><p>List 里面只有一个实现类就是 <code>CopyOnWriteArrayList</code>. CopyOnWrite, 顾名思义就是写的时候会将共享变量新复制一份出来, 这样做的好处是读操作完全无锁. </p>
 <p>如果在遍历 <code>CopyOnWriteArrayList</code> 的同时, 还有一个写操作, <code>CopyOnWriteArrayList</code> 会将 array 复制一份, 然后在新复制处理的数组上执行增加元素的操作, 执行完之后再将 array 指向这个新的数组. 读写是可以并行的, 遍历操作一直都是基于原 array 执行, 而写操作则是基于新 array 进行:</p>
-<p><img src="https://cdn.yangbingdong.com/img/concurrent/java-concurrent-copyonwritelist.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/concurrent/java-concurrent-copyonwritelist.png" alt></p>
 <p>使用 <code>CopyOnWriteArrayList</code> 需要注意的“坑”主要有两个方面. </p>
 <ul>
 <li>一个是应用场景, <code>CopyOnWriteArrayList</code> 仅适用于写操作非常少的场景, 而且能够容忍读写的短暂不一致. 例如上面的例子中, 写入的新元素并不能立刻被遍历到;</li>
@@ -489,22 +489,22 @@
 </ul>
 <h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><p>Map 接口的两个实现是 <code>ConcurrentHashMap</code> 和 <code>ConcurrentSkipListMap</code>, 它们从应用的角度来看, 主要区别在于 <code>ConcurrentHashMap</code> 的 key 是<strong>无序</strong>的, 而 <code>ConcurrentSkipListMap</code> 的 key 是<strong>有序</strong>的, 就像 <code>HashMap</code> 与 <code>TreeMap</code> 一样.</p>
 <p>使用 <code>ConcurrentHashMap</code> 和 <code>ConcurrentSkipListMap</code> 需要注意的地方是, 它们的 key 和 value 都不能为空, 否则会抛出 <code>NullPointerException</code> 这个运行时异常, 因为在多线程环境下, 调用 <code>get(KEY)</code> 拿到的 null 值无法判断是设置进去的 null 还是被别的线程删除了.</p>
-<p><img src="https://cdn.yangbingdong.com/img/concurrent/java-concurrent-map.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/concurrent/java-concurrent-map.png" alt></p>
 <p><code>ConcurrentSkipListMap</code> 里面的 <code>SkipList</code> 本身就是一种数据结构, 中文一般都翻译为“跳表”, 以空间换时间. 跳表插入、删除、查询操作平均的时间复杂度是 <code>O(log n)</code>, 理论上和并发线程数没有关系, 所以在并发度非常高的情况下, 若对 <code>ConcurrentHashMap</code> 的性能还不满意, 可以尝试一下 <code>ConcurrentSkipListMap</code>. </p>
 <h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><p>Set 接口的两个实现是 <code>CopyOnWriteArraySet</code> 和 <code>ConcurrentSkipListSet</code>, 使用场景可以参考前面讲述的 <code>CopyOnWriteArrayList</code> 和 <code>ConcurrentSkipListMap</code>, 它们的原理都是一样的, 这里就不再赘述了. </p>
 <h3 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h3><p>Java 并发包里面 Queue 这类并发容器是最复杂的, 你可以从以下两个维度来分类. 一个维度是<strong>阻塞与非阻塞</strong>, 所谓阻塞指的是当队列已满时, 入队操作阻塞; 当队列已空时, 出队操作阻塞. 另一个维度是<strong>单端与双端</strong>, 单端指的是只能队尾入队, 队首出队; 而双端指的是队首队尾皆可入队出队. Java 并发包里<strong>阻塞队列都用 Blocking 关键字标识, 单端队列使用 Queue 标识, 双端队列使用 Deque 标识</strong>. </p>
 <p>这两个维度组合后, 可以将 Queue 细分为四大类, 分别是: </p>
 <p>第一, <strong>单端阻塞队列</strong>: 其实现有 <code>ArrayBlockingQueue</code>、<code>LinkedBlockingQueue</code>、<code>SynchronousQueue</code>、<code>LinkedTransferQueue</code>、<code>PriorityBlockingQueue</code> 和 <code>DelayQueue</code>. 内部一般会持有一个队列, 这个队列可以是数组(其实现是 <code>ArrayBlockingQueue</code>)也可以是链表(其实现是 <code>LinkedBlockingQueue</code>); 甚至还可以不持有队列(其实现是 <code>SynchronousQueue</code>), 此时生产者线程的入队操作必须等待消费者线程的出队操作. 而 <code>LinkedTransferQueue</code> 融合 <code>LinkedBlockingQueue</code> 和 <code>SynchronousQueue</code> 的功能, 性能比 <code>LinkedBlockingQueue</code> 更好; <code>PriorityBlockingQueue</code> 支持按照优先级出队; <code>DelayQueue</code> 支持延时出队. </p>
-<p><img src="https://cdn.yangbingdong.com/img/concurrent/java-concurrent-queue01.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/concurrent/java-concurrent-queue01.png" alt></p>
 <p>第二, <strong>双端阻塞队列</strong>: 其实现是 <code>LinkedBlockingDeque</code>. </p>
-<p><img src="https://cdn.yangbingdong.com/img/concurrent/java-concurrent-queue02.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/concurrent/java-concurrent-queue02.png" alt></p>
 <p>第三, <strong>单端非阻塞队列</strong>: 其实现是 <code>ConcurrentLinkedQueue</code>. </p>
 <p>第四, <strong>双端非阻塞队列</strong>: 其实现是 <code>ConcurrentLinkedDeque</code>. </p>
 <p>另外, 使用队列时, 需要格外注意队列是否支持<strong>有界</strong>(所谓有界指的是内部的队列是否有容量限制). 实际工作中, 一般都不建议使用无界的队列, 因为数据量大了之后很容易<strong>导致 OOM</strong>. 上面我们提到的这些 Queue 中, 只有 ArrayBlockingQueue 和 LinkedBlockingQueue 是支持有界的, <strong>所以在使用其他无界队列时, 一定要充分考虑是否存在导致 OOM 的隐患. </strong></p>
 <h1 id="原子类-无锁工具类的典范"><a href="#原子类-无锁工具类的典范" class="headerlink" title="原子类: 无锁工具类的典范"></a>原子类: 无锁工具类的典范</h1><p>对于一些需要并发累加的操作, 现在我们也许第一时间想到的是 Atomic 相关的类比如 <code>AtomicLong</code> 等, 这些类使用 CAS指令(Compare And Swap, 即”比较并交换”) 实现<strong>无锁</strong>的<strong>高性能</strong>操作, 并且作为一条 CPU 指令, CAS 指令本身是能够保证<strong>原子性</strong>的. </p>
 <p>CAS 指令包含 3 个参数: 共享变量的内存地址 A、用于比较的值 B 和共享变量的新值 C; 并且只有当内存中地址 A 处的值等于 B 时, 才能将内存中地址 A 处的值更新为新值 C. </p>
 <p>Java SDK 并发包里提供的原子类内容很丰富, 我们可以将它们分为五个类别: <strong>原子化的基本数据类型</strong>、<strong>原子化的对象引用类型</strong>、<strong>原子化数组</strong>、<strong>原子化对象属性更新器</strong>和<strong>原子化的累加器</strong>. </p>
-<p><img src="https://cdn.yangbingdong.com/img/concurrent/java-concurrent-atomic-family.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/concurrent/java-concurrent-atomic-family.png" alt></p>
 <h2 id="原子化的基本数据类型"><a href="#原子化的基本数据类型" class="headerlink" title="原子化的基本数据类型"></a>原子化的基本数据类型</h2><p>相关实现有 <code>AtomicBoolean</code>、<code>AtomicInteger</code> 和 <code>AtomicLong</code>, 提供的方法主要有以下这些:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">getAndIncrement() <span class="comment">//原子化i++</span></span><br><span class="line">getAndDecrement() <span class="comment">//原子化的i--</span></span><br><span class="line">incrementAndGet() <span class="comment">//原子化的++i</span></span><br><span class="line">decrementAndGet() <span class="comment">//原子化的--i</span></span><br><span class="line"><span class="comment">//当前值+=delta, 返回+=前的值</span></span><br><span class="line">getAndAdd(delta) </span><br><span class="line"><span class="comment">//当前值+=delta, 返回+=后的值</span></span><br><span class="line">addAndGet(delta)</span><br><span class="line"><span class="comment">//CAS操作, 返回是否成功</span></span><br><span class="line">compareAndSet(expect, update)</span><br><span class="line"><span class="comment">//以下四个方法</span></span><br><span class="line"><span class="comment">//新值可以通过传入func函数来计算</span></span><br><span class="line">getAndUpdate(func)</span><br><span class="line">updateAndGet(func)</span><br><span class="line">getAndAccumulate(x,func)</span><br><span class="line">accumulateAndGet(x,func)</span><br></pre></td></tr></table></figure>
 <h2 id="原子化的对象引用类型"><a href="#原子化的对象引用类型" class="headerlink" title="原子化的对象引用类型"></a>原子化的对象引用类型</h2><p>相关实现有 <code>AtomicReference</code>、<code>AtomicStampedReference</code> 和 <code>AtomicMarkableReference</code>, 利用它们可以实现<strong>对象引用的原子化更新</strong>. <code>AtomicReference</code> 提供的方法和原子化的基本数据类型差不多, 这里不再赘述. 不过需要注意的是, 对象引用的更新需要重点关注 <strong>ABA 问题</strong>, <code>AtomicStampedReference</code> 和 <code>AtomicMarkableReference</code> 这两个原子类可以解决 ABA 问题. </p>
@@ -947,7 +947,7 @@ show_date_time();
 
 <div style="width:300px;margin:0 auto;">
   <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44010602005896" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
-    <img src="https://cdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
+    <img src="https://oldcdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
     <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#555;">粤公网安备 44010602005896号</p></a>
 </div>
 

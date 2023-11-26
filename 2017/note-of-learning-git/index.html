@@ -85,18 +85,18 @@
 <meta property="og:site_name" content="ookamiAntD&#39;s Blog">
 <meta property="og:description" content="前言What is Git?Git是目前世界上最先进的分布式版本控制系统（没有之一）, 而且是一款免费、开源的分布式版本控制系统, 用于敏捷高效地处理任何或小或大的项目一直以来, 博主开发项目用的版本管理系用都是SVN[1], 其实早就听闻过Git, 一直没用过, 后来接触Github和Hexo博客框架, 才真正意义上开始接触Git, 感受就是高端大气上档次！">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/git/git-operations.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/git/gitBranch.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/git/gitBranch01.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/git/gitConflict.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/git/gitFixConflict.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/git/git-emoji.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/git/gitCommand.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/git/git-operations.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/git/gitBranch.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/git/gitBranch01.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/git/gitConflict.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/git/gitFixConflict.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/git/git-emoji.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/git/gitCommand.png">
 <meta property="og:updated_time" content="2020-07-15T11:20:22.422Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git学习笔记">
 <meta name="twitter:description" content="前言What is Git?Git是目前世界上最先进的分布式版本控制系统（没有之一）, 而且是一款免费、开源的分布式版本控制系统, 用于敏捷高效地处理任何或小或大的项目一直以来, 博主开发项目用的版本管理系用都是SVN[1], 其实早就听闻过Git, 一直没用过, 后来接触Github和Hexo博客框架, 才真正意义上开始接触Git, 感受就是高端大气上档次！">
-<meta name="twitter:image" content="https://cdn.yangbingdong.com/img/git/git-operations.png">
+<meta name="twitter:image" content="https://oldcdn.yangbingdong.com/img/git/git-operations.png">
 
 
 
@@ -439,7 +439,7 @@
       
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://cdn.yangbingdong.com/img/git/git-operations.png" alt></p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://oldcdn.yangbingdong.com/img/git/git-operations.png" alt></p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>What is Git?<br>Git是目前世界上最先进的分布式版本控制系统（没有之一）, 而且是一款免费、开源的分布式版本控制系统, 用于敏捷高效地处理任何或小或大的项目<br>一直以来, 博主开发项目用的版本管理系用都是SVN<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="集中式版本管理系统之一
 ">[1]</span></a></sup>, 其实早就听闻过Git, 一直没用过, 后来接触Github和Hexo博客框架, 才真正意义上开始接触Git, 感受就是高端大气上档次！</p>
 <a id="more"></a>
@@ -500,20 +500,20 @@
 <h2 id="删除tag"><a href="#删除tag" class="headerlink" title="删除tag"></a>删除tag</h2><p>很简单, 知道<code>tag</code>名称后:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -d v1.0</span><br></pre></td></tr></table></figure></p>
 <p>删除远程分支:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin --delete tag &lt;tagname&gt;</span><br></pre></td></tr></table></figure></p>
 <h2 id="共享tag"><a href="#共享tag" class="headerlink" title="共享tag"></a>共享tag</h2><p>我们在执行<code>git push</code>的时候, <code>tag</code>是不会上传到服务器的, 比如现在的<code>github</code>, 创建<code>tag</code>后<code>git push</code>, 在<code>github</code>网页上是看不到<code>tag</code>的, 为了共享这些<code>tag</code>, 你必须这样:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin --tags</span><br></pre></td></tr></table></figure></p>
-<h1 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h1><p>分支相当与平行宇宙, 互不干扰, 哪天合并了就拥有了所有平行宇宙的特性<br><img src="https://cdn.yangbingdong.com/img/git/gitBranch.png" alt></p>
+<h1 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h1><p>分支相当与平行宇宙, 互不干扰, 哪天合并了就拥有了所有平行宇宙的特性<br><img src="https://oldcdn.yangbingdong.com/img/git/gitBranch.png" alt></p>
 <h2 id="创建与合并分支"><a href="#创建与合并分支" class="headerlink" title="创建与合并分支"></a>创建与合并分支</h2><ul>
 <li>每次提交, Git都把它们串成一条时间线, 这条时间线就是一个分支. 截止到目前, 只有一条时间线, 在Git里, 这个分支叫主分支, 即 <code>master</code> 分支</li>
 <li>一开始的时候, <code>master</code> 分支是一条线, Git用 <code>master</code> 指向最新的提交, 再用 <code>HEAD</code> 指向 <code>master</code> , 就能确定当前分支, 以及当前分支的提交点</li>
 <li>当我们创建新的分支, 例如 <code>dev</code> 时, Git新建了一个指针叫 <code>dev</code> , 指向 <code>master</code> 相同的提交, 再把 <code>HEAD</code> 指向 <code>dev</code> , 就表示当前分支在 <code>dev</code> 上</li>
 <li>Git创建一个分支很快, 因为除了增加一个 <code>dev</code> 指针, 改改 <code>HEAD</code> 的指向, 工作区的文件都没有任何变化</li>
-<li>当 <code>HEAD</code> 指向 <code>dev</code> , 对工作区的修改和提交就是针对 <code>dev</code> 分支了, 比如新提交一次后, <code>dev</code> 指针往前移动一步, 而 <code>master</code> 指针不变<br><img src="https://cdn.yangbingdong.com/img/git/gitBranch01.png" alt></li>
+<li>当 <code>HEAD</code> 指向 <code>dev</code> , 对工作区的修改和提交就是针对 <code>dev</code> 分支了, 比如新提交一次后, <code>dev</code> 指针往前移动一步, 而 <code>master</code> 指针不变<br><img src="https://oldcdn.yangbingdong.com/img/git/gitBranch01.png" alt></li>
 </ul>
 <p>查看分支: <code>git branch</code><br>创建分支: <code>git branch &lt;name&gt;</code><br>切换分支: <code>git checkout &lt;name&gt;</code><br>创建+切换分支: <code>git checkout -b &lt;name&gt;</code><br>合并某分支到当前分支: <code>git merge &lt;name&gt;</code><br>删除分支: <code>git branch -d &lt;name&gt;</code></p>
-<h2 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h2><p>合并分支并不是每次都不会出问题, 如不同的分支对同一个文件同一行都被修改过, 就会出现以下情况<br><img src="https://cdn.yangbingdong.com/img/git/gitConflict.png" alt><br>那么再次合并有可能会冲突<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">➜  repo git:(master) git merge feature1 </span><br><span class="line">自动合并 read</span><br><span class="line">冲突（内容）: 合并冲突于 read</span><br><span class="line">自动合并失败, 修正冲突然后提交修正的结果. </span><br><span class="line">➜  repo git:(master) ✗ git status </span><br><span class="line">位于分支 master</span><br><span class="line">您有尚未合并的路径. </span><br><span class="line">  （解决冲突并运行 &quot;git commit&quot;）</span><br><span class="line"></span><br><span class="line">未合并的路径: </span><br><span class="line">  （使用 &quot;git add &lt;文件&gt;...&quot; 标记解决方案）</span><br><span class="line"></span><br><span class="line">	双方修改:   read</span><br><span class="line"></span><br><span class="line">修改尚未加入提交（使用 &quot;git add&quot; 和/或 &quot;git commit -a&quot;）</span><br></pre></td></tr></table></figure></p>
+<h2 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h2><p>合并分支并不是每次都不会出问题, 如不同的分支对同一个文件同一行都被修改过, 就会出现以下情况<br><img src="https://oldcdn.yangbingdong.com/img/git/gitConflict.png" alt><br>那么再次合并有可能会冲突<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">➜  repo git:(master) git merge feature1 </span><br><span class="line">自动合并 read</span><br><span class="line">冲突（内容）: 合并冲突于 read</span><br><span class="line">自动合并失败, 修正冲突然后提交修正的结果. </span><br><span class="line">➜  repo git:(master) ✗ git status </span><br><span class="line">位于分支 master</span><br><span class="line">您有尚未合并的路径. </span><br><span class="line">  （解决冲突并运行 &quot;git commit&quot;）</span><br><span class="line"></span><br><span class="line">未合并的路径: </span><br><span class="line">  （使用 &quot;git add &lt;文件&gt;...&quot; 标记解决方案）</span><br><span class="line"></span><br><span class="line">	双方修改:   read</span><br><span class="line"></span><br><span class="line">修改尚未加入提交（使用 &quot;git add&quot; 和/或 &quot;git commit -a&quot;）</span><br></pre></td></tr></table></figure></p>
 <p>这种情况必须手动解决然后再次 <code>git add .</code>, <code>git commit -m &quot;commit&quot;</code>, 打开文件可看到<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Git is a version control</span><br><span class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span><br><span class="line">Creating a new branch is quick &amp; simple.</span><br><span class="line">=======</span><br><span class="line">Creating a new branch is quick AND simple.</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature1</span><br></pre></td></tr></table></figure></p>
 <p>Git用<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>标记出不同分支的内容, 那么经过合意, 不好意思, 大师兄说了, 在座的各位都是垃圾, 于是改成<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Git,too fast too simple</span><br></pre></td></tr></table></figure></p>
 <p>再提交<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜  repo git:(master) ✗ git add read </span><br><span class="line">➜  repo git:(master) ✗ git commit -m &quot;conflict fixed&quot;</span><br><span class="line">[master 8933f88] conflict fixed</span><br><span class="line">➜  repo git:(master)</span><br></pre></td></tr></table></figure></p>
-<p>ok了, 再次 <code>add</code> 和 <code>commit</code> , 现在 <code>master</code> 分支和<code>feature1</code>分支变成了这样<br><img src="https://cdn.yangbingdong.com/img/git/gitFixConflict.png" alt></p>
+<p>ok了, 再次 <code>add</code> 和 <code>commit</code> , 现在 <code>master</code> 分支和<code>feature1</code>分支变成了这样<br><img src="https://oldcdn.yangbingdong.com/img/git/gitFixConflict.png" alt></p>
 <h2 id="多PC协同开发"><a href="#多PC协同开发" class="headerlink" title="多PC协同开发"></a>多PC协同开发</h2><p>当你从远程仓库克隆时, 实际上Git自动把本地的 <code>master</code> 分支和远程的 <code>master</code> 分支对应起来了, 并且, 远程仓库的默认名称是 <code>origin</code> </p>
 <p>查看远程库的信息:<br>查看简单信息: <code>git remote</code><br>查看详细信息: <code>git remote -v</code><br>查看远程仓库分支: <code>git branch -r</code><br>查看本地分支与远程分支的对应关系: <code>git branch -vv</code></p>
 <p>推送分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git push origin &lt;branch&gt; </span><br><span class="line"></span><br><span class="line">git push -u origin &lt;branch&gt; # 第一次推送加-u可以把当前分支与远程分支关联起来</span><br></pre></td></tr></table></figure></p>
@@ -523,7 +523,7 @@
 <h1 id="Commit-带上-emoji-表情"><a href="#Commit-带上-emoji-表情" class="headerlink" title="Commit 带上 emoji 表情"></a>Commit 带上 emoji 表情</h1><blockquote>
 <p>执行 <code>git commit</code> 时使用 emoji 为本次提交打上一个 “标签”, 使得此次 commit 的主要工作得以凸现, 也能够使得其在整个提交历史中易于区分与查找.</p>
 </blockquote>
-<p><img src="https://cdn.yangbingdong.com/img/git/git-emoji.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/git/git-emoji.png" alt></p>
 <p>只需要加上 emoji 标签即可:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">":tada: Initialize Repo"</span></span><br></pre></td></tr></table></figure>
 <p>常用的标签:</p>
@@ -732,7 +732,7 @@
 <blockquote>
 <p><strong><em>参考: <a href="http://www.liaoxuefeng.com/" rel="external nofollow noopener noreferrer" target="_blank">廖雪峰老师的教程</a></em></strong></p>
 </blockquote>
-<p>附命令图一张:<br><img src="https://cdn.yangbingdong.com/img/git/gitCommand.png" alt></p>
+<p>附命令图一张:<br><img src="https://oldcdn.yangbingdong.com/img/git/gitCommand.png" alt></p>
 <div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">集中式版本管理系统之一<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">一个商业的版本控制系统<a href="#fnref:2" rev="footnote"> ↩</a></span></li></ol></div></div>
       
     </div>
@@ -1161,7 +1161,7 @@ show_date_time();
 
 <div style="width:300px;margin:0 auto;">
   <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44010602005896" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
-    <img src="https://cdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
+    <img src="https://oldcdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
     <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#555;">粤公网安备 44010602005896号</p></a>
 </div>
 

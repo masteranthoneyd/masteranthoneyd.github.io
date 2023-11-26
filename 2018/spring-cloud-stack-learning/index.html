@@ -85,21 +85,21 @@
 <meta property="og:site_name" content="ookamiAntD&#39;s Blog">
 <meta property="og:description" content="Preface Spring Cloud 是一系列框架的有序集合. 它利用 Spring Boot 的开发便利性巧妙地简化了分布式系统基础设施的开发, 如服务发现注册、配置中心、消息总线、负载均衡、断路器、数据监控等, 都可以用 Spring Boot 的开发风格做到一键启动和部署. Spring 并没有重复制造轮子, 它只是将目前各家公司开发的比较成熟、经得起实际考验的服务框架组合起来, 通过">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-cloud-docker-integration/spring-cloud-stack.jpg">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-cloud-docker-integration/portainer-eureka.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-cloud-docker-integration/compose-up03.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-cloud-docker-integration/cnm-demo.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-cloud-docker-integration/docker-pid1.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-cloud-docker-integration/eureka-ui.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-cloud-docker-integration/eureka-custom.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-cloud-docker-integration/micro-rpc.jpg">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-cloud-docker-integration/spring-cloud-gateway-flow.jpg">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-cloud-docker-integration/spring-boot-admin.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-cloud-docker-integration/spring-cloud-stack.jpg">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-cloud-docker-integration/portainer-eureka.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-cloud-docker-integration/compose-up03.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-cloud-docker-integration/cnm-demo.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-cloud-docker-integration/docker-pid1.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-cloud-docker-integration/eureka-ui.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-cloud-docker-integration/eureka-custom.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-cloud-docker-integration/micro-rpc.jpg">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-cloud-docker-integration/spring-cloud-gateway-flow.jpg">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-cloud-docker-integration/spring-boot-admin.png">
 <meta property="og:updated_time" content="2020-04-07T10:15:47.014Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Cloud Stack Learning">
 <meta name="twitter:description" content="Preface Spring Cloud 是一系列框架的有序集合. 它利用 Spring Boot 的开发便利性巧妙地简化了分布式系统基础设施的开发, 如服务发现注册、配置中心、消息总线、负载均衡、断路器、数据监控等, 都可以用 Spring Boot 的开发风格做到一键启动和部署. Spring 并没有重复制造轮子, 它只是将目前各家公司开发的比较成熟、经得起实际考验的服务框架组合起来, 通过">
-<meta name="twitter:image" content="https://cdn.yangbingdong.com/img/spring-cloud-docker-integration/spring-cloud-stack.jpg">
+<meta name="twitter:image" content="https://oldcdn.yangbingdong.com/img/spring-cloud-docker-integration/spring-cloud-stack.jpg">
 
 
 
@@ -464,7 +464,7 @@
       
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://cdn.yangbingdong.com/img/spring-cloud-docker-integration/spring-cloud-stack.jpg" alt></p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://oldcdn.yangbingdong.com/img/spring-cloud-docker-integration/spring-cloud-stack.jpg" alt></p>
 <h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><blockquote>
 <p>Spring Cloud 是一系列框架的有序集合. 它利用 Spring Boot 的开发便利性巧妙地简化了分布式系统基础设施的开发, 如服务发现注册、配置中心、消息总线、负载均衡、断路器、数据监控等, 都可以用 Spring Boot 的开发风格做到一键启动和部署. Spring 并没有重复制造轮子, 它只是将目前各家公司开发的比较成熟、经得起实际考验的服务框架组合起来, 通过 Spring Boot 风格进行再封装屏蔽掉了复杂的配置和实现原理, 最终给开发者留出了一套简单易懂、易部署和易维护的分布式系统开发工具包. </p>
 <p>至于各种框架组件的相关概念以及入门教程网上一大把, 此篇博文主要记录个人在使用Spring Cloud构建微服务的一些配置以及踩坑…</p>
@@ -495,19 +495,19 @@
 <h3 id="Docker-Compose启动"><a href="#Docker-Compose启动" class="headerlink" title="Docker Compose启动"></a>Docker Compose启动</h3><p>启动前确保创建好了网络: </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker network create -d=overlay --attachable --subnet 10.10.0.0/16 backend</span><br><span class="line">docker-compse up -d</span><br></pre></td></tr></table></figure>
 <p>此时在<code>Portainer</code>中可以看到三个容器已经启动: </p>
-<p><img src="https://cdn.yangbingdong.com/img/spring-cloud-docker-integration/portainer-eureka.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-cloud-docker-integration/portainer-eureka.png" alt></p>
 <p>随意一个eureka端口都能看到另外两个服务: </p>
-<p><img src="https://cdn.yangbingdong.com/img/spring-cloud-docker-integration/compose-up03.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-cloud-docker-integration/compose-up03.png" alt></p>
 <h3 id="Docker-Swarm启动"><a href="#Docker-Swarm启动" class="headerlink" title="Docker Swarm启动"></a>Docker Swarm启动</h3><p>由于目前使用stack方式启动是无法加载<code>env_file</code>的, 所以需要预先加载一下:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export $(cat .env) &amp;&amp; docker stack deploy --compose-file=docker-compose.yml eureka-stack</span><br></pre></td></tr></table></figure>
 <p>我们的app通过合适的<code>network</code>交互应该是这样的: </p>
-<p><img src="https://cdn.yangbingdong.com/img/spring-cloud-docker-integration/cnm-demo.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-cloud-docker-integration/cnm-demo.png" alt></p>
 <h4 id="注意事项（ip与hostname混乱）"><a href="#注意事项（ip与hostname混乱）" class="headerlink" title="注意事项（ip与hostname混乱）"></a>注意事项（ip与hostname混乱）</h4><p>之前使用Docker Compose方式启动服务没什么问题, 后来换成Docker Swarm方式启动, 在Eureka的面板中发现有些服务是ip, 有些是hostname, 但都注册成功, 不过某些服务相互之间又访问不了. Google一番后的解决方案: </p>
 <p>Server端跟Client端都使用以下配置: </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  cloud:  </span><br><span class="line">    inetutils:</span><br><span class="line">      ignored-interfaces:</span><br><span class="line">      - eth0</span><br><span class="line">      - eth1</span><br><span class="line">      - eth2</span><br><span class="line">      - eth3</span><br><span class="line">      - lo</span><br><span class="line">      </span><br><span class="line">eureka:</span><br><span class="line">  instance:</span><br><span class="line">    prefer-ip-address: true</span><br><span class="line">    ip-address: eureka-cluster1 # 这里对应上面compose文件中的aliases</span><br><span class="line">    instance-id: $&#123;spring.application.name&#125;:$&#123;spring.application.instance_id:$&#123;server.port&#125;&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="踩坑-容器中服务下线无法向注册中心注销服务"><a href="#踩坑-容器中服务下线无法向注册中心注销服务" class="headerlink" title="踩坑(容器中服务下线无法向注册中心注销服务)"></a>踩坑(容器中服务下线无法向注册中心注销服务)</h3><p>在Docker中程序, 如果PID不是1, 是接收不到<code>docker-compose down</code>发出的<code>sigterm</code>信号从而导致只能等待被Kill, 不能向注册中心注销. </p>
 <p>解决方法是在<code>Dockerfile</code>中的入口使用<code>ENTRYPOINT exec java -jar ...</code>这种方式 </p>
-<p><img src="https://cdn.yangbingdong.com/img/spring-cloud-docker-integration/docker-pid1.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-cloud-docker-integration/docker-pid1.png" alt></p>
 <h3 id="Eureka-Edgware-RELEASE版本注册优化"><a href="#Eureka-Edgware-RELEASE版本注册优化" class="headerlink" title="Eureka Edgware.RELEASE版本注册优化"></a>Eureka Edgware.RELEASE版本注册优化</h3><p>在<code>Edgware.RELEASE</code>版本中相比之前的步骤, 省略了在主函数上添加<code>@EnableDiscoveryClient</code>注解这一过程. Spring Cloud默认认为客户端是要完成向注册中心进行注册的. </p>
 <ul>
 <li>添加对应的<code>pom</code>依赖.</li>
@@ -532,15 +532,15 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">eureka:</span><br><span class="line">  instance:</span><br><span class="line">    lease-expiration-duration-in-seconds: 30 </span><br><span class="line">    lease-renewal-interval-in-seconds: 10</span><br></pre></td></tr></table></figure>
 <p><strong>注意: </strong><br><strong>更改Eureka更新频率将打破服务器的自我保护功能, 生产环境下不建议自定义这些配置. </strong></p>
 <h2 id="修改Eureka界面UI"><a href="#修改Eureka界面UI" class="headerlink" title="修改Eureka界面UI"></a>修改Eureka界面UI</h2><p>覆盖对应源码中的界面文件即可: </p>
-<p><img src="https://cdn.yangbingdong.com/img/spring-cloud-docker-integration/eureka-ui.png" alt></p>
-<p>效果图:<br><img src="https://cdn.yangbingdong.com/img/spring-cloud-docker-integration/eureka-custom.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-cloud-docker-integration/eureka-ui.png" alt></p>
+<p>效果图:<br><img src="https://oldcdn.yangbingdong.com/img/spring-cloud-docker-integration/eureka-custom.png" alt></p>
 <p><strong>注意事项</strong>: </p>
 <p>如果<code>pom.xml</code>中的<code>parent</code>不是<code>spring-boot-starter-parent</code>, 这些样式文件需要新建一个项目另外打包成jar包再引入方可生效. </p>
 <h1 id="RPC-Remote-Procedure-Call"><a href="#RPC-Remote-Procedure-Call" class="headerlink" title="RPC(Remote Procedure Call)"></a>RPC(Remote Procedure Call)</h1><blockquote>
 <p>这里指针对Http协议调用</p>
 </blockquote>
 <p>通过注册中心, 服务间的基本调用如下: </p>
-<p><img src="https://cdn.yangbingdong.com/img/spring-cloud-docker-integration/micro-rpc.jpg" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-cloud-docker-integration/micro-rpc.jpg" alt></p>
 <p>调用方式主要有三种（基本上在实际应用中都使用Feign）</p>
 <p><strong>前置条件: 集成服务注册中心</strong></p>
 <p>服务提供者（<code>service-a</code>）: </p>
@@ -594,8 +594,8 @@
 <li>路径重写</li>
 </ul>
 <p><strong>流程图</strong>: </p>
-<p><img src="https://cdn.yangbingdong.com/img/spring-cloud-docker-integration/spring-cloud-gateway-flow.jpg" alt></p>
-<h1 id="Spring-Boot-Admin"><a href="#Spring-Boot-Admin" class="headerlink" title="Spring Boot Admin"></a>Spring Boot Admin</h1><p><img src="https://cdn.yangbingdong.com/img/spring-cloud-docker-integration/spring-boot-admin.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-cloud-docker-integration/spring-cloud-gateway-flow.jpg" alt></p>
+<h1 id="Spring-Boot-Admin"><a href="#Spring-Boot-Admin" class="headerlink" title="Spring Boot Admin"></a>Spring Boot Admin</h1><p><img src="https://oldcdn.yangbingdong.com/img/spring-cloud-docker-integration/spring-boot-admin.png" alt></p>
 <h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;de.codecentric&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-admin-starter-server&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.0.2&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-client&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-security&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
 <h2 id="主类添加注解"><a href="#主类添加注解" class="headerlink" title="主类添加注解"></a>主类添加注解</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@EnableAdminServer</span><br><span class="line">@SpringBootApplication</span><br><span class="line">public class AdminApplication &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		SpringApplication.run(AdminApplication.class, args);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p><code>application.yml</code>:</p>
@@ -1035,7 +1035,7 @@ show_date_time();
 
 <div style="width:300px;margin:0 auto;">
   <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44010602005896" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
-    <img src="https://cdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
+    <img src="https://oldcdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
     <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#555;">粤公网安备 44010602005896号</p></a>
 </div>
 

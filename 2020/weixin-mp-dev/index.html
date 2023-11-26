@@ -85,17 +85,17 @@
 <meta property="og:site_name" content="ookamiAntD&#39;s Blog">
 <meta property="og:description" content="Preface 使用微信提供的微信平台体系(微信开放平台/微信公众号平台/微信小程序/微信支付等)可以使我们的业务接入庞大的微信体系, 定义自己的个性化业务. 这里主要记录一下微信公众号开发相关的要点…">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/weixin-dev/weixin-mp-dev-banner.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/weixin-dev/weixin-mp-dev-setting-bar.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/weixin-dev/weixin-mp-dev-setting.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/weixin-dev/weixin-mp-dev-setting-server.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/weixin-dev/weixin-mp-server-verify.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/weixin-dev/weixin-mp-dev-enable-server.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/weixin-dev/weixin-mp-dev-banner.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/weixin-dev/weixin-mp-dev-setting-bar.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/weixin-dev/weixin-mp-dev-setting.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/weixin-dev/weixin-mp-dev-setting-server.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/weixin-dev/weixin-mp-server-verify.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/weixin-dev/weixin-mp-dev-enable-server.png">
 <meta property="og:updated_time" content="2020-08-10T08:33:21.399Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信公众号开发">
 <meta name="twitter:description" content="Preface 使用微信提供的微信平台体系(微信开放平台/微信公众号平台/微信小程序/微信支付等)可以使我们的业务接入庞大的微信体系, 定义自己的个性化业务. 这里主要记录一下微信公众号开发相关的要点…">
-<meta name="twitter:image" content="https://cdn.yangbingdong.com/img/weixin-dev/weixin-mp-dev-banner.png">
+<meta name="twitter:image" content="https://oldcdn.yangbingdong.com/img/weixin-dev/weixin-mp-dev-banner.png">
 
 
 
@@ -438,7 +438,7 @@
       
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://cdn.yangbingdong.com/img/weixin-dev/weixin-mp-dev-banner.png" alt></p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://oldcdn.yangbingdong.com/img/weixin-dev/weixin-mp-dev-banner.png" alt></p>
 <h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><blockquote>
 <p>使用微信提供的微信平台体系(微信开放平台/微信公众号平台/微信小程序/微信支付等)可以使我们的业务接入庞大的微信体系, 定义自己的个性化业务.</p>
 <p>这里主要记录一下微信公众号开发相关的要点…</p>
@@ -478,15 +478,15 @@
 </ul>
 <p>那么我们最终的服务器 URL 为 <code>http://wx.ngrok.yangbingdong.com/portal-user/wx/portal</code>.</p>
 <h2 id="配置服务器"><a href="#配置服务器" class="headerlink" title="配置服务器"></a>配置服务器</h2><p>进入微信公众号平台, 在左边最下面找到<strong>开发</strong> -&gt; <strong>基本配置</strong>:</p>
-<p><img src="https://cdn.yangbingdong.com/img/weixin-dev/weixin-mp-dev-setting-bar.png" alt></p>
-<p><img src="https://cdn.yangbingdong.com/img/weixin-dev/weixin-mp-dev-setting.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/weixin-dev/weixin-mp-dev-setting-bar.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/weixin-dev/weixin-mp-dev-setting.png" alt></p>
 <p>点击修改配置, 并填入 URL:</p>
-<p><img src="https://cdn.yangbingdong.com/img/weixin-dev/weixin-mp-dev-setting-server.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/weixin-dev/weixin-mp-dev-setting-server.png" alt></p>
 <p>点击提交, 此时微信会发送 GET 请求到服务器:</p>
-<p><img src="https://cdn.yangbingdong.com/img/weixin-dev/weixin-mp-server-verify.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/weixin-dev/weixin-mp-server-verify.png" alt></p>
 <p>至此, 自己的服务器已接入微信公众号平台.</p>
 <h2 id="启用服务器"><a href="#启用服务器" class="headerlink" title="启用服务器"></a>启用服务器</h2><p>接收微信的推送事件需要将服务器配置<strong>启用</strong>, 否则会无法收到事件推送.</p>
-<p><img src="https://cdn.yangbingdong.com/img/weixin-dev/weixin-mp-dev-enable-server.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/weixin-dev/weixin-mp-dev-enable-server.png" alt></p>
 <h2 id="配置白名单"><a href="#配置白名单" class="headerlink" title="配置白名单"></a>配置白名单</h2><p>获取微信公众号 access_token 前, 还需要配置 <strong>IP 白名单</strong>, 否则会报 <strong>40164</strong> 错误(<code>invalid ip x.x.x.x, not in whitelist hint...</code>)</p>
 <h1 id="接收并处理微信推送的消息"><a href="#接收并处理微信推送的消息" class="headerlink" title="接收并处理微信推送的消息"></a>接收并处理微信推送的消息</h1><blockquote>
 <p>微信推送都是以 POST 请求发送的.</p>
@@ -1009,7 +1009,7 @@ show_date_time();
 
 <div style="width:300px;margin:0 auto;">
   <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44010602005896" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
-    <img src="https://cdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
+    <img src="https://oldcdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
     <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#555;">粤公网安备 44010602005896号</p></a>
 </div>
 

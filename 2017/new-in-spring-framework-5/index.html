@@ -85,13 +85,13 @@
 <meta property="og:site_name" content="ookamiAntD&#39;s Blog">
 <meta property="og:description" content="Preface Spring 5 于 2017 年 9 月发布了通用版本 (GA), 它标志着自 2013 年 12 月以来第一个主要 Spring Framework 版本. 它提供了一些人们期待已久的改进, 还采用了一种全新的编程范例, 以反应式宣言中陈述的反应式原则为基础.  这个版本是很长时间以来最令人兴奋的 Spring Framework 版本. Spring 5 兼容 Java™8">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-framework-5/spring-framework-5.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-framework-5/spring-webflux-reactive-mongodb-rest-api-example.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-framework-5/spring-framework-5.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-framework-5/spring-webflux-reactive-mongodb-rest-api-example.png">
 <meta property="og:updated_time" content="2020-04-07T10:15:47.010Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring5新特征与WebFlux反应式编程">
 <meta name="twitter:description" content="Preface Spring 5 于 2017 年 9 月发布了通用版本 (GA), 它标志着自 2013 年 12 月以来第一个主要 Spring Framework 版本. 它提供了一些人们期待已久的改进, 还采用了一种全新的编程范例, 以反应式宣言中陈述的反应式原则为基础.  这个版本是很长时间以来最令人兴奋的 Spring Framework 版本. Spring 5 兼容 Java™8">
-<meta name="twitter:image" content="https://cdn.yangbingdong.com/img/spring-framework-5/spring-framework-5.png">
+<meta name="twitter:image" content="https://oldcdn.yangbingdong.com/img/spring-framework-5/spring-framework-5.png">
 
 
 
@@ -445,7 +445,7 @@
       
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://cdn.yangbingdong.com/img/spring-framework-5/spring-framework-5.png" alt></p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://oldcdn.yangbingdong.com/img/spring-framework-5/spring-framework-5.png" alt></p>
 <h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><blockquote>
 <p>Spring 5 于 2017 年 9 月发布了通用版本 (<code>GA</code>), 它标志着自 2013 年 12 月以来第一个主要 Spring Framework 版本. 它提供了一些人们期待已久的改进, 还采用了一种全新的编程范例, 以<strong><em><a href="http://www.reactivemanifesto.org/" rel="external nofollow noopener noreferrer" target="_blank">反应式宣言</a></em></strong>中陈述的反应式原则为基础. </p>
 <p>这个版本是很长时间以来最令人兴奋的 Spring Framework 版本. Spring 5 兼容 <code>Java™8</code> 和 <code>JDK 9</code>, 它集成了<strong>反应式流</strong>, 以便提供一种颠覆性方法来实现端点和 Web 应用程序开发. </p>
@@ -504,7 +504,7 @@
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>Spring 5 的首要特性是新的反应式编程模型, 这代表着对提供可无缝扩展、基于 Spring 的响应式服务的重大保障. 随着人们对 Spring 5 的采用, 开发人员有望看到反应式编程将会成为使用 Java 语言的 Web 和企业应用程序开发的未来发展道路. </p>
 <p>未来的 Spring Framework 版本将继续反映这一承诺, 因为 Spring Security、Spring Data 和 Spring Integration 有望采用反应式编程的特征和优势. </p>
 <p>总之, Spring 5 代表着一次大受 Spring 开发人员欢迎的范例转变, 同时也为其他框架指出了一条发展之路. </p>
-<h1 id="使用-Spring-5-的-WebFlux-开发反应式-Web-应用"><a href="#使用-Spring-5-的-WebFlux-开发反应式-Web-应用" class="headerlink" title="使用 Spring 5 的 WebFlux 开发反应式 Web 应用"></a>使用 Spring 5 的 WebFlux 开发反应式 Web 应用</h1><p><img src="https://cdn.yangbingdong.com/img/spring-framework-5/spring-webflux-reactive-mongodb-rest-api-example.png" alt></p>
+<h1 id="使用-Spring-5-的-WebFlux-开发反应式-Web-应用"><a href="#使用-Spring-5-的-WebFlux-开发反应式-Web-应用" class="headerlink" title="使用 Spring 5 的 WebFlux 开发反应式 Web 应用"></a>使用 Spring 5 的 WebFlux 开发反应式 Web 应用</h1><p><img src="https://oldcdn.yangbingdong.com/img/spring-framework-5/spring-webflux-reactive-mongodb-rest-api-example.png" alt></p>
 <h2 id="WebFlux-简介"><a href="#WebFlux-简介" class="headerlink" title="WebFlux 简介"></a>WebFlux 简介</h2><p>WebFlux 模块的名称是 <code>spring-webflux</code>, 名称中的 <code>Flux</code> 来源于 <code>Reactor</code> 中的类 <code>Flux</code>. 该模块中包含了对<strong>反应式 HTTP</strong>、<strong>服务器推送事件</strong>和 <strong><code>WebSocket</code> 的客户端和服务器端的支持</strong>. 对于开发人员来说, 比较重要的是服务器端的开发, 这也是本文的重点. 在服务器端, WebFlux 支持<strong>两种</strong>不同的编程模型: 第一种是 Spring MVC 中使用的<strong>基于 Java 注解的方式</strong>；第二种是基于 Java 8 的 lambda 表达式的<strong>函数式编程模型</strong>. 这两种编程模型<strong>只是在代码编写方式上存在不同</strong>. 它们运行在同样的反应式底层架构之上, 因此在<strong>运行时是相同的</strong>. WebFlux 需要底层提供运行时的支持, WebFlux 可以运行在支持 Servlet 3.1 非阻塞 IO API 的 Servlet 容器上, 或是其他异步运行时环境, 如 <code>Netty</code> 和 <code>Undertow</code>. </p>
 <p>最方便的创建 WebFlux 应用的方式是使用 Spring Boot 提供的<strong>应用模板</strong>. 直接访问 Spring Initializ 网站（<em><a href="http://start.spring.io/" rel="external nofollow noopener noreferrer" target="_blank">http://start.spring.io/</a></em> ）, 选择创建一个 Maven 或 Gradle 项目. Spring Boot 的版本选择 <code>2.0.0 M2</code>（或更高）. 在添加的依赖中, 选择 <code>Reactive Web</code>. 最后输入应用所在的分组和名称, 点击进行下载即可. 需要注意的是, 只有在选择了 <code>Spring Boot 2.0.0 M2</code> 之后, 依赖中才可以选择 <code>Reactive Web</code>. 下载完成之后可以导入到 IDE 中进行编辑. </p>
 <p>本文从三个方面对 WebFlux 进行介绍. 首先是使用经典的基于 Java 注解的编程模型来进行开发, 其次是使用 WebFlux 新增的函数式编程模型来进行开发, 最后介绍 WebFlux 应用的测试. 通过这样循序渐进的方式让读者了解 WebFlux 应用开发的细节. </p>
@@ -986,7 +986,7 @@ show_date_time();
 
 <div style="width:300px;margin:0 auto;">
   <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44010602005896" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
-    <img src="https://cdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
+    <img src="https://oldcdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
     <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#555;">粤公网安备 44010602005896号</p></a>
 </div>
 

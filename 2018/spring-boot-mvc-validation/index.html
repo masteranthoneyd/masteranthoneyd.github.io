@@ -85,22 +85,22 @@
 <meta property="og:site_name" content="ookamiAntD&#39;s Blog">
 <meta property="og:description" content="Preface 此篇大部分是对Spring MVC的一个回顾以及JSR303中bean validation规范的学习">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-boot-learning/spring-boot.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-boot-learning/spring-mvc-process-new.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-boot-learning/spring-mvc-convert-processing.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-boot-learning/web-mvc-configurer.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-boot-learning/spring-boot-mvc-error.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-boot-learning/spring-boot-mvc-defalue-error01.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-boot-learning/spring-boot-mvc-defalue-error02.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-boot-learning/spring-mvc-resource-mapping.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-boot-learning/spring-mvc-resource-not-found.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-boot-learning/spring-mvc-throw-not-found.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/spring-boot-learning/mvc-process.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-learning/spring-boot.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-learning/spring-mvc-process-new.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-learning/spring-mvc-convert-processing.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-learning/web-mvc-configurer.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-learning/spring-boot-mvc-error.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-learning/spring-boot-mvc-defalue-error01.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-learning/spring-boot-mvc-defalue-error02.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-learning/spring-mvc-resource-mapping.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-learning/spring-mvc-resource-not-found.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-learning/spring-mvc-throw-not-found.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-learning/mvc-process.png">
 <meta property="og:updated_time" content="2020-07-20T05:56:22.871Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Boot学习之MVC与Validation">
 <meta name="twitter:description" content="Preface 此篇大部分是对Spring MVC的一个回顾以及JSR303中bean validation规范的学习">
-<meta name="twitter:image" content="https://cdn.yangbingdong.com/img/spring-boot-learning/spring-boot.png">
+<meta name="twitter:image" content="https://oldcdn.yangbingdong.com/img/spring-boot-learning/spring-boot.png">
 
 
 
@@ -465,13 +465,13 @@
       
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://cdn.yangbingdong.com/img/spring-boot-learning/spring-boot.png" alt></p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://oldcdn.yangbingdong.com/img/spring-boot-learning/spring-boot.png" alt></p>
 <h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><blockquote>
 <p>此篇大部分是对Spring MVC的一个回顾以及JSR303中bean validation规范的学习</p>
 </blockquote>
 <a id="more"></a>
-<h1 id="Spring-MVC-相关"><a href="#Spring-MVC-相关" class="headerlink" title="Spring MVC 相关"></a>Spring MVC 相关</h1><h2 id="Spring-MVC-流程"><a href="#Spring-MVC-流程" class="headerlink" title="Spring MVC 流程"></a>Spring MVC 流程</h2><p><img src="https://cdn.yangbingdong.com/img/spring-boot-learning/spring-mvc-process-new.png" alt></p>
-<p><img src="https://cdn.yangbingdong.com/img/spring-boot-learning/spring-mvc-convert-processing.png" alt></p>
+<h1 id="Spring-MVC-相关"><a href="#Spring-MVC-相关" class="headerlink" title="Spring MVC 相关"></a>Spring MVC 相关</h1><h2 id="Spring-MVC-流程"><a href="#Spring-MVC-流程" class="headerlink" title="Spring MVC 流程"></a>Spring MVC 流程</h2><p><img src="https://oldcdn.yangbingdong.com/img/spring-boot-learning/spring-mvc-process-new.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-boot-learning/spring-mvc-convert-processing.png" alt></p>
 <p>1、  用户发送请求至前端控制器<code>DispatcherServlet</code>. </p>
 <p>2、  <code>DispatcherServlet</code>收到请求调用<code>HandlerMapping</code>处理器映射器. </p>
 <p>3、  处理器映射器找到具体的处理器(可以根据xml配置、注解进行查找), 生成处理器对象及处理器拦截器(如果有则生成)一并返回给<code>DispatcherServlet</code>. </p>
@@ -486,7 +486,7 @@
 <blockquote>
 <p>更多源码解析请参考: <strong><em><a href="https://segmentfault.com/a/1190000013816079" rel="external nofollow noopener noreferrer" target="_blank">【深入浅出spring】Spring MVC 流程解析</a></em></strong></p>
 </blockquote>
-<h2 id="Spring-MVC集成FastJson"><a href="#Spring-MVC集成FastJson" class="headerlink" title="Spring MVC集成FastJson"></a>Spring MVC集成FastJson</h2><p><img src="https://cdn.yangbingdong.com/img/spring-boot-learning/web-mvc-configurer.png" alt></p>
+<h2 id="Spring-MVC集成FastJson"><a href="#Spring-MVC集成FastJson" class="headerlink" title="Spring MVC集成FastJson"></a>Spring MVC集成FastJson</h2><p><img src="https://oldcdn.yangbingdong.com/img/spring-boot-learning/web-mvc-configurer.png" alt></p>
 <blockquote>
 <p><strong><em><a href="https://github.com/alibaba/fastjson/wiki/%E5%9C%A8-Spring-%E4%B8%AD%E9%9B%86%E6%88%90-Fastjson" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/alibaba/fastjson/wiki/%E5%9C%A8-Spring-%E4%B8%AD%E9%9B%86%E6%88%90-Fastjson</a></em></strong></p>
 </blockquote>
@@ -537,13 +537,13 @@
 </ul>
 <h2 id="开启GZIP算法压缩响应流"><a href="#开启GZIP算法压缩响应流" class="headerlink" title="开启GZIP算法压缩响应流"></a>开启GZIP算法压缩响应流</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">compression:</span></span><br><span class="line">    <span class="attr">enabled:</span> <span class="literal">true</span> <span class="comment"># 启用压缩</span></span><br><span class="line">    <span class="attr">min-response-size:</span> <span class="number">2048</span> <span class="comment"># 对应Content-Length, 超过这个值才会压缩</span></span><br></pre></td></tr></table></figure>
 <h2 id="全局异常处理"><a href="#全局异常处理" class="headerlink" title="全局异常处理"></a>全局异常处理</h2><p>在Spring Boot 2.X 中, 对于MVC抛出的异常, 默认会映射到 <code>/error</code>:  </p>
-<p><img src="https://cdn.yangbingdong.com/img/spring-boot-learning/spring-boot-mvc-error.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-boot-learning/spring-boot-mvc-error.png" alt></p>
 <blockquote>
 <p>参考: <strong><em><a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-error-handling" rel="external nofollow noopener noreferrer" target="_blank">https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-error-handling</a></em></strong></p>
 </blockquote>
 <p>由于默认情况下, Spring MVC 将报错转发到 <code>/error</code> 接口, 所以对应的Spring中也会有默认的异常处理类 <code>BasicErrorController</code>:</p>
-<p><img src="https://cdn.yangbingdong.com/img/spring-boot-learning/spring-boot-mvc-defalue-error01.png" alt></p>
-<p><img src="https://cdn.yangbingdong.com/img/spring-boot-learning/spring-boot-mvc-defalue-error02.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-boot-learning/spring-boot-mvc-defalue-error01.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-boot-learning/spring-boot-mvc-defalue-error02.png" alt></p>
 <h3 id="添加自定义的错误页面"><a href="#添加自定义的错误页面" class="headerlink" title="添加自定义的错误页面"></a>添加自定义的错误页面</h3><ul>
 <li><code>html</code>静态页面: 在<code>resources/public/error/</code> 下定义. 如添加404页面: <code>resources/public/error/404.html</code>页面, 中文注意页面编码</li>
 <li>模板引擎页面: 在<code>templates/error/</code>下定义. 如添加5xx页面: <code>templates/error/5xx.ftl</code></li>
@@ -571,16 +571,16 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">XXXException</span> <span class="keyword">extends</span> <span class="title">RuntimeException</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 仅包含message, 没有cause, 也不记录栈异常, 性能最高</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> msg</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">XXXException</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>(msg, <span class="keyword">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 包含message, 可指定是否记录异常</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> msg</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> recordStackTrace</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">EngineException</span><span class="params">(String msg, <span class="keyword">boolean</span> recordStackTrace)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(msg, <span class="keyword">null</span>, <span class="keyword">false</span>, recordStackTrace);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 包含message和cause, 会记录栈异常</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> msg</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> cause</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">EngineException</span><span class="params">(String msg, Throwable cause)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(msg, cause, <span class="keyword">false</span>, <span class="keyword">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>一般情况用第一个构造参数, 比较轻量级, 想要精准跟踪异常可以使用第三个构造参数.</p>
 <h2 id="404处理"><a href="#404处理" class="headerlink" title="404处理"></a>404处理</h2><p>Spring Boot 2.X 中会有一个Resouce的Mapping来处理静态资源, 当输入一个不存在的请求时, 总会匹配到这个Mapping:</p>
-<p><img src="https://cdn.yangbingdong.com/img/spring-boot-learning/spring-mvc-resource-mapping.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-boot-learning/spring-mvc-resource-mapping.png" alt></p>
 <p>此时的404错误是 <code>ResourceHttpRequestHandler#handleRequest</code> 中因为找不到resource从而调用<code>response#sendError</code> 发出的:</p>
-<p><img src="https://cdn.yangbingdong.com/img/spring-boot-learning/spring-mvc-resource-not-found.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-boot-learning/spring-mvc-resource-not-found.png" alt></p>
 <p>一般地如果是前后分离的项目, 都不要将资源放在后端, 所以可以用过以下配置关闭这个万能的Mapping:</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">resources:</span></span><br><span class="line">    <span class="attr">add-mappings:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
 <p>通过以上配置后, 将加载不了静态资源, 如果需要加载, 需要自定义配置, 比如Swagger:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addResourceHandlers</span><span class="params">(ResourceHandlerRegistry registry)</span> </span>&#123;</span><br><span class="line">	registry.addResourceHandler(<span class="string">"/swagger-ui.html"</span>)</span><br><span class="line">			.addResourceLocations(<span class="string">"classpath:/META-INF/resources/"</span>, <span class="string">"/static"</span>, <span class="string">"/public"</span>);</span><br><span class="line"></span><br><span class="line">	registry.addResourceHandler(<span class="string">"/webjars/**"</span>)</span><br><span class="line">			.addResourceLocations(<span class="string">"classpath:/META-INF/resources/webjars/"</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>如果需要通过抛异常的方式捕获404这个异常, 需要通过以下配置:</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">mvc:</span></span><br><span class="line">    <span class="attr">throw-exception-if-no-handler-found:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.yangbingdong.com/img/spring-boot-learning/spring-mvc-throw-not-found.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-boot-learning/spring-mvc-throw-not-found.png" alt></p>
 <p>之后可以通过 <code>@ExceptionHandler(value = NoHandlerFoundException.class)</code> 处理这个404了, 而不是转发到 <code>/error</code>.</p>
 <h2 id="静态资源"><a href="#静态资源" class="headerlink" title="静态资源"></a>静态资源</h2><p>设置静态资源放到指定路径下</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spring.resources.static-locations=classpath:/META-INF/resources/,classpath:/static/</span><br></pre></td></tr></table></figure>
@@ -606,7 +606,7 @@
 <li><code>Interceptor</code>可以访问<code>Action</code>的上下文, 值栈里的对象, 而<code>Filter</code>不能. </li>
 <li>在<code>action</code>的生命周期里, <code>Interceptor</code>可以被多次调用, 而Filter只能在容器初始化时调用一次. </li>
 </ul>
-<p><img src="https://cdn.yangbingdong.com/img/spring-boot-learning/mvc-process.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/spring-boot-learning/mvc-process.png" alt></p>
 <h2 id="RequestBodyAdvice和ResponseBodyAdvice"><a href="#RequestBodyAdvice和ResponseBodyAdvice" class="headerlink" title="RequestBodyAdvice和ResponseBodyAdvice"></a>RequestBodyAdvice和ResponseBodyAdvice</h2><h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
 <li>对Request请求参数解密, 对Response返回参数进行加密</li>
 <li>自定义返回信息（业务无关性的）</li>
@@ -1266,7 +1266,7 @@ show_date_time();
 
 <div style="width:300px;margin:0 auto;">
   <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44010602005896" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
-    <img src="https://cdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
+    <img src="https://oldcdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
     <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#555;">粤公网安备 44010602005896号</p></a>
 </div>
 

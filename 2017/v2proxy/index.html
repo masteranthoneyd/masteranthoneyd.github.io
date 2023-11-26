@@ -85,19 +85,19 @@
 <meta property="og:site_name" content="ookamiAntD&#39;s Blog">
 <meta property="og:description" content="Preface 作为一名开发人员, 日常离不开 Google, 那么在这之前, 必须要先学会如何代理. 本人 Linode 邀请码: 79e24952d46644605b071a55c4fda3b23e1d1a5a">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/vps/whats-shadowsocks-04.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/vps/proxy.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/vps/proxy01.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/vps/proxy03.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/vps/proxy04.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/vps/privoxy-config01.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/vps/privoxy-config02.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/docker-shadowsocks/change-kernel.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/vps/whats-shadowsocks-04.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/vps/proxy.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/vps/proxy01.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/vps/proxy03.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/vps/proxy04.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/vps/privoxy-config01.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/vps/privoxy-config02.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/docker-shadowsocks/change-kernel.png">
 <meta property="og:updated_time" content="2020-08-14T10:50:24.188Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="V2Proxy 正确的代理模式">
 <meta name="twitter:description" content="Preface 作为一名开发人员, 日常离不开 Google, 那么在这之前, 必须要先学会如何代理. 本人 Linode 邀请码: 79e24952d46644605b071a55c4fda3b23e1d1a5a">
-<meta name="twitter:image" content="https://cdn.yangbingdong.com/img/vps/whats-shadowsocks-04.png">
+<meta name="twitter:image" content="https://oldcdn.yangbingdong.com/img/vps/whats-shadowsocks-04.png">
 
 
 
@@ -440,7 +440,7 @@
       
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://cdn.yangbingdong.com/img/vps/whats-shadowsocks-04.png" alt></p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://oldcdn.yangbingdong.com/img/vps/whats-shadowsocks-04.png" alt></p>
 <h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><blockquote>
 <p>作为一名开发人员, 日常离不开 Google, 那么在这之前, 必须要先学会如何代理.</p>
 <p>本人 <strong><em><a href="https://www.linode.com/" rel="external nofollow noopener noreferrer" target="_blank">Linode</a></em></strong> 邀请码: <code>79e24952d46644605b071a55c4fda3b23e1d1a5a</code> </p>
@@ -550,9 +550,9 @@
 <li>从 <strong><em><a href="https://github.com/FelisCatus/SwitchyOmega/releases/" rel="external nofollow noopener noreferrer" target="_blank">Releases</a></em></strong> 页面下载离线安装包, 浏览器地址打开<code>chrome://extensions/</code>,  启用<strong>开发者模式</strong>,将下载的安装包拖进去</li>
 <li>无法安装的参考一下这里: <strong><em><a href="https://zhuanlan.zhihu.com/p/78519194" rel="external nofollow noopener noreferrer" target="_blank">四种谷歌浏览器扩展插件安装方法，完美解决程序包无效问题！</a></em></strong></li>
 </ul>
-<h3 id="设置代理地址"><a href="#设置代理地址" class="headerlink" title="设置代理地址"></a>设置代理地址</h3><p>安装好插件会自动跳到设置选项, 有提示你可以跳过. 左边新建情景模式-选择代理服务器-比如命名为shadowProxy（叫什么无所谓）其他默认之后创建, 之后在代理协议选择 SOCKS5, 地址为<code>127.0.0.1</code>,端口默认<code>1080</code> . 然后保存即应用选项.<br><img src="https://cdn.yangbingdong.com/img/vps/proxy.png" alt><br><img src="https://cdn.yangbingdong.com/img/vps/proxy01.png" alt></p>
-<h3 id="设置自动切换"><a href="#设置自动切换" class="headerlink" title="设置自动切换"></a>设置自动切换</h3><p>接着点击自动切换 ( Auto switch）上面的不用管, 在按照规则列表匹配请求后面选择刚才新建的SS, 默认情景模式选择直接连接. 点击应用选项保存. 再往下规则列表设置选择<code>AutoProxy</code> 然后将 <em><a href="https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt" rel="external nofollow noopener noreferrer" target="_blank">https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt</a></em> 填进去, 点击下面的立即更新情景模式, 会有提示更新成功！<br><img src="https://cdn.yangbingdong.com/img/vps/proxy03.png" alt></p>
-<p>点击浏览器右上角的 SwitchyOmega 图标, 下面选择自动切换, 然后打开 <strong><em><a href="https://www.google.com/" rel="external nofollow noopener noreferrer" target="_blank">google.com</a></em></strong> 试试, 其他的就不在这贴图了.<br><img src="https://cdn.yangbingdong.com/img/vps/proxy04.png" alt></p>
+<h3 id="设置代理地址"><a href="#设置代理地址" class="headerlink" title="设置代理地址"></a>设置代理地址</h3><p>安装好插件会自动跳到设置选项, 有提示你可以跳过. 左边新建情景模式-选择代理服务器-比如命名为shadowProxy（叫什么无所谓）其他默认之后创建, 之后在代理协议选择 SOCKS5, 地址为<code>127.0.0.1</code>,端口默认<code>1080</code> . 然后保存即应用选项.<br><img src="https://oldcdn.yangbingdong.com/img/vps/proxy.png" alt><br><img src="https://oldcdn.yangbingdong.com/img/vps/proxy01.png" alt></p>
+<h3 id="设置自动切换"><a href="#设置自动切换" class="headerlink" title="设置自动切换"></a>设置自动切换</h3><p>接着点击自动切换 ( Auto switch）上面的不用管, 在按照规则列表匹配请求后面选择刚才新建的SS, 默认情景模式选择直接连接. 点击应用选项保存. 再往下规则列表设置选择<code>AutoProxy</code> 然后将 <em><a href="https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt" rel="external nofollow noopener noreferrer" target="_blank">https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt</a></em> 填进去, 点击下面的立即更新情景模式, 会有提示更新成功！<br><img src="https://oldcdn.yangbingdong.com/img/vps/proxy03.png" alt></p>
+<p>点击浏览器右上角的 SwitchyOmega 图标, 下面选择自动切换, 然后打开 <strong><em><a href="https://www.google.com/" rel="external nofollow noopener noreferrer" target="_blank">google.com</a></em></strong> 试试, 其他的就不在这贴图了.<br><img src="https://oldcdn.yangbingdong.com/img/vps/proxy04.png" alt></p>
 <h2 id="GenPAC全局代理"><a href="#GenPAC全局代理" class="headerlink" title="GenPAC全局代理"></a>GenPAC全局代理</h2><p>如果不想每个浏览器都要设置代理, 可以通过GenPAC实现全局代理. </p>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>pip:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-pip python-dev build-essential </span><br><span class="line">sudo pip install --upgrade pip </span><br><span class="line">sudo pip install --upgrade virtualenv</span><br></pre></td></tr></table></figure></p>
 <p>GenPAC:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install genpac</span><br><span class="line">sudo pip install --upgrade genpac</span><br></pre></td></tr></table></figure></p>
@@ -578,9 +578,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install privoxy</span><br></pre></td></tr></table></figure>
 <p>安装好后进行配置, Privoxy的配置文件在<code>/etc/privoxy/config</code>, 这个配置文件中注释很多. </p>
 <p>找到<code>4.1. listen-address</code>这一节, 确认监听的端口号, 如果有内网地址可以监听 <code>0.0.0.0:8118</code>. </p>
-<p><img src="https://cdn.yangbingdong.com/img/vps/privoxy-config01.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/vps/privoxy-config01.png" alt></p>
 <p>找到<code>5.2. forward-socks4, forward-socks4a, forward-socks5 and forward-socks5t</code>这一节, 加上如下配置, 注意最后的点号. </p>
-<p><img src="https://cdn.yangbingdong.com/img/vps/privoxy-config02.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/vps/privoxy-config02.png" alt></p>
 <p>重启一下Privoxy</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/privoxy restart</span><br></pre></td></tr></table></figure>
 <p>终端体验: </p>
@@ -592,7 +592,7 @@
 <p>或者使用下面这个开始 BBR+.</p>
 <p><strong><em><a href="https://github.com/chiakge/Linux-NetSpeed" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/chiakge/Linux-NetSpeed</a></em></strong> :</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate &quot;https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</span><br></pre></td></tr></table></figure>
-<h3 id="更换Linode内核"><a href="#更换Linode内核" class="headerlink" title="更换Linode内核"></a>更换Linode内核</h3><p>谷歌开发的TCP加速外挂, 目前已集成到最新的Linux内核.<br><strong><a href="https://www.linode.com/" rel="external nofollow noopener noreferrer" target="_blank">Linode</a></strong> 不能直接命令更换内核, 需要到管理后台设置:<br><img src="https://cdn.yangbingdong.com/img/docker-shadowsocks/change-kernel.png" alt></p>
+<h3 id="更换Linode内核"><a href="#更换Linode内核" class="headerlink" title="更换Linode内核"></a>更换Linode内核</h3><p>谷歌开发的TCP加速外挂, 目前已集成到最新的Linux内核.<br><strong><a href="https://www.linode.com/" rel="external nofollow noopener noreferrer" target="_blank">Linode</a></strong> 不能直接命令更换内核, 需要到管理后台设置:<br><img src="https://oldcdn.yangbingdong.com/img/docker-shadowsocks/change-kernel.png" alt></p>
 <p>安装完重启后输入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure>
 <p>出现 <code>tcp_bbr</code> 即说明 BBR 已经启动. </p>
@@ -1108,7 +1108,7 @@ show_date_time();
 
 <div style="width:300px;margin:0 auto;">
   <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44010602005896" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
-    <img src="https://cdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
+    <img src="https://oldcdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
     <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#555;">粤公网安备 44010602005896号</p></a>
 </div>
 

@@ -85,19 +85,19 @@
 <meta property="og:site_name" content="ookamiAntD&#39;s Blog">
 <meta property="og:description" content="Preface JDK 并发包中有着许许多多的工具类, 将分为上中下三篇回顾这些工具类以及其简单的使用.">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/concurrent/java-concurrent-lock-condition-banner.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/concurrent/java-concurrent-semaphore-module.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/concurrent/java-concurrent-countdownlatch01.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/concurrent/java-concurrent-countdownlatch02.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/concurrent/java-concurrent-countdownlatch03.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/concurrent/java-concurrent-countdownlatch04.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/concurrent/java-concurrent-countdownlatch05.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/concurrent/java-concurrent-countdownlatch06.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/concurrent/java-concurrent-lock-condition-banner.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/concurrent/java-concurrent-semaphore-module.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/concurrent/java-concurrent-countdownlatch01.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/concurrent/java-concurrent-countdownlatch02.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/concurrent/java-concurrent-countdownlatch03.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/concurrent/java-concurrent-countdownlatch04.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/concurrent/java-concurrent-countdownlatch05.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/concurrent/java-concurrent-countdownlatch06.png">
 <meta property="og:updated_time" content="2020-04-07T10:15:47.010Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 并发拾遗-并发工具(上)">
 <meta name="twitter:description" content="Preface JDK 并发包中有着许许多多的工具类, 将分为上中下三篇回顾这些工具类以及其简单的使用.">
-<meta name="twitter:image" content="https://cdn.yangbingdong.com/img/concurrent/java-concurrent-lock-condition-banner.png">
+<meta name="twitter:image" content="https://oldcdn.yangbingdong.com/img/concurrent/java-concurrent-lock-condition-banner.png">
 
 
 
@@ -462,7 +462,7 @@
       
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://cdn.yangbingdong.com/img/concurrent/java-concurrent-lock-condition-banner.png" alt></p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://oldcdn.yangbingdong.com/img/concurrent/java-concurrent-lock-condition-banner.png" alt></p>
 <h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><blockquote>
 <p>JDK 并发包中有着许许多多的工具类, 将分为上中下三篇回顾这些工具类以及其简单的使用.</p>
 </blockquote>
@@ -507,7 +507,7 @@
 <h1 id="Semaphore-如何快速实现一个限流器"><a href="#Semaphore-如何快速实现一个限流器" class="headerlink" title="Semaphore: 如何快速实现一个限流器"></a>Semaphore: 如何快速实现一个限流器</h1><p>一般被翻译为<strong>信号量</strong>, 由大名鼎鼎的计算机科学家迪杰斯特拉(Dijkstra)于 1965 年提出, 在这之后的 15 年, 信号量一直都是并发编程领域的终结者, 直到 1980 年管程被提出来.</p>
 <p>信号量一般用于<strong>控制资源访问的并发数量</strong>, 比如数据库链接资源, 读取千万条数据, 但是数据库链接就只有20个, 需要控制连接池的并发使用数量. </p>
 <h2 id="信号量模型"><a href="#信号量模型" class="headerlink" title="信号量模型"></a>信号量模型</h2><p><strong>一个计数器, 一个等待队列, 三个方法. </strong></p>
-<p><img src="https://cdn.yangbingdong.com/img/concurrent/java-concurrent-semaphore-module.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/concurrent/java-concurrent-semaphore-module.png" alt></p>
 <ul>
 <li><code>init()</code>: 设置计数器的初始值. </li>
 <li><code>down()</code>: 计数器的值减 1; 如果此时计数器的值小于 0, 则当前线程将被阻塞, 否则当前线程可以继续执行. </li>
@@ -576,24 +576,24 @@
 </ul>
 <p>除此之外 <code>CountDownLatch</code> 的计数器是<strong>不能循环利用</strong>的, 也就是说一旦计数器减到 0, 再有线程调用 await(), 该线程会直接通过. 但 <code>CyclicBarrier</code> 的计数器是<strong>可以循环利用</strong>的, 而且具备<strong>自动重置</strong>的功能, 一旦计数器减到 0 会自动重置到你设置的初始值. 除此之外, <code>CyclicBarrier</code> 还可以设置回调函数, 可以说是功能丰富. </p>
 <p>举个例子就是做一个对账功能, 首先查询订单, 然后查询派送单, 之后对比订单和派送单, 将差异写入差异库:</p>
-<p><img src="https://cdn.yangbingdong.com/img/concurrent/java-concurrent-countdownlatch01.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/concurrent/java-concurrent-countdownlatch01.png" alt></p>
 <p>抽象代码如下:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(存在未对账订单)&#123;</span><br><span class="line">  <span class="comment">// 查询未对账订单</span></span><br><span class="line">  pos = getPOrders();</span><br><span class="line">  <span class="comment">// 查询派送单</span></span><br><span class="line">  dos = getDOrders();</span><br><span class="line">  <span class="comment">// 执行对账操作</span></span><br><span class="line">  diff = check(pos, dos);</span><br><span class="line">  <span class="comment">// 差异写入差异库</span></span><br><span class="line">  save(diff);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>执行流程是这样的:</p>
-<p><img src="https://cdn.yangbingdong.com/img/concurrent/java-concurrent-countdownlatch02.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/concurrent/java-concurrent-countdownlatch02.png" alt></p>
 <p>其实 <code>getPOrders()</code> 与 <code>getDOrders()</code> 是可以并行执行的:</p>
-<p><img src="https://cdn.yangbingdong.com/img/concurrent/java-concurrent-countdownlatch03.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/concurrent/java-concurrent-countdownlatch03.png" alt></p>
 <p>这时候可以使用 <code>CountDownLatch</code> 来实现:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建2个线程的线程池</span></span><br><span class="line">Executor executor = </span><br><span class="line">  Executors.newFixedThreadPool(<span class="number">2</span>);</span><br><span class="line"><span class="keyword">while</span>(存在未对账订单)&#123;</span><br><span class="line">  <span class="comment">// 计数器初始化为2</span></span><br><span class="line">  CountDownLatch latch = </span><br><span class="line">    <span class="keyword">new</span> CountDownLatch(<span class="number">2</span>);</span><br><span class="line">  <span class="comment">// 查询未对账订单</span></span><br><span class="line">  executor.execute(()-&gt; &#123;</span><br><span class="line">    pos = getPOrders();</span><br><span class="line">    latch.countDown();</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="comment">// 查询派送单</span></span><br><span class="line">  executor.execute(()-&gt; &#123;</span><br><span class="line">    dos = getDOrders();</span><br><span class="line">    latch.countDown();</span><br><span class="line">  &#125;);</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 等待两个查询操作结束</span></span><br><span class="line">  latch.await();</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 执行对账操作</span></span><br><span class="line">  diff = check(pos, dos);</span><br><span class="line">  <span class="comment">// 差异写入差异库</span></span><br><span class="line">  save(diff);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>当然, 我们也可以使用线程的 <code>join()</code> 来实现:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(存在未对账订单)&#123;</span><br><span class="line">  <span class="comment">// 查询未对账订单</span></span><br><span class="line">  Thread T1 = <span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">    pos = getPOrders();</span><br><span class="line">  &#125;);</span><br><span class="line">  T1.start();</span><br><span class="line">  <span class="comment">// 查询派送单</span></span><br><span class="line">  Thread T2 = <span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">    dos = getDOrders();</span><br><span class="line">  &#125;);</span><br><span class="line">  T2.start();</span><br><span class="line">  <span class="comment">// 等待T1、T2结束</span></span><br><span class="line">  T1.join();</span><br><span class="line">  T2.join();</span><br><span class="line">  <span class="comment">// 执行对账操作</span></span><br><span class="line">  diff = check(pos, dos);</span><br><span class="line">  <span class="comment">// 差异写入差异库</span></span><br><span class="line">  save(diff);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>缺点就是每次都需要创建以及销毁线程, 非常消耗资源.</p>
 <p>想一想, 还能再优化吗? 我们将 <code>getPOrders()</code> 和 <code>getDOrders()</code> 这两个查询操作并行了, 但这两个查询操作和对账操作 <code>check()</code>、<code>save()</code> 之间还是串行的. 很显然, 这两个查询操作和对账操作也是可以并行的, 也就是说, 在执行对账操作的时候, 可以同时去执行下一轮的查询操作:</p>
-<p><img src="https://cdn.yangbingdong.com/img/concurrent/java-concurrent-countdownlatch04.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/concurrent/java-concurrent-countdownlatch04.png" alt></p>
 <p>两次查询操作能够和对账操作并行, 对账操作还依赖查询操作的结果, 这明显有点生产者 - 消费者的意思. 那么需要两个队列, 并且两个队列的元素之间还有对应关系:</p>
-<p><img src="https://cdn.yangbingdong.com/img/concurrent/java-concurrent-countdownlatch05.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/concurrent/java-concurrent-countdownlatch05.png" alt></p>
 <p>但线程 T1 和线程 T2 的工作要步调一致, 不能一个跑得太快, 一个跑得太慢, 只有这样才能做到各自生产完 1 条数据的时候, 通知线程 T3. </p>
-<p><img src="https://cdn.yangbingdong.com/img/concurrent/java-concurrent-countdownlatch06.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/concurrent/java-concurrent-countdownlatch06.png" alt></p>
 <p>这时候 <code>CyclicBarrier</code> 就派上用场了:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 订单队列</span></span><br><span class="line">Vector&lt;P&gt; pos;</span><br><span class="line"><span class="comment">// 派送单队列</span></span><br><span class="line">Vector&lt;D&gt; dos;</span><br><span class="line"><span class="comment">// 执行回调的线程池 </span></span><br><span class="line">Executor executor = </span><br><span class="line">  Executors.newFixedThreadPool(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">final</span> CyclicBarrier barrier =</span><br><span class="line">  <span class="keyword">new</span> CyclicBarrier(<span class="number">2</span>, ()-&gt;&#123;</span><br><span class="line">    executor.execute(()-&gt;check());</span><br><span class="line">  &#125;);</span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">check</span><span class="params">()</span></span>&#123;</span><br><span class="line">  P p = pos.remove(<span class="number">0</span>);</span><br><span class="line">  D d = dos.remove(<span class="number">0</span>);</span><br><span class="line">  <span class="comment">// 执行对账操作</span></span><br><span class="line">  diff = check(p, d);</span><br><span class="line">  <span class="comment">// 差异写入差异库</span></span><br><span class="line">  save(diff);</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">checkAll</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="comment">// 循环查询订单库</span></span><br><span class="line">  Thread T1 = <span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">    <span class="keyword">while</span>(存在未对账订单)&#123;</span><br><span class="line">      <span class="comment">// 查询订单库</span></span><br><span class="line">      pos.add(getPOrders());</span><br><span class="line">      <span class="comment">// 等待</span></span><br><span class="line">      barrier.await();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">  T1.start();  </span><br><span class="line">  <span class="comment">// 循环查询运单库</span></span><br><span class="line">  Thread T2 = <span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">    <span class="keyword">while</span>(存在未对账订单)&#123;</span><br><span class="line">      <span class="comment">// 查询运单库</span></span><br><span class="line">      dos.add(getDOrders());</span><br><span class="line">      <span class="comment">// 等待</span></span><br><span class="line">      barrier.await();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">  T2.start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这里有两个注意点:</p>
@@ -1029,7 +1029,7 @@ show_date_time();
 
 <div style="width:300px;margin:0 auto;">
   <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44010602005896" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
-    <img src="https://cdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
+    <img src="https://oldcdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
     <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#555;">粤公网安备 44010602005896号</p></a>
 </div>
 

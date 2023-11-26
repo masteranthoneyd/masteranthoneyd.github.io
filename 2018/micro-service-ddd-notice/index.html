@@ -85,14 +85,14 @@
 <meta property="og:site_name" content="ookamiAntD&#39;s Blog">
 <meta property="og:description" content="Preface 微服务架构:微服务 (Microservices) 是一种软件架构风格 (Software Architecture Style), 它是以专注于单一责任与功能的小型功能区块 (Small Building Blocks) 为基础, 利用模组化的方式组合出复杂的大型应用程序, 各功能区块使用与语言无关 (Language-Independent/Language agnostic">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/micro-service/microservice.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/micro-service/register-sync.jpg">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/micro-service/register-async.jpg">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/micro-service/microservice.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/micro-service/register-sync.jpg">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/micro-service/register-async.jpg">
 <meta property="og:updated_time" content="2020-04-07T10:15:47.010Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于微服务的一些调研零散笔记">
 <meta name="twitter:description" content="Preface 微服务架构:微服务 (Microservices) 是一种软件架构风格 (Software Architecture Style), 它是以专注于单一责任与功能的小型功能区块 (Small Building Blocks) 为基础, 利用模组化的方式组合出复杂的大型应用程序, 各功能区块使用与语言无关 (Language-Independent/Language agnostic">
-<meta name="twitter:image" content="https://cdn.yangbingdong.com/img/micro-service/microservice.png">
+<meta name="twitter:image" content="https://oldcdn.yangbingdong.com/img/micro-service/microservice.png">
 
 
 
@@ -446,7 +446,7 @@
       
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://cdn.yangbingdong.com/img/micro-service/microservice.png" alt></p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://oldcdn.yangbingdong.com/img/micro-service/microservice.png" alt></p>
 <h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><blockquote>
 <p><em><a href="https://zh.wikipedia.org/zh-cn/%E5%BE%AE%E6%9C%8D%E5%8B%99" rel="external nofollow noopener noreferrer" target="_blank">微服务架构</a></em>:<br><strong>微服务</strong> (Microservices) 是一种软件架构风格 (Software Architecture Style), 它是以专注于单一责任与功能的小型功能区块 (Small Building Blocks) 为基础, 利用模组化的方式组合出复杂的大型应用程序, 各功能区块使用与<strong>语言无关</strong> (Language-Independent/Language agnostic) 的 <strong>API 集相互通讯</strong>. </p>
 </blockquote>
@@ -492,9 +492,9 @@
 <h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><p>实践微服务之后, 除了事务之外, 查询是又是另外一个挑战. 在传统架构中, 我们可以JOIN多个表进行查询, 但在微服务当中, 数据库已经分开, 如果是通过Event Sourcing实现的架构就更加困难了（因为存储的是事件）. </p>
 <p>解决之道: <strong>CQRS</strong></p>
 <h1 id="Extend"><a href="#Extend" class="headerlink" title="Extend"></a>Extend</h1><h2 id="Event-driven"><a href="#Event-driven" class="headerlink" title="Event-driven"></a>Event-driven</h2><p><code>Sync</code>（请求/响应）: 串行架构</p>
-<p><img src="https://cdn.yangbingdong.com/img/micro-service/register-sync.jpg" alt><br>优点: 个人认为, 只有一个优点, 可以偷懒<br>缺点: 中心控制点承担了太多的职责, 入侵式强耦合代码, 如果此时多加一个业务例如创建用户团队, 那就必须在原来代码基础上继续入侵代码, 而且修改一行代码有可能影响到下文. </p>
+<p><img src="https://oldcdn.yangbingdong.com/img/micro-service/register-sync.jpg" alt><br>优点: 个人认为, 只有一个优点, 可以偷懒<br>缺点: 中心控制点承担了太多的职责, 入侵式强耦合代码, 如果此时多加一个业务例如创建用户团队, 那就必须在原来代码基础上继续入侵代码, 而且修改一行代码有可能影响到下文. </p>
 <p><code>Async</code>（基于事件）: 并行/异步架构</p>
-<p><img src="https://cdn.yangbingdong.com/img/micro-service/register-async.jpg" alt><br>优点: 客户端发起的不是一个请求, 而是<strong>发布一个事件</strong>, 然后其他协作者接收到该事件, 并知道该怎么做. 我们从来不会告知任何人去做任何事, 基于事件的系统天生就是<strong>异步</strong>的. 整个系统都很聪明, 业务逻辑并非存在某个核心大脑, 而是分布在不同的协作者中. 基于事件的协作方式耦合性很低, 这意味着你可以在<strong>不改变客户端代码</strong>的情况下, 对该事件<strong>添加新的订阅者来完成新增的功能需求</strong>. </p>
+<p><img src="https://oldcdn.yangbingdong.com/img/micro-service/register-async.jpg" alt><br>优点: 客户端发起的不是一个请求, 而是<strong>发布一个事件</strong>, 然后其他协作者接收到该事件, 并知道该怎么做. 我们从来不会告知任何人去做任何事, 基于事件的系统天生就是<strong>异步</strong>的. 整个系统都很聪明, 业务逻辑并非存在某个核心大脑, 而是分布在不同的协作者中. 基于事件的协作方式耦合性很低, 这意味着你可以在<strong>不改变客户端代码</strong>的情况下, 对该事件<strong>添加新的订阅者来完成新增的功能需求</strong>. </p>
 <h2 id="Spring-Cloud-Framework"><a href="#Spring-Cloud-Framework" class="headerlink" title="Spring Cloud Framework"></a>Spring Cloud Framework</h2><h3 id="Spring-Cloud-Netflix"><a href="#Spring-Cloud-Netflix" class="headerlink" title="Spring Cloud Netflix"></a>Spring Cloud Netflix</h3><p>这可是个大boss, 地位仅次于老大, 老大各项服务依赖与它, 与各种Netflix OSS组件集成, 组成微服务的核心, 它的小弟主要有Eureka, Hystrix, Zuul, Archaius… 太多了</p>
 <p><strong>Netflix Eureka</strong></p>
 <p>服务中心, 云端服务发现, 一个基于 REST 的服务, 用于定位服务, 以实现云端中间层服务发现和故障转移. 这个可是springcloud最牛鼻的小弟, 服务中心, 任何小弟需要其它小弟支持什么都需要从这里来拿, 同样的你有什么独门武功的都赶紧过报道, 方便以后其它小弟来调用；它的好处是你不需要直接找各种什么小弟支持, 只需要到服务中心来领取, 也不需要知道提供支持的其它小弟在哪里, 还是几个小弟来支持的, 反正拿来用就行, 服务中心来保证稳定性和质量. </p>
@@ -969,7 +969,7 @@ show_date_time();
 
 <div style="width:300px;margin:0 auto;">
   <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44010602005896" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
-    <img src="https://cdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
+    <img src="https://oldcdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
     <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#555;">粤公网安备 44010602005896号</p></a>
 </div>
 

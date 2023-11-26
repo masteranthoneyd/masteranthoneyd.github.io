@@ -85,22 +85,22 @@
 <meta property="og:site_name" content="ookamiAntD&#39;s Blog">
 <meta property="og:description" content="Preface “Java is still not dead—and people are starting to figure that out.”Java 8是自Java  5（2004年）发布以来Java语言最大的一次版本升级, Java 8带来了很多的新特性, 包括Lambda 表达式、方法引用、流(Stream API)、默认方法、Optional、组合式异步编程、新的时间 API,">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/java/java8.jpg">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/java/2-Lambda.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/java/Java_stream_Interfaces.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/java/stream.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/java-8-tutorial-extend/java-8-function.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/java-8-tutorial-extend/string-join.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/java-8-tutorial-extend/stringjoiner.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/java-8-tutorial-extend/collectors-joining.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/java-8-tutorial-extend/map-java-8-new-method.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/java-8-tutorial-extend/map-compute-if-absent.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/java-8-tutorial-extend/java-8-iterable-foreach.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/java/java8.jpg">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/java/2-Lambda.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/java/Java_stream_Interfaces.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/java/stream.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/java-8-tutorial-extend/java-8-function.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/java-8-tutorial-extend/string-join.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/java-8-tutorial-extend/stringjoiner.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/java-8-tutorial-extend/collectors-joining.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/java-8-tutorial-extend/map-java-8-new-method.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/java-8-tutorial-extend/map-compute-if-absent.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/java-8-tutorial-extend/java-8-iterable-foreach.png">
 <meta property="og:updated_time" content="2020-04-07T10:15:47.010Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java8 Noob Tutorial">
 <meta name="twitter:description" content="Preface “Java is still not dead—and people are starting to figure that out.”Java 8是自Java  5（2004年）发布以来Java语言最大的一次版本升级, Java 8带来了很多的新特性, 包括Lambda 表达式、方法引用、流(Stream API)、默认方法、Optional、组合式异步编程、新的时间 API,">
-<meta name="twitter:image" content="https://cdn.yangbingdong.com/img/java/java8.jpg">
+<meta name="twitter:image" content="https://oldcdn.yangbingdong.com/img/java/java8.jpg">
 
 
 
@@ -454,7 +454,7 @@
       
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://cdn.yangbingdong.com/img/java/java8.jpg" alt></p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://oldcdn.yangbingdong.com/img/java/java8.jpg" alt></p>
 <h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><blockquote>
 <p>“Java is still not dead—and people are starting to figure that out.”<br>Java 8是自Java  5（2004年）发布以来Java语言最大的一次版本升级, Java 8带来了很多的新特性, 包括Lambda 表达式、方法引用、流(Stream API)、默认方法、Optional、组合式异步编程、新的时间 API, 等等各个方面. 利用这些特征, 我们可以写出如同清泉般的简洁代码= =…</p>
 </blockquote>
@@ -499,7 +499,7 @@
 <h2 id="匿名内部类的简写？"><a href="#匿名内部类的简写？" class="headerlink" title="匿名内部类的简写？"></a>匿名内部类的简写？</h2><p><strong>Lambda表达式通过<code>invokedynamic</code>指令实现, 书写Lambda表达式不会产生新的类</strong>. 如果有如下代码, 编译之后只有一个<code>class</code>文件: </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class MainLambda &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		new Thread(</span><br><span class="line">				() -&gt; System.out.println(&quot;Lambda Thread run()&quot;)</span><br><span class="line">			).start();;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>编译之后的结果: </p>
-<p><img src="https://cdn.yangbingdong.com/img/java/2-Lambda.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/java/2-Lambda.png" alt></p>
 <p>通过javap反编译命名, 我们更能看出Lambda表达式内部表示的不同: </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// javap -c -p MainLambda.class</span><br><span class="line">public class MainLambda &#123;</span><br><span class="line">  ...</span><br><span class="line">  public static void main(java.lang.String[]);</span><br><span class="line">    Code:</span><br><span class="line">       0: new           #2                  // class java/lang/Thread</span><br><span class="line">       3: dup</span><br><span class="line">       4: invokedynamic #3,  0              // InvokeDynamic #0:run:()Ljava/lang/Runnable; /*使用invokedynamic指令调用*/</span><br><span class="line">       9: invokespecial #4                  // Method java/lang/Thread.&quot;&lt;init&gt;&quot;:(Ljava/lang/Runnable;)V</span><br><span class="line">      12: invokevirtual #5                  // Method java/lang/Thread.start:()V</span><br><span class="line">      15: return</span><br><span class="line"></span><br><span class="line">  private static void lambda$main$0();  /*Lambda表达式被封装成主类的私有方法*/</span><br><span class="line">    Code:</span><br><span class="line">       0: getstatic     #6                  // Field java/lang/System.out:Ljava/io/PrintStream;</span><br><span class="line">       3: ldc           #7                  // String Lambda Thread run()</span><br><span class="line">       5: invokevirtual #8                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V</span><br><span class="line">       8: return</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>反编译之后我们发现Lambda表达式被封装成了主类的一个私有方法, 并通过<em><code>invokedynamic</code></em>指令进行调用. </p>
@@ -551,7 +551,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public List&lt;User&gt; getUsers(Collection&lt;Integer&gt; userIds) &#123;</span><br><span class="line">    return userIds.stream()</span><br><span class="line">            .map(this::getUserById)    // 获得 Stream&lt;Optional&lt;User&gt;&gt;</span><br><span class="line">            .flatMap(Optional::stream) // Stream 的 flatMap 方法将多个流合成一个流</span><br><span class="line">            .collect(Collectors.toList());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h1 id="Streams"><a href="#Streams" class="headerlink" title="Streams"></a>Streams</h1><p><img src="https://cdn.yangbingdong.com/img/java/Java_stream_Interfaces.png" alt></p>
+<h1 id="Streams"><a href="#Streams" class="headerlink" title="Streams"></a>Streams</h1><p><img src="https://oldcdn.yangbingdong.com/img/java/Java_stream_Interfaces.png" alt></p>
 <h2 id="流是什么"><a href="#流是什么" class="headerlink" title="流是什么"></a>流是什么</h2><p>先来一段代码: </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Arrays.asList(<span class="string">"a1"</span>, <span class="string">"a2"</span>, <span class="string">"b1"</span>, <span class="string">"c2"</span>, <span class="string">"c1"</span>).stream()</span><br><span class="line">                                           .filter(s -&gt; s.startsWith(<span class="string">"c"</span>))</span><br><span class="line">                                           .map(String::toUpperCase)</span><br><span class="line">                                           .sorted()</span><br><span class="line">                                           .forEach(System.out::println);</span><br></pre></td></tr></table></figure>
 <p>流是Java SE 8类库中新增的关键抽象, 它被定义于<code>java.util.stream</code>（这个包里有若干流类型: <code>Stream&lt;T&gt;</code>代表对象引用流, 此外还有一系列特化（specialization）流, 比如<code>IntStream</code>代表整形数字流）. 每个流代表一个值序列, 流提供一系列常用的聚集操作, 使得我们可以便捷的在它上面进行各种运算. 集合类库也提供了便捷的方式使我们可以以操作流的方式使用集合、数组以及其它数据结构. 流的操作可以被组合成流水线（Pipeline）. </p>
@@ -585,7 +585,7 @@
 <li>一个终端操作, 执行流水线, 并能生成结果. </li>
 </ul>
 <p>流的流水线背后的理念类似于构建器模式. 常见的中间操作有<code>filter</code>,<code>map</code>,<code>limit</code>,<code>sorted</code>,<code>distinct</code>；常见的终端操作有 <code>forEach</code>,<code>count</code>,<code>collect</code>. </p>
-<p><img src="https://cdn.yangbingdong.com/img/java/stream.png" alt><br>流的操作类型分为两种: </p>
+<p><img src="https://oldcdn.yangbingdong.com/img/java/stream.png" alt><br>流的操作类型分为两种: </p>
 <ul>
 <li><code>Intermediate</code>: 一个流可以后面跟随零个或多个 <code>intermediate</code> 操作. 其目的主要是<strong>打开流</strong>, 做出某种程度的数据映射/过滤, 然后返回一个新的流, 交给下一个操作使用. 这类操作都是<strong>惰性化的</strong>（<strong>lazy</strong>）, 就是说, 仅仅调用到这类方法, <strong>并没有真正开始流的遍历</strong>. </li>
 <li><code>Terminal</code>: 一个流只能有一个 <code>terminal</code> 操作, 当这个操作执行后, 流就被使用“光”了, 无法再被操作. 所以这必定是流的<strong>最后一个操作</strong>. <code>Terminal</code> 操作的执行, <strong>才会真正开始流的遍历</strong>, 并且会生成一个结果, 或者一个 <strong>side effect</strong>. </li>
@@ -839,7 +839,7 @@
 <p>如果一个 <em><code>FunctionInterface</code></em> 的方法会抛出受检异常（比如 <code>Exception</code>）, 那么该 <em><code>FunctionInterface</code></em> 便可以作为会抛出受检异常的 Lambda 的目标类型.<br>我们定义如下一个 <em><code>FunctionInterface</code></em>: </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@FunctionalInterface</span><br><span class="line">public interface UncheckedFunction&lt;T, R&gt; &#123;</span><br><span class="line">	R apply(T t) throws Exception;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>那么该 <em><code>FunctionInterface</code></em> 便可以作为类似于 <code>file -&gt; File.lines(file)</code> 这类会抛出受检异常的 Lambda 的目标类型, 此时 Lambda 中并不需要捕获异常（因为目标类型的 <code>apply</code> 方法已经将异常抛出了）—— 之所以原来的 Lambda 需要捕获异常, 就是因为在流式操作 <code>flatMap</code> 中使用的 <code>java.util.function</code> 包下的 <code>Function&lt;T, R&gt;</code> 没有抛出异常: </p>
-<p><img src="https://cdn.yangbingdong.com/img/java-8-tutorial-extend/java-8-function.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/java-8-tutorial-extend/java-8-function.png" alt></p>
 <p>那我们如何使用 <code>UncheckedFunction</code> 到流式操作的 Lambda 中呢？<br>首先我们定义一个 <code>Trier</code> 类, 它的 <code>tryFunction</code> 方法提供将 <code>UncheckedFunction</code> 包装为 <code>Function</code> 的功能: </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public class Trier &#123;</span><br><span class="line">   private static final Logger LOGGER = LoggerFactory.getLogger(Trier.class);</span><br><span class="line"></span><br><span class="line">   public static &lt;T, R&gt; Function&lt;T, R&gt; tryFunction(UncheckedFunction&lt;T, R&gt; function) &#123;</span><br><span class="line">      requireNonNull(function);</span><br><span class="line">      return t -&gt; &#123;</span><br><span class="line">         try &#123;</span><br><span class="line">            return function.apply(t);</span><br><span class="line">         &#125; catch (Exception e) &#123;</span><br><span class="line">            throw logAndThrow(e);</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;;</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">    @FunctionalInterface</span><br><span class="line">    public static interface UncheckedFunction&lt;T, R&gt; &#123;</span><br><span class="line"></span><br><span class="line">        R apply(T t) throws Exception;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>然后在原先的代码中, 我们使用 <code>Trier.tryFunction</code> 方法来对会抛出受检异常的 Lambda 进行包装: </p>
@@ -861,15 +861,15 @@
 <p>或者使用<code>String.join</code>:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public static String formatList(List&lt;String&gt; list, String delimiter) &#123;</span><br><span class="line">    return String.join(delimiter, list);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>它的底层也是调用<code>StringJoiner</code>: </p>
-<p><img src="https://cdn.yangbingdong.com/img/java-8-tutorial-extend/string-join.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/java-8-tutorial-extend/string-join.png" alt></p>
 <p>但是我们看到了 <code>String.join</code> 方法的不足 —— 它不能指定前缀和后缀 —— 比如我们如果想要直接将 <code>List&lt;String&gt;</code> 格式化为 <strong>{ 元素1, 元素2, 元素3, … 元素N }</strong> 呢？（此时前缀为 <code>&quot;{ &quot;</code>, 后缀为 <code>&quot; }&quot;</code>）</p>
 <p>查看 <code>StringJoiner</code> 的构造方法, 发现 <code>StringJoiner</code> 除了指定 分隔符 的构造方法, 还有一个可以指定 分隔符、前缀和后缀 的构造方法: </p>
-<p><img src="https://cdn.yangbingdong.com/img/java-8-tutorial-extend/stringjoiner.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/java-8-tutorial-extend/stringjoiner.png" alt></p>
 <p>修改 <code>formatList</code>: </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public static String formatList(</span><br><span class="line">        List&lt;String&gt; list, String delimiter, String prefix, String suffix) &#123;</span><br><span class="line"></span><br><span class="line">    StringJoiner result = new StringJoiner(delimiter, prefix, suffix);</span><br><span class="line">    for (String str : list) &#123;</span><br><span class="line">        result.add(str);</span><br><span class="line">    &#125;</span><br><span class="line">    return result.toString();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static void main(String[] args) throws Exception &#123;</span><br><span class="line">    List&lt;String&gt; list = Arrays.asList(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;);</span><br><span class="line"></span><br><span class="line">    System.out.println(&quot;使用 StringJoiner, 带前缀和后缀: &quot;);</span><br><span class="line">    String format = formatList(list, &quot;, &quot;, &quot;&#123; &quot;, &quot; &#125;&quot;);</span><br><span class="line">    System.out.println(format);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>运行结果: </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">使用 StringJoiner, 带前缀和后缀: </span><br><span class="line">&#123; a, b, c, d, e, f, g &#125;</span><br></pre></td></tr></table></figure>
-<p>事实上, Java8 对于字符串集合的连接操作提供了一个专门的流式 API, 即 <code>Collectors.joining</code> 函数:<br><img src="https://cdn.yangbingdong.com/img/java-8-tutorial-extend/collectors-joining.png" alt="img"></p>
+<p>事实上, Java8 对于字符串集合的连接操作提供了一个专门的流式 API, 即 <code>Collectors.joining</code> 函数:<br><img src="https://oldcdn.yangbingdong.com/img/java-8-tutorial-extend/collectors-joining.png" alt="img"></p>
 <ul>
 <li>无参的 <code>joining()</code> 方法, 即不存在连接符（底层实现为 <code>StringBuilder</code>）；</li>
 <li><code>joining(CharSequence delimiter)</code> 方法, 即分隔符为 <em>delimiter</em>（底层实现为 <code>StringJoiner</code>）；</li>
@@ -886,16 +886,16 @@
 <p>运行结果: </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">使用 Java8 之前的 API: </span><br><span class="line">&#123;a=[0], b=[1, 2], c=[3, 4, 5], d=[6, 7, 8], f=[9, 10], g=[11]&#125;</span><br></pre></td></tr></table></figure>
 <p>在Java8之后, <code>Map</code>添加了一下新的方法签名: </p>
-<p><img src="https://cdn.yangbingdong.com/img/java-8-tutorial-extend/map-java-8-new-method.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/java-8-tutorial-extend/map-java-8-new-method.png" alt></p>
 <p>查看源码发现<code>computeIfAbsent</code>很符合上面需求: </p>
-<p><img src="https://cdn.yangbingdong.com/img/java-8-tutorial-extend/map-compute-if-absent.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/java-8-tutorial-extend/map-compute-if-absent.png" alt></p>
 <p>我们可以改造成这样子: </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public static Map&lt;String, List&lt;Integer&gt;&gt; getElementPositions(List&lt;String&gt; list) &#123;</span><br><span class="line">    Map&lt;String, List&lt;Integer&gt;&gt; positionsMap = new HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    for (int i = 0; i &lt; list.size(); i++) &#123;</span><br><span class="line">        positionsMap.computeIfAbsent(list.get(i), k -&gt; new ArrayList&lt;&gt;(1)).add(i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return positionsMap;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static void main(String[] args) throws Exception &#123;</span><br><span class="line">    List&lt;String&gt; list = Arrays.asList(&quot;a&quot;, &quot;b&quot;, &quot;b&quot;, &quot;c&quot;, &quot;c&quot;, &quot;c&quot;, &quot;d&quot;, &quot;d&quot;, &quot;d&quot;, &quot;f&quot;, &quot;f&quot;, &quot;g&quot;);</span><br><span class="line"></span><br><span class="line">    System.out.println(&quot;使用 computeIfAbsent: &quot;);</span><br><span class="line">    Map&lt;String, List&lt;Integer&gt;&gt; elementPositions = getElementPositions(list);</span><br><span class="line">    System.out.println(elementPositions);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>效果一样, 但是代码优雅整洁了很多. </p>
 <h2 id="当-forEach-需要索引"><a href="#当-forEach-需要索引" class="headerlink" title="当 forEach 需要索引"></a>当 forEach 需要索引</h2><p>上面的例子通过Java8新增的<code>Map</code>方法可以很<strong>优雅</strong>地实现一些需求: </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public static Map&lt;String, List&lt;Integer&gt;&gt; getElementPositions(List&lt;String&gt; list) &#123;</span><br><span class="line">    Map&lt;String, List&lt;Integer&gt;&gt; positionsMap = new HashMap&lt;&gt;();</span><br><span class="line">    for (int i = 0; i &lt; list.size(); i++) &#123;</span><br><span class="line">        positionsMap.computeIfAbsent(list.get(i), k -&gt; new ArrayList&lt;&gt;(1)).add(i);</span><br><span class="line">    &#125;</span><br><span class="line">    return positionsMap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>但是方法里面的<code>for</code>循环似乎让这个方法不太优雅了, Java8中<code>Iterable</code>提供的<code>foreach</code>并不带索引的: </p>
-<p><img src="https://cdn.yangbingdong.com/img/java-8-tutorial-extend/java-8-iterable-foreach.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/java-8-tutorial-extend/java-8-iterable-foreach.png" alt></p>
 <p>我们可以自己写一个: </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">    public static &lt;E&gt; void forEach(</span><br><span class="line">            Iterable&lt;? extends E&gt; elements, BiConsumer&lt;Integer, ? super E&gt; action) &#123;</span><br><span class="line">        Objects.requireNonNull(elements);</span><br><span class="line">        Objects.requireNonNull(action);</span><br><span class="line"></span><br><span class="line">        int index = 0;</span><br><span class="line">        for (E element : elements) &#123;</span><br><span class="line">            action.accept(index++, element);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>然后改造<code>getElementPositions</code>方法: </p>
@@ -1341,7 +1341,7 @@ show_date_time();
 
 <div style="width:300px;margin:0 auto;">
   <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44010602005896" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
-    <img src="https://cdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
+    <img src="https://oldcdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
     <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#555;">粤公网安备 44010602005896号</p></a>
 </div>
 

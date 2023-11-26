@@ -85,19 +85,19 @@
 <meta property="og:site_name" content="ookamiAntD&#39;s Blog">
 <meta property="og:description" content="Preface 一般每个企业里面都有属于自己的Nexus服务器作为自己的私服（代理），私服好处众多，例如加速构建、稳定，节省带宽、节省中央maven仓库的带宽，控制和审计，可以建立本地内部仓库、可以建立公共仓库等等。Docker 可以大大简化服务器的部署，并且Nexus3已经支持Docker Image啦～爽歪歪">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/docker-nexus3/nexus-logo.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/docker-nexus3/nexus-repo.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/docker-nexus3/proxy-url.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/docker-nexus3/nexus-proxy1.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/docker-nexus3/nexus-proxy2.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/docker-nexus3/nexus-proxy3.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/docker-nexus3/nexus-repush.png">
-<meta property="og:image" content="https://cdn.yangbingdong.com/img/docker-nexus3/download-source.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/docker-nexus3/nexus-logo.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/docker-nexus3/nexus-repo.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/docker-nexus3/proxy-url.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/docker-nexus3/nexus-proxy1.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/docker-nexus3/nexus-proxy2.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/docker-nexus3/nexus-proxy3.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/docker-nexus3/nexus-repush.png">
+<meta property="og:image" content="https://oldcdn.yangbingdong.com/img/docker-nexus3/download-source.png">
 <meta property="og:updated_time" content="2020-04-07T10:15:47.010Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nexus搭建与Maven配置">
 <meta name="twitter:description" content="Preface 一般每个企业里面都有属于自己的Nexus服务器作为自己的私服（代理），私服好处众多，例如加速构建、稳定，节省带宽、节省中央maven仓库的带宽，控制和审计，可以建立本地内部仓库、可以建立公共仓库等等。Docker 可以大大简化服务器的部署，并且Nexus3已经支持Docker Image啦～爽歪歪">
-<meta name="twitter:image" content="https://cdn.yangbingdong.com/img/docker-nexus3/nexus-logo.png">
+<meta name="twitter:image" content="https://oldcdn.yangbingdong.com/img/docker-nexus3/nexus-logo.png">
 
 
 
@@ -440,7 +440,7 @@
       
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://cdn.yangbingdong.com/img/docker-nexus3/nexus-logo.png" alt></p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="https://oldcdn.yangbingdong.com/img/docker-nexus3/nexus-logo.png" alt></p>
 <h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><blockquote>
 <p>一般每个企业里面都有属于自己的Nexus服务器作为自己的私服（代理），私服好处众多，例如加速构建、稳定，节省带宽、节省中央<code>maven</code>仓库的带宽，控制和审计，可以建立本地内部仓库、可以建立公共仓库等等。<code>Docker</code> 可以大大简化服务器的部署，并且Nexus3已经支持<code>Docker Image</code>啦～爽歪歪</p>
 </blockquote>
@@ -469,7 +469,7 @@
 <p>通过<code>docker logs nexus</code> 可以查看启动日志。</p>
 <p>启动过程需要稍等几分钟，之后可以访问<code>localhost:8090</code>，默认的 用户名／密码是admin／admin123，需要自己修改密码。</p>
 <h1 id="Password"><a href="#Password" class="headerlink" title="Password"></a>Password</h1><p>最新版的默认密码是随机生成的, 在 <code>/nexus-data/admin.password</code> 中, <strong>首次登录</strong>需要输入里面的密码, 再重新设置密码.</p>
-<h1 id="Repositories"><a href="#Repositories" class="headerlink" title="Repositories"></a>Repositories</h1><p><img src="https://cdn.yangbingdong.com/img/docker-nexus3/nexus-repo.png" alt></p>
+<h1 id="Repositories"><a href="#Repositories" class="headerlink" title="Repositories"></a>Repositories</h1><p><img src="https://oldcdn.yangbingdong.com/img/docker-nexus3/nexus-repo.png" alt></p>
 <p>有几个默认仓库分别是：</p>
 <ol>
 <li><code>maven-central</code>：maven中央库，默认从<a href="https://repo1.maven.org/maven2/" rel="external nofollow noopener noreferrer" target="_blank">https://repo1.maven.org/maven2/</a>拉取jar</li>
@@ -486,16 +486,16 @@
 </ol>
 <h1 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h1><p>由于访问中央仓库有时候会比较慢，我们可以配置代理加快速度。</p>
 <h2 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h2><p>默认的<code>maven-central</code> 使用的是 <em><a href="https://repo1.maven.org/maven2/" rel="external nofollow noopener noreferrer" target="_blank">https://repo1.maven.org/maven2/</a></em> 地址，速度上没有UK 的快，所以修改为 <em><a href="http://uk.maven.org/maven2/" rel="external nofollow noopener noreferrer" target="_blank">http://uk.maven.org/maven2/</a></em> 或者阿里的镜像 <em><a href="http://maven.aliyun.com/nexus/content/groups/public/" rel="external nofollow noopener noreferrer" target="_blank">http://maven.aliyun.com/nexus/content/groups/public/</a></em> 或 <em><a href="https://maven.aliyun.com/repository/public" rel="external nofollow noopener noreferrer" target="_blank">https://maven.aliyun.com/repository/public</a></em></p>
-<p><img src="https://cdn.yangbingdong.com/img/docker-nexus3/proxy-url.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/docker-nexus3/proxy-url.png" alt></p>
 <h2 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h2><p>添加一个阿里云的代理仓库，然后优先级放到默认中央库之前：</p>
-<p><img src="https://cdn.yangbingdong.com/img/docker-nexus3/nexus-proxy1.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/docker-nexus3/nexus-proxy1.png" alt></p>
 <p>然后再public组里面讲这个<code>aliyun-proxy</code>仓库加入，排在<code>maven-central</code>之前即可。</p>
-<p><img src="https://cdn.yangbingdong.com/img/docker-nexus3/nexus-proxy2.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/docker-nexus3/nexus-proxy2.png" alt></p>
 <p><strong>Nexus仓库分类的概念</strong></p>
 <p>1）Maven可直接从宿主仓库下载构件,也可以从代理仓库下载构件,而代理仓库间接的从远程仓库下载并缓存构件</p>
 <p>2）为了方便,Maven可以从仓库组下载构件,而仓库组并没有时间的内容(下图中用虚线表示,它会转向包含的宿主仓库或者代理仓库获得实际构件的内容)</p>
-<p><img src="https://cdn.yangbingdong.com/img/docker-nexus3/nexus-proxy3.png" alt></p>
-<h1 id="允许多次push"><a href="#允许多次push" class="headerlink" title="允许多次push"></a>允许多次push</h1><p><img src="https://cdn.yangbingdong.com/img/docker-nexus3/nexus-repush.png" alt></p>
+<p><img src="https://oldcdn.yangbingdong.com/img/docker-nexus3/nexus-proxy3.png" alt></p>
+<h1 id="允许多次push"><a href="#允许多次push" class="headerlink" title="允许多次push"></a>允许多次push</h1><p><img src="https://oldcdn.yangbingdong.com/img/docker-nexus3/nexus-repush.png" alt></p>
 <h1 id="Backup-amp-Recovery"><a href="#Backup-amp-Recovery" class="headerlink" title="Backup &amp; Recovery"></a>Backup &amp; Recovery</h1><h2 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm -v nexus-data:/backup-data -v $(pwd):/backup ubuntu:latest tar cvf /backup/nexus-data.tar /backup-data</span><br><span class="line"></span><br><span class="line"># or</span><br><span class="line">docker run --rm -v nexus-data:/backup-data -v $(pwd):/backup ubuntu:latest tar zcvf /backup/nexus-data.tar.gz /backup-data</span><br></pre></td></tr></table></figure>
 <h2 id="还原"><a href="#还原" class="headerlink" title="还原"></a>还原</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker volume create --name nexus-data1</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm -v nexus-data1:/vdata -v $(pwd):/backup ubuntu:latest tar xvf /backup/nexus-data.tar -C /vdata --strip-components=1</span><br><span class="line"></span><br><span class="line"># or</span><br><span class="line">docker run --rm -v nexus-data1:/vdata -v $(pwd):/backup ubuntu:latest tar zxvf /backup/nexus-data.tar.gz -C /vdata --strip-components=1</span><br></pre></td></tr></table></figure>
@@ -505,7 +505,7 @@
 <h2 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h2><p>下载<code>jar</code>包源码可以在配置文件或IDEA中配置</p>
 <h3 id="通过配置文件添加"><a href="#通过配置文件添加" class="headerlink" title="通过配置文件添加"></a>通过配置文件添加</h3><p>在maven的<code>settings.xml</code>配置：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">profiles</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">profile</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>downloadSources<span class="tag">&lt;/<span class="name">id</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">downloadSources</span>&gt;</span>true<span class="tag">&lt;/<span class="name">downloadSources</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">downloadJavadocs</span>&gt;</span>true<span class="tag">&lt;/<span class="name">downloadJavadocs</span>&gt;</span>             </span><br><span class="line">    <span class="tag">&lt;/<span class="name">properties</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">profile</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">profiles</span>&gt;</span>  </span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;<span class="name">activeProfiles</span>&gt;</span>  </span><br><span class="line">  <span class="tag">&lt;<span class="name">activeProfile</span>&gt;</span>downloadSources<span class="tag">&lt;/<span class="name">activeProfile</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">activeProfiles</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="IDEA配置"><a href="#IDEA配置" class="headerlink" title="IDEA配置"></a>IDEA配置</h3><p><img src="https://cdn.yangbingdong.com/img/docker-nexus3/download-source.png" alt></p>
+<h3 id="IDEA配置"><a href="#IDEA配置" class="headerlink" title="IDEA配置"></a>IDEA配置</h3><p><img src="https://oldcdn.yangbingdong.com/img/docker-nexus3/download-source.png" alt></p>
 <p>然后重新<code>import</code>就ok了</p>
 <h2 id="发布项目"><a href="#发布项目" class="headerlink" title="发布项目"></a>发布项目</h2><p>在 <code>pom.xml</code> 中配置:</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">distributionManagement</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 两个ID必须与 setting.xml中的&lt;server&gt;&lt;id&gt;nexus-releases&lt;/id&gt;&lt;/server&gt;保持一致--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus-releases<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>Nexus Release Repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://127.0.0.1:9091/repository/maven-public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">snapshotRepository</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus-snapshots<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>Nexus Snapshot Repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://127.0.0.1:9091/repository/maven-public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">snapshotRepository</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">distributionManagement</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -999,7 +999,7 @@ show_date_time();
 
 <div style="width:300px;margin:0 auto;">
   <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44010602005896" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
-    <img src="https://cdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
+    <img src="https://oldcdn.yangbingdong.com/img/beian/beian.png" style="float:left;" />
     <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#555;">粤公网安备 44010602005896号</p></a>
 </div>
 
